@@ -3,19 +3,19 @@ import React from 'react';
 import { Collapse, theme } from 'antd';
 const text = `
   A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
+  
 `;
 const getItems = (panelStyle) => [
   {
     key: '1',
-    label: 'This is panel header 1',
+    label: 'Front Line Price',
     children: <p>{text}</p>,
     style: panelStyle,
   },
+
   {
     key: '2',
-    label: 'This is panel header 2',
+    label: 'Type',
     children: <>
       <div className="mt-2 filterCard ">
         <div className="styled-input-container styled-input--square">
@@ -42,19 +42,947 @@ const getItems = (panelStyle) => [
     </>,
     style: panelStyle,
   },
+
   {
     key: '3',
-    label: 'This is panel header 3',
-    children: <p>{text}</p>,
+    label: 'Category',
+    children:
+      <>
+        <div className="mt-2 filterCard ">
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Tequila"
+              />
+              <label htmlFor="Tequila">Tequila</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Vodka"
+              />
+              <label htmlFor="Vodka">Vodka</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Whiskey"
+              />
+              <label htmlFor="Whiskey">Whiskey</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Rum"
+              />
+              <label htmlFor="Rum">Rum</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Gin"
+              />
+              <label htmlFor="Gin">Gin</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Mezcal"
+              />
+              <label htmlFor="Mezcal">Mezcal</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Brandy"
+              />
+              <label htmlFor="Brandy">Brandy</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Cognac"
+              />
+              <label htmlFor="Cognac">Cognac</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Drink"
+              />
+              <label htmlFor="Drink">Ready to Drink</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="cLiqueur"
+              />
+              <label htmlFor="Liqueur">Liqueur</label>
+            </div>
+          </div>
+          <div className="styled-input-container styled-input--square">
+            <div className="styled-input-single">
+              <input
+                type="checkbox"
+                name="fieldset-2"
+                id="Other"
+              />
+              <label htmlFor="Other">Other</label>
+            </div>
+          </div>
+        </div>
+      </>,
     style: panelStyle,
   },
+
+  {
+    key: '4',
+    label: 'Varietal',
+    children:
+      <>
+         <div className="mt-2 filterCard ">
+            <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Chardonnay"
+                  />
+                  <label htmlFor="Chardonnay">Chardonnay</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Cabernet"
+                  />
+                  <label htmlFor="Cabernet">Cabernet Sauvignon</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Pinot"
+                  />
+                  <label htmlFor="Pinot">Pinot Noir</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Merlot"
+                  />
+                  <label htmlFor="Merlot">Merlot</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Pinot Grigio"
+                  />
+                  <label htmlFor="Pinot Grigio">Pinot Grigio</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Sauvignon"
+                  />
+                  <label htmlFor="Sauvignon">Sauvignon Blanc</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Malbec"
+                  />
+                  <label htmlFor="Malbec">Malbec</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Cabernet Franc"
+                  />
+                  <label htmlFor="Cabernet Franc">Cabernet Franc</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Syrah"
+                  />
+                  <label htmlFor="Syrah">Syrah</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Sangiovese"
+                  />
+                  <label htmlFor="Sangiovese">Sangiovese</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Riesling"
+                  />
+                  <label htmlFor="Riesling">Riesling</label>
+                </div>
+              </div>
+            </div>
+      </>,
+    style: panelStyle,
+  },
+  {
+    key: '5',
+    label: 'Country',
+    children:
+      <>
+          <div className="mt-2 filterCard ">
+            <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="United States"
+                  />
+                  <label htmlFor="United States">United States</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="France"
+                  />
+                  <label htmlFor="France">France</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Italy"
+                  />
+                  <label htmlFor="Italy">Italy</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Spain"
+                  />
+                  <label htmlFor="Spain">Spain</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Mexico"
+                  />
+                  <label htmlFor="Mexico">Mexico</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Scotland"
+                  />
+                  <label htmlFor="Scotland">Scotland</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Portugal"
+                  />
+                  <label htmlFor="Portugal">Portugal</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Argentina"
+                  />
+                  <label htmlFor="Argentina">Argentina</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Ireland"
+                  />
+                  <label htmlFor="Ireland">Ireland</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="New Zealand"
+                  />
+                  <label htmlFor="New Zealand">New Zealand</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="South Africa"
+                  />
+                  <label htmlFor="South Africa">South Africa</label>
+                </div>
+              </div>
+            </div>
+      </>,
+    style: panelStyle,
+  },
+  {
+    key: '6',
+    label: 'Region',
+    children:
+      <>
+          <div className="mt-2 filterCard ">
+            <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="California"
+                  />
+                  <label htmlFor="California">California</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Burgundy"
+                  />
+                  <label htmlFor="Burgundy">Burgundy</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Jalisco"
+                  />
+                  <label htmlFor="Jalisco">Jalisco</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Oregon"
+                  />
+                  <label htmlFor="Oregon">Oregon</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Kentucky"
+                  />
+                  <label htmlFor="Kentucky">Kentucky   </label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Washington State"
+                  />
+                  <label htmlFor="Washington State">Washington State</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Mendoza"
+                  />
+                  <label htmlFor="Mendoza">Mendoza</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Piedmont"
+                  />
+                  <label htmlFor="Piedmont">Piedmont</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Champagne"
+                  />
+                  <label htmlFor="Champagne">Champagne</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Tuscany"
+                  />
+                  <label htmlFor="Tuscany">Tuscany</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Oaxaca"
+                  />
+                  <label htmlFor="Oaxaca">Oaxaca</label>
+                </div>
+              </div>
+            </div>
+      </>,
+    style: panelStyle,
+  },
+  {
+    key: '7',
+    label: 'Brands',
+    children:
+      <>
+           <div className="mt-2 filterCard ">
+            <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="United States"
+                  />
+                  <label htmlFor="United States">United States</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="France"
+                  />
+                  <label htmlFor="France">France</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Italy"
+                  />
+                  <label htmlFor="Italy">Italy</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Spain"
+                  />
+                  <label htmlFor="Spain">Spain</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Mexico"
+                  />
+                  <label htmlFor="Mexico">Mexico</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Scotland"
+                  />
+                  <label for="Scotland">Scotland</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Portugal"
+                  />
+                  <label for="Portugal">Portugal</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Argentina"
+                  />
+                  <label for="Argentina">Argentina</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Ireland"
+                  />
+                  <label for="Ireland">Ireland</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="New Zealand"
+                  />
+                  <label for="New Zealand">New Zealand</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="South Africa"
+                  />
+                  <label for="South Africa">South Africa</label>
+                </div>
+              </div>
+            </div>
+      </>,
+    style: panelStyle,
+  },
+
+  {
+    key: '8',
+    label: 'Supplier',
+    children:
+      <>
+           <div className="mt-2 filterCard ">
+            <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="United States"
+                  />
+                  <label for="United States">United States</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="France"
+                  />
+                  <label for="France">France</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Italy"
+                  />
+                  <label for="Italy">Italy</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Spain"
+                  />
+                  <label for="Spain">Spain</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Mexico"
+                  />
+                  <label for="Mexico">Mexico</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Scotland"
+                  />
+                  <label for="Scotland">Scotland</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Portugal"
+                  />
+                  <label for="Portugal">Portugal</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Argentina"
+                  />
+                  <label for="Argentina">Argentina</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Ireland"
+                  />
+                  <label for="Ireland">Ireland</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="New Zealand"
+                  />
+                  <label for="New Zealand">New Zealand</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="South Africa"
+                  />
+                  <label for="South Africa">South Africa</label>
+                </div>
+              </div>
+            </div>
+      </>,
+    style: panelStyle,
+  },
+
+  {
+    key: '9',
+    label: 'Divisions',
+    children:
+      <>
+           <div className="mt-2 filterCard ">
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Emerald"
+                  />
+                  <label for="Emerald">Emerald</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Sapphire"
+                  />
+                  <label for="Sapphire">Sapphire</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Pearl"
+                  />
+                  <label for="Pearl">Pearl</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Transatlantic"
+                  />
+                  <label for="Transatlantic">Transatlantic</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Signature "
+                  />
+                  <label for="Signature ">Signature </label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Coastal Pacific"
+                  />
+                  <label for="Coastal Pacific">Coastal Pacific</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Atlantic"
+                  />
+                  <label for="Atlantic">Atlantic</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Craft"
+                  />
+                  <label for="Craft">Craft</label>
+                </div>
+              </div>
+            </div>
+      </>,
+    style: panelStyle,
+  },
+
+  {
+    key: '10',
+    label: 'Innovations',
+    children:
+      <>
+        <div className="mt-2 filterCard ">
+            <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Organic"
+                  />
+                  <label for="Organic">Organic</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Sustainable"
+                  />
+                  <label for="Sustainable">Sustainable</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Biodynamic"
+                  />
+                  <label for="Biodynamic">Biodynamic</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Vegan"
+                  />
+                  <label for="Vegan">Vegan</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Ready to Drink  "
+                  />
+                  <label for="Ready to Drink  ">Ready to Drink  </label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Non-Alcoholic"
+                  />
+                  <label for="Non-Alcoholic">Non-Alcoholic</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Low-Alcohol"
+                  />
+                  <label for="Low-Alcohol">Low-Alcohol</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Carbon Neutral"
+                  />
+                  <label for="Carbon Neutral">Carbon Neutral</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Additive Free"
+                  />
+                  <label for="Additive Free">Additive Free</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Low Calorie"
+                  />
+                  <label for="Low Calorie">Low Calorie</label>
+                </div>
+              </div>
+              <div className="styled-input-container styled-input--square">
+                <div className="styled-input-single">
+                  <input
+                    type="checkbox"
+                    name="fieldset-2"
+                    id="Minority Owned"
+                  />
+                  <label for="Minority Owned">Minority Owned</label>
+                </div>
+              </div>
+            </div>
+      </>,
+    style: panelStyle,
+  },
+  
 ];
 const AccordianArea = () => {
   const { token } = theme.useToken();
   const panelStyle = {
-    marginBottom: 24,
-    background: token.colorFillAlter,
-    borderRadius: token.borderRadiusLG,
+    marginBottom: 12,
     border: 'none',
   };
   return (

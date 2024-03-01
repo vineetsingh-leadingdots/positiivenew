@@ -7,6 +7,48 @@ import TableList from '../../commonComponents/tableList';
 import StockProduct from '../../commonComponents/stockProduct';
 import { columns, dataSource } from '../../commonComponents/tableData';
 const Dashboard = () => {
+  const products = [
+    {
+      productImg: "images/p1.webp",
+      productTitle: "Cabernet Sauvignon",
+      productName: "Wine",
+      productLocation: "USA, California",
+      productDeal: "Special Offer",
+      btnClassName: "btn-wine",
+      productCase: "5 cases",
+      productAmount: "$19.99"
+    },
+    {
+      productImg: "images/p2.webp",
+      productTitle: "Libby Wine",
+      productName: "Wine",
+      productLocation: "USA, Georgia",
+      productDeal: "Best Deal",
+      btnClassName: "btn-beer wine",
+      productCase: "10 cases",
+      productAmount: "$15.99"
+    },
+    {
+      productImg: "images/p2.webp",
+      productTitle: "Libby Wine",
+      productName: "Wine",
+      productLocation: "USA, Georgia",
+      productDeal: "Best Deal",
+      btnClassName: "btn-beer wine",
+      productCase: "10 cases",
+      productAmount: "$15.99"
+    }, {
+      productImg: "images/p2.webp",
+      productTitle: "Libby Wine",
+      productName: "Wine",
+      productLocation: "USA, Georgia",
+      productDeal: "Best Deal",
+      btnClassName: "btn-beer wine",
+      productCase: "10 cases",
+      productAmount: "$15.99"
+    },
+ 
+  ];
   return (
     <>
     
@@ -38,47 +80,20 @@ const Dashboard = () => {
                 <h2>New in Stock</h2>
               </div>
               <div className="newStock mt-9">
-               <StockProduct 
-               productImg="images/p2.webp"
-               productTitle="Libby Wine"
-               productName="Wine"
-               productLocation="USA, Georgia"
-               productDeal="Best Deal"
-               btnClassName="btn-beer wine"
-               productCase="10 cases"
-               productAmount="$15.99"
-               />
-                   <StockProduct 
-               productImg="images/p2.webp"
-               productTitle="Libby Wine"
-               productName="Wine"
-               productLocation="USA, Georgia"
-               productDeal="Best Deal"
-               btnClassName="btn-beer wine"
-               productCase="10 cases"
-               productAmount="$15.99"
-               />
-                   <StockProduct 
-               productImg="images/p2.webp"
-               productTitle="Libby Wine"
-               productName="Wine"
-               productLocation="USA, Georgia"
-               productDeal="Best Deal"
-               btnClassName="btn-beer wine"
-               productCase="10 cases"
-               productAmount="$15.99"
-               />
-                   <StockProduct 
-               productImg="images/p2.webp"
-               productTitle="Libby Wine"
-               productName="Wine"
-               productLocation="USA, Georgia"
-               productDeal="Best Deal"
-               btnClassName="btn-beer wine"
-               productCase="10 cases"
-               productAmount="$15.99"
-               />
-               
+              {products.map((product, index) => (
+              <StockProduct
+                key={index} 
+                productImg={product.productImg}
+                productTitle={product.productTitle}
+                productName={product.productName}
+                productLocation={product.productLocation}
+                productDeal={product.productDeal}
+                btnClassName={product.btnClassName}
+                productCase={product.productCase}
+                productAmount={product.productAmount}
+              />
+            ))}
+             
               </div>
             </div>
           </Col>

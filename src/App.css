@@ -621,8 +621,10 @@ p{ margin: 0;}
     font-size: 14px; font-style: normal; font-weight: 400;  line-height: 0;}
 .searchFilter h2 span{color: #2A9D8F; font-family: "Inter"; padding-left: 6px;  font-size: 14px;  font-style: normal;
     font-weight: 500;  line-height: normal}
-.accordion__heading{  border-radius: 6px; background: #192E37; padding: 15px 17px; color: #FFF; text-align: left; font-size: 16px; font-family: 'neo_sans_intelmedium'; font-style: normal;  font-weight: 500; position: relative; line-height: normal;}   
+.filterList .ant-collapse-header{  border-radius: 6px;     flex-direction: row-reverse;  background: #192E37; padding: 15px 17px; color: #FFF !important; text-align: left; font-size: 16px; font-family: 'neo_sans_intelmedium'; font-style: normal;  font-weight: 500; position: relative; line-height: normal;}   
 .accordion__item{margin-bottom: 12px; }
+.filterList .ant-collapse-item-active{ background: none !important;}
+.filterList .ant-collapse-content-box{ padding: 8px 0 !important;}
 .accordion__button[aria-expanded='true']::before, .accordion__button[aria-selected='true']::before { transform: rotate(223deg); top: 24px;  }
 .accordion__button:before {display: inline-block; content: ''; height: 10px;    width: 10px; margin-right: 12px; border-bottom: 2px solid currentColor; border-right: 2px solid currentColor;  transform: rotate(45deg);right: 10px;top: 18px; position: absolute; }
 .ftagBtn{display: flex; display: flex; gap: 4px;  padding: 5px 12px;  justify-content: space-between;  border-radius: 50px;

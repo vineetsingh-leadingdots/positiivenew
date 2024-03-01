@@ -4,7 +4,51 @@ import DisplayProduct from "../../commonComponents/displayProduct";
 import SearchFilter from "./searchFilter";
 
 const Search = () => {
-
+  const products = [
+    {
+      productImg: "/images/p7.webp",
+      productName: "Don Julio Blanco",
+      productLocation: "USA, Georgia",
+      purchaseText: "Purchase 5 cases of 750ml",
+      purchasePrice: "$44.99",
+      productDeal: "Best Deal",
+      checkboxId:"1"
+    },
+    {
+      productImg: "/images/p7.webp",
+      productName: "Don Julio Blanco",
+      productLocation: "USA, Georgia",
+      purchaseText: "Purchase 5 cases of 750ml",
+      purchasePrice: "$44.99",
+      productDeal: "Best Deal",
+      checkboxId:"2"
+    },
+     {
+      productImg: "/images/p7.webp",
+      productName: "Don Julio Blanco",
+      productLocation: "USA, Georgia",
+      purchaseText: "Purchase 5 cases of 750ml",
+      purchasePrice: "$44.99",
+      productDeal: "Best Deal",
+      checkboxId:"3"
+    },   {
+      productImg: "/images/p7.webp",
+      productName: "Don Julio Blanco",
+      productLocation: "USA, Georgia",
+      purchaseText: "Purchase 5 cases of 750ml",
+      purchasePrice: "$44.99",
+      productDeal: "Best Deal",
+      checkboxId:"4"
+    },   {
+      productImg: "/images/p7.webp",
+      productName: "Don Julio Blanco",
+      productLocation: "USA, Georgia",
+      purchaseText: "Purchase 5 cases of 750ml",
+      purchasePrice: "$44.99",
+      productDeal: "Best Deal",
+      checkboxId:"5"
+    },
+  ];
   return (
     <>
       <div className='content orderSearch'>
@@ -324,17 +368,24 @@ const Search = () => {
           </div>
         </Col>
         <Row gutter={[16, 24]}  >
-          <Col className="gutter-row" xs={24} lg={8}>
-            <DisplayProduct />
-          </Col>
-          <Col className="gutter-row" xs={24} lg={8}>
-            <DisplayProduct />
-          </Col>
-          <Col className="gutter-row" xs={24} lg={8}>
-            <DisplayProduct />
-          </Col>
+        {products.map((product, index) => (
+        <Col key={index} className="gutter-row" xs={24} lg={8}>
+          <DisplayProduct
+            productImg={product.productImg}
+            productName={product.productName}
+            productLocation={product.productLocation}
+            purchaseText={product.purchaseText}
+            purchasePrice={product.purchasePrice}
+            productDeal={product.productDeal}
+            checkboxId={product.checkboxId}
+          />
+        </Col>
+      ))}
         </Row>
       </div>
+
+
+
     </>
   );
 };
