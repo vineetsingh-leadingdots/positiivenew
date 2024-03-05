@@ -9,17 +9,17 @@ import { columns, dataSource } from '../../commonComponents/tableData';
 const Dashboard = () => {
   const products = [
     {
-      productImg: "images/p1.webp",
+      productImg: "/images/p1.webp",
       productTitle: "Cabernet Sauvignon",
-      productName: "Wine",
+      productName: "Beer",
       productLocation: "USA, California",
       productDeal: "Special Offer",
-      btnClassName: "btn-wine",
+      btnClassName: "btn-beer ",
       productCase: "5 cases",
       productAmount: "$19.99"
     },
     {
-      productImg: "images/p2.webp",
+      productImg: "/images/p2.webp",
       productTitle: "Libby Wine",
       productName: "Wine",
       productLocation: "USA, Georgia",
@@ -29,7 +29,7 @@ const Dashboard = () => {
       productAmount: "$15.99"
     },
     {
-      productImg: "images/p2.webp",
+      productImg: "/images/p2.webp",
       productTitle: "Libby Wine",
       productName: "Wine",
       productLocation: "USA, Georgia",
@@ -38,7 +38,7 @@ const Dashboard = () => {
       productCase: "10 cases",
       productAmount: "$15.99"
     }, {
-      productImg: "images/p2.webp",
+      productImg: "/images/p2.webp",
       productTitle: "Libby Wine",
       productName: "Wine",
       productLocation: "USA, Georgia",
@@ -52,7 +52,7 @@ const Dashboard = () => {
   return (
     <>
     
-     <Breadcrumb linkTo="/dashboard" imgSrc="/images/home2.svg"/>
+     <Breadcrumb linkTo="/dashboard" imgSrc="//images/home2.svg"/>
       <div className="headingH">
         <h2>Dashboard</h2>
       </div>
@@ -70,7 +70,17 @@ const Dashboard = () => {
             </div>
               </Col>
               <Col xs={24}>
-              <TableList data={dataSource} columns={columns}/>
+              <div className="w-full mt-4">
+        <div className="card pt-4 pb-6 pr-2  dashboardTable  w-full">
+          <div className="heading pl-6 pb-2">
+            <h2 style={{ marginBottom: "0" }}>Recent Orders</h2>
+          </div>
+         
+          <TableList data={dataSource} columns={columns} className="dashboardTable"/>
+       
+        </div>
+      </div>
+              
               </Col>
             </Row>
           </Col>

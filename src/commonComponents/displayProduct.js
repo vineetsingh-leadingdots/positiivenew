@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DisplayProduct = ({checkboxId, productImg, productName, purchasePrice, purchaseText, productDeal, productLocation}) => {
+const DisplayProduct = ({checkboxId, productImg, cashImg, productName, purchasePrice, purchaseText, productDeal, productLocation}) => {
   return (
     <>
       <div className="displayProduct">
@@ -30,7 +30,7 @@ const DisplayProduct = ({checkboxId, productImg, productName, purchasePrice, pur
         <div className="deal_card">
           <div className="dealLeft">
             <h4>
-              {productDeal} <img src="/images/cash.webp" />
+              {productDeal} <img src={cashImg} />
             </h4>
             <p>{purchaseText}</p>
           </div>

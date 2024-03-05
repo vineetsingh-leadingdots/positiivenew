@@ -1,22 +1,31 @@
-import React from 'react'
-import { Table } from 'antd';
+import React from 'react';
+import { Table, ConfigProvider } from 'antd';
 
-const TableList = ({data, columns}) => {
-  
+const TableList = ({ data, columns, className }) => {
+
   return (
     <>
-      <div className="w-full mt-4">
-        <div className="card pt-4 pb-6 pr-2  dashboardTable  w-full">
-          <div className="heading pl-6 pb-2">
-            <h2 style={{ marginBottom: "0" }}>Recent Orders</h2>
-          </div>
-          <div className="overflow-x-auto w-full whitespace-nowrap">
-            <Table dataSource={data} columns={columns} bordered={false} className="dashboardTable" />;
-          </div>
-        </div>
+      <div className="overflow-x-auto w-full whitespace-nowrap">
+        <ConfigProvider componentSize="middle" theme={{
+          components: {
+            Table: {
+              headerBg:"#fff",
+              cellPaddingInline:" 22px 27px 22px 27px",
+              rowHoverBg:"#264653"
+            },
+          },
+        }}>
+          <Table
+            dataSource={data}
+            columns={columns}
+            bordered={false}
+            className={className}
+           
+          />
+        </ConfigProvider>
       </div>
     </>
-  )
+  );
 }
 
-export default TableList
+export default TableList;

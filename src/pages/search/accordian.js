@@ -1,6 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import React from 'react';
 import { Collapse, theme } from 'antd';
+import PriceSlider from './priceSlider';
 const text = `
   A dog is a type of domesticated animal.
   
@@ -9,7 +10,11 @@ const getItems = (panelStyle) => [
   {
     key: '1',
     label: 'Front Line Price',
-    children: <p>{text}</p>,
+    children: 
+    <>
+    <PriceSlider/>
+    </>
+    ,
     style: panelStyle,
   },
 
