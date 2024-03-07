@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import SharePopup from '../sharePopup'
-import SendExperience from '../sendExperience'
+
 import { Col, Row, Popover } from "antd";
 import { DotsIcon, HeartIcon, ShareIcon } from "../../../commonComponents/commonSvg";
 import ExperienceItem from "./experienceItem";
+import SendExperience from "../sendExperience";
 const products = [
     {
       productImg: "/images/image58.webp",
@@ -94,7 +95,7 @@ return (
                     </svg>
                     Add products
                 </button>
-                <SendExperience/>
+              <SendExperience/>
                 <button
                     className="flex gap-1 textBlue items-center">
                     <svg xmlns="http://www.w3.org/2000/svg"

@@ -1,12 +1,10 @@
 import { Col, Row } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import UploadPopUp from "../pages/chooseCustomer/uploadPopUp";
 
 const Gallery = () => {
-  const [toggleState2, setToggleState2] = useState("Overview");
-  const toggleTab2 = (index) => {
-    setToggleState2(index);
-  };
+
   const [toggleState4, setToggleState4] = useState("galleryAll");
   const toggleTab4 = (index) => {
     setToggleState4(index);
@@ -15,6 +13,7 @@ const Gallery = () => {
     <>
       <div className="tabsSec pt-7">
         <div className="flex w-full justify-end">
+          <UploadPopUp/>
           <div className="sortBy">
             <select className="form_control"><option>Most recent</option></select>
           </div>
