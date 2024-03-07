@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import HeaderLogin from './headerLogin'
 import {Link } from "react-router-dom";
 import { Button, Col, Typography } from 'antd';
-
 import {  Row, Image  } from 'antd';
 import InputFields from "../commonComponents/inputFields";
 import { EyeIcon, LockIcon, MailOutlined } from "../commonComponents/commonSvg";
 import { useLoginUserMutation } from "../services/authApi";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
-  const [ loginUser ] = useLoginUserMutation();
-
+  const [ loginUser, {isSuccess: loginUserSuccess} ] = useLoginUserMutation();
   const { Title } = Typography;
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -28,6 +27,12 @@ const Login = () => {
       [name]: value
     }));
   }
+
+  useEffect(()=> {
+    if (loginUserSuccess){
+      navigate("/dashboard");
+    }
+  },[loginUserSuccess]);
 
   const  handleSubmit = (e) => {
     e.preventDefault();
