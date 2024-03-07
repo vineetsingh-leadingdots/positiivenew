@@ -62,7 +62,7 @@ const UploadPopUp = () => {
                  </div>
                 </div>
               </div>
-              <div className="w-full mt-12 text-center" >
+              <div className="w-full mt-10 pt-2 text-center" >
                <button className="btnUpload cartBtn mb-8 mx-auto">Save</button>
                 <button className="btnCancel">Cancel</button>
               </div>

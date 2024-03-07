@@ -18,6 +18,8 @@ import Suppliers from '../pages/suppliersMain/suppliers';
 import SuppliersDetails from '../pages/suppliersMain/suppliersDetails';
 import ChooseCustomer from '../pages/chooseCustomer/customer';
 import ChooseCustomerDetails from '../pages/chooseCustomer/customerDetails';
+import CalendarView from '../pages/calendar/calendar';
+import OnBoarding from '../components/onBoarding';
 
 const ProtectedRoute = ({ redirectPath = '/' }) => {
 
@@ -43,6 +45,7 @@ const RouterFile = () => (
       <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/onboard" element={<OnBoarding/>} exact/>
       <Route path="/forgot-password" element={<ForgotPassword />} />
     </Routes>
     <Routes element={<ProtectedRoute />}>
@@ -56,9 +59,9 @@ const RouterFile = () => (
         <Route path="/experience" element={<AllExperence />} exact />
         <Route path="/experience/view" element={<ViewExperence />} exact />
         <Route path="/experience/detail" element={<ExperenceDetails />} exact />
-        {/* <Route path="/calendar" element={<CalendarView/>} />     */}
-        <Route path="/choose-customer" element={<ChooseCustomer />} exact />
-        <Route path="/choose-customer/detail" element={<ChooseCustomerDetails />} exact />
+        <Route path="/calendar" element={<CalendarView/>} />    
+        <Route path="/customer" element={<ChooseCustomer />} exact />
+        <Route path="/customer/detail" element={<ChooseCustomerDetails />} exact />
         <Route path="/suppliers" element={<Suppliers />} exact />
         <Route path="/suppliers/detail" element={<SuppliersDetails />} exact />
       </Route>
