@@ -8,70 +8,70 @@ import Reminder from "../experience/details/reminder";
 import SuppliersTab from "../experience/details/suppliers";
 
 export const CustomerDetailsItem = [
-    {
-      key: '1',
-      label: 'Account Details',
-      children:
-       <>
-       <AccountDetails/>
-      </>,
-    },
-    {
-      key: '2',
-      label: 'Reminders',
-      children: 
+  {
+    key: '1',
+    label: 'Account Details',
+    children:
       <>
-      <Reminder/>
+        <AccountDetails />
       </>,
-    },
-    {
-      key: '3',
-      label: 'Experiences',
-      children:
-       <>
-<div className="tabWithAuto">
-   <TabsFile items={ExperiencesItems} />
-   </div>
-      </>,
-    },
-    {
-      key: '4',
-      label: 'Gallery',
-      children: 
+  },
+  {
+    key: '2',
+    label: 'Reminders',
+    children:
       <>
-     <Gallery/>
+        <Reminder />
       </>,
-    },
-    {
-      key: '5',
-      label: 'Suppliers',
-      children:
-       <>
-      <SuppliersTab/>
-      </>,
-    },
-    {
-      key: '6',
-      label: 'Trackker',
-      children: 
+  },
+  {
+    key: '3',
+    label: 'Experiences',
+    children:
       <>
-      Trackker
+        <div className="tabWithAuto">
+          <TabsFile items={ExperiencesItems} />
+        </div>
       </>,
-    },
-    {
-      key: '7',
-      label: 'Point of Sale',
-      children: 
+  },
+  {
+    key: '4',
+    label: 'Gallery',
+    children:
       <>
-     <PointSales/>
+        <Gallery />
       </>,
-    },
-    {
-      key: '8',
-      label: 'Incentive Goals',
-      children: 
+  },
+  {
+    key: '5',
+    label: 'Suppliers',
+    children:
       <>
-     <IncentiveGoals/>
+        <SuppliersTab />
       </>,
-    },
-  ];
+  },
+  {
+    key: '6',
+    label: 'Trackker',
+    children:
+      <>
+        Trackker
+      </>,
+  },
+  {
+    key: '7',
+    label: 'Point of Sale',
+    children:
+      <>
+        <PointSales />
+      </>,
+  },
+  {
+    key: '8',
+    label: 'Incentive Goals',
+    children:
+      <>
+        <IncentiveGoals />
+      </>,
+  },
+];
