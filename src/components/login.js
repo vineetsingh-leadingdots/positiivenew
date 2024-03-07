@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import HeaderLogin from './headerLogin'
 import {Link } from "react-router-dom";
 import { Button, Col, Typography } from 'antd';
@@ -6,16 +7,36 @@ import { Button, Col, Typography } from 'antd';
 import {  Row, Image  } from 'antd';
 import InputFields from "../commonComponents/inputFields";
 import { EyeIcon, LockIcon, MailOutlined } from "../commonComponents/commonSvg";
+import { useLoginUserMutation } from "../services/authApi";
 
 const Login = () => {
 
+  const [ loginUser ] = useLoginUserMutation();
+
   const { Title } = Typography;
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
   const handlerChange = (e) => {
-    let data = {}
-    let propName = e.target.name
-    data[propName] = e.target.value
-    // commonValidatorCheckedOnes(data, validatorValid, 'loginForm', propName)
-}
+    const { name, value } = e.target;
+
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  }
+
+  const  handleSubmit = (e) => {
+    e.preventDefault();
+    let value = {
+      email: formData?.email,
+      password: formData?.password
+    }
+    loginUser(value);
+  }
 
   return (
     <>
@@ -36,8 +57,8 @@ const Login = () => {
           className="text-left"
           id="loginForm"
         >       
-          <InputFields rowClass="form-group relative" placeholder="Email Address" inputClass="formControl" inputIcon={<MailOutlined/>}  onChange={(e) => handlerChange(e)} />
-          <InputFields rowClass="form-group relative eyeIcon mb-12" placeholder="Password"  type="password"  inputClass="formControl" suffix={<EyeIcon/>} inputIcon={<LockIcon/>}  onChange={(e) => handlerChange(e)} />
+          <InputFields rowClass="form-group relative" name="email" placeholder="Email Address" inputClass="formControl" inputIcon={<MailOutlined/>}  onChange={(e) => handlerChange(e)} />
+          <InputFields rowClass="form-group relative eyeIcon mb-12" name="password" placeholder="Password"  type="password"  inputClass="formControl" suffix={<EyeIcon/>} inputIcon={<LockIcon/>}  onChange={(e) => handlerChange(e)} />
           <p style={{ textAlign: "right" }}>
             <Link to="/forgot-password">
               Forgot Password
@@ -50,7 +71,7 @@ const Login = () => {
             </Link>
           </p>
            <Row style={{ display: "flex", width: "100%", justifyContent: "center" }} >
-           <Button className="btn-save" >Login</Button>
+           <Button className="btn-save" onClick={handleSubmit}>Login</Button>
           </Row>
 
         </form>
