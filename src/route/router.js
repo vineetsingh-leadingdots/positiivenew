@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from '../components/login';
 import SignUp from '../components/signUp';
 import ForgotPassword from '../components/forgotPassword';
@@ -20,14 +20,13 @@ import ChooseCustomer from '../pages/chooseCustomer/customer';
 import ChooseCustomerDetails from '../pages/chooseCustomer/customerDetails';
 import CalendarView from '../pages/calendar/calendar';
 import OnBoarding from '../components/onboarding/onBoarding';
+import { useSelector } from 'react-redux';
 
-
-const ProtectedRoute = ({ redirectPath = '/' }) => {
-
-  // if (!authToken()) {
-  //     return <Navigate to={redirectPath} replace/>;
-  // }
-
+const ProtectedRoute = ({ redirectPath = '/login' }) => {
+  const authToken = useSelector((state) => state.persistedReducer.user.accessToken);
+  if (!authToken) {
+    return <Navigate to={redirectPath} replace />;
+  }
   return <Outlet />;
 };
 
@@ -38,33 +37,36 @@ const RedirectRoute = ({ redirectPath = '/dashboard' }) => {
 
   return <Outlet />;
 };
+
 const RouterFile = () => (
 
 
   <Router>
-    <Routes element={<ProtectedRoute />}>
+    <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/onboard" element={<OnBoarding/>} exact/>
       <Route path="/forgot-password" element={<ForgotPassword />} />
     </Routes>
-    <Routes element={<ProtectedRoute />}>
-      <Route element={<AdminLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/search/detail" element={<SearchDetail />} />
-        <Route path="/order-history" element={<OrderHistory />} exact />
-        <Route path="/order-history2" element={<OrderHistory2 />} exact />
-        <Route path="/order-history/all" element={<OrderHistoryAll />} exact />
-        <Route path="/experience" element={<AllExperence />} exact />
-        <Route path="/experience/view" element={<ViewExperence />} exact />
-        <Route path="/experience/detail" element={<ExperenceDetails />} exact />
-        <Route path="/calendar" element={<CalendarView/>} />    
-        <Route path="/customer" element={<ChooseCustomer />} exact />
-        <Route path="/customer/detail" element={<ChooseCustomerDetails />} exact />
-        <Route path="/suppliers" element={<Suppliers />} exact />
-        <Route path="/suppliers/detail" element={<SuppliersDetails />} exact />
+    <Routes>
+      <Route element={<ProtectedRoute/>}>
+        <Route element={<AdminLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/search/detail" element={<SearchDetail />} />
+          <Route path="/order-history" element={<OrderHistory />} exact />
+          <Route path="/order-history2" element={<OrderHistory2 />} exact />
+          <Route path="/order-history/all" element={<OrderHistoryAll />} exact />
+          <Route path="/experience" element={<AllExperence />} exact />
+          <Route path="/experience/view" element={<ViewExperence />} exact />
+          <Route path="/experience/detail" element={<ExperenceDetails />} exact />
+          <Route path="/calendar" element={<CalendarView/>} />    
+          <Route path="/customer" element={<ChooseCustomer />} exact />
+          <Route path="/customer/detail" element={<ChooseCustomerDetails />} exact />
+          <Route path="/suppliers" element={<Suppliers />} exact />
+          <Route path="/suppliers/detail" element={<SuppliersDetails />} exact />
+        </Route>
       </Route>
     </Routes>
 

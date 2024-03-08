@@ -3,38 +3,41 @@ import { Col, Row, Menu, Dropdown } from "antd";
 import Divison from "./divison";
 import { Drawer } from 'antd';
 import Sidebar from './sidebar';
-import { BellIcon, BurgerMenu, SearchIcon, SearchIcon2, SidebarCloseIcon } from '../commonComponents/commonSvg';
+import { useLogoutUserMutation } from '../services/authApi';
 const { Item } = Menu;
+import { useDispatch } from 'react-redux';
+import { logout } from '../redux/slice/authSlice';
 
 export function Header() {
-
     const [open, setOpen] = useState(false);
     const showDefaultDrawer = () => {
         setOpen(true);
     };
     const onClose = () => {
         setOpen(false);
-    };
-
- 
-
+    }
+    const [ logoutUser ] = useLogoutUserMutation();
+    const  dispatch = useDispatch();
+    const handlelLogoutUser = () => {
+        logoutUser();
+        dispatch(logout());
+    }
 
     const items = [
         {
             key: '1',
             label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-
+                <button target="_blank" rel="noopener noreferrer">
                     Settings
-                </a>
+                </button>
             ),
         },
         {
             key: '2',
             label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                <button target="_blank" rel="noopener noreferrer" onClick={handlelLogoutUser}>
                     Logout
-                </a>
+                </button>
             ),
         },
 
