@@ -7,6 +7,7 @@ import { useLogoutUserMutation } from '../services/authApi';
 const { Item } = Menu;
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/slice/authSlice';
+import { BellIcon, BurgerMenu, SearchIcon2, SidebarCloseIcon } from '../commonComponents/commonSvg';
 
 export function Header() {
     const [open, setOpen] = useState(false);
