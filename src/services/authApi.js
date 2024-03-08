@@ -26,7 +26,7 @@ export const authApi = createApi({
         } catch (error) {
           console.log(error?.error?.status, "error");
           // onError side-effect
-          commonErrorHandler(error, dispatch);
+          commonErrorHandler(error?.error,   dispatch);
         }
       },
     })
