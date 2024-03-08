@@ -17,7 +17,7 @@ export const validateEmail = (email, setErrorData) => {
 
 export const validatePassword = (password, setErrorData) => {
   return {
-    valid: password.length >= 8? setErrorData((prevErrors) => ({
+    valid: password.length >= 8 ? setErrorData((prevErrors) => ({
         ...prevErrors,
         passwordError: ""
       }))
