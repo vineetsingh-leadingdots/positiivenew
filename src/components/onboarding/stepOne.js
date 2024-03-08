@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
+import { LeftArrowIcon, RightArrowIcon } from "../../commonComponents/commonSvg";
+import { Select, Space } from 'antd';
+import MyRoleSelect from "./myRoleSelect";
 
-
+const { Option } = Select;
 
 const StepOne = () => {
- 
+
 
   const [toggleState2, setToggleState2] = useState();
   const toggleTab2 = (index) => {
@@ -19,18 +22,21 @@ const StepOne = () => {
     <>
 
       <div className="flex flex-col justify-between w-full">
-        <div className="flex justify-between w-full">
+        <div className="flex justify-between w-full flex-wrap">
           <div className="onboardLeft">
             <h2>Complete your profile</h2>
             <form className="onBoardingForm" onSubmit={SaveBoardingForm}>
               <div className="w-full mb-10  ">
                 <h3>I work for a beverage...</h3>
                 <div className="pl-6 ">
-                <select className="form_control">
-                        <option>Select beverage</option>
-                        <option>Distributor / Wholesaler</option>
-                        <option>Supplier / Importer / Broker</option>
-                      </select>
+                  <Select
+                    defaultValue="1"
+                    className="customSelect"
+                  >
+                    <Option value="1">Select beverage</Option>
+                    <Option value="2">Distributor / Wholesaler</Option>
+                    <Option value="3">Supplier / Importer / Broker</Option>
+                  </Select>
                 </div>
               </div>
               <div className="w-full mb-10 ">
@@ -42,32 +48,31 @@ const StepOne = () => {
               <div className="w-full mb-10  ">
                 <h3>My role</h3>
                 <div className="md:pl-6 ">
-                <select className="form_control">
-                        <option>Select your role</option>
-                        <option>Sales Consultant</option>
-                        <option>Marketing Associate</option>
-                        <option>Sale Manager</option>
-                        <option>Director of Sales</option>
-                        <option>Trade Development Manager</option>
-                      </select>
+               <MyRoleSelect/>
                 </div>
               </div>
               <div className="w-full mb-10 ">
                 <div className="flex">
                   <div className="cityWidth ">
                     <h3>City</h3>
-                    <div className="md:pl-6 ">
-                      <select className="form_control">
-                        <option>City</option>
-                      </select>
+                    <div className="md:pl-6 ">                  
+                      <Select
+                    defaultValue="1"
+                    className="customSelect"
+                  >
+                    <Option value="1">City</Option>                 
+                  </Select>
                     </div>
                   </div>
                   <div className="stateWidth ">
                     <h3>State</h3>
-                    <div className="pl-4">
-                      <select className="form_control">
-                        <option>State</option>
-                      </select>
+                    <div className="pl-4">                    
+                      <Select
+                    defaultValue="1"
+                    className="customSelect"
+                  >
+                    <Option value="1">State</Option>                 
+                  </Select>
                     </div>
                   </div>
                 </div>
@@ -84,14 +89,10 @@ const StepOne = () => {
                       <div className={toggleState2 === "customersManually" ? "tabContent active pt-4 pb-[2px]" : "tabContent  pt-4 pb-[2px]"}>
                         <div className="xButtons">
                           <button className="btn_Right">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="19" viewBox="0 0 15 19" fill="none">
-                              <path d="M0 0V18.6667L14.6667 9.33333L0 0Z" fill="white" fill-opacity="0.8" />
-                            </svg>
+                            <RightArrowIcon />
                           </button>
                           <button className="btn_Right">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="19" viewBox="0 0 15 19" fill="none">
-                              <path d="M15 19L15 0.333334L0.333333 9.66667L15 19Z" fill="white" fill-opacity="0.8" />
-                            </svg>
+                            <LeftArrowIcon />
                           </button>
                         </div>
                         <h3>Search by</h3>
@@ -162,8 +163,6 @@ const StepOne = () => {
                         <span className="block">Business City</span>
                         <span className="block">Business Zip Code </span>
                       </p>
-
-
                       <p>If you have your customer contact information, that would be amazing! Tap the image below and see  an example.</p>
                       <div className="mb-3">
                         <img src="/images/sc.webp" />

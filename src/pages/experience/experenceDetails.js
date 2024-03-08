@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import SendExperience from "./sendExperience";
-import SharePopup from "./sharePopup";
+
 
 
 import TabsFile from "../../commonComponents/tabs";
@@ -10,48 +9,7 @@ import { ExperenceDetailsItems } from "./details/experenceDetailsItems";
 
 
 const ExperenceDetails = () => {
-    // const [show2, setShow2] = useState()
-    // const OpenPopup2 = () => {
-    //     setShow2(true)
-    //     setShowDropdown(!showDropdown)
-    // }
-    // const ClosePopup2 = () => {
-    //     setShow2(false)
-    // }
-    // const options = [
-    //     { value: 'Allocations', label: 'Allocations' },
-    //     { value: 'Event', label: 'Event' },
-    //     { value: 'Goals', label: 'Goals' }
-
-    // ];
-
-    // const [toggleState6, setToggleState6] = useState("OrderHistory");
-    // const toggleTab6 = (index) => {
-    //     setToggleState6(index);
-    // };
-
-    // const [toggleState2, setToggleState2] = useState("Experiences");
-    // const toggleTab2 = (index) => {
-    //     setToggleState2(index);
-    // };
-    // const [showDropdown, setShowDropdown] = useState(false)
-    // const showDrop = () => {
-    //     setShowDropdown(!showDropdown)
-    // }
-
-    // const [toggleState4, setToggleState4] = useState("galleryAll");
-    // const toggleTab4 = (index) => {
-    //     setToggleState4(index);
-    // };
-    // const [deleteShow, setDeleteShow] = useState(false);
-    // const handleClick = () => setDeleteShow(!deleteShow);
-
-    // const [toggleState5, setToggleState5] = useState("experienceAll");
-    // const toggleTab5 = (index) => {
-    //     setToggleState5(index);
-    // };
-    // const [expandShow, setExpandShow] = useState(false);
-    // const expandClick = () => setExpandShow(!expandShow);
+  
     return (
         <>
             {/* <HelmetProvider>

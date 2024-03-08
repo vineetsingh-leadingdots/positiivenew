@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Popup from "reactjs-popup";
 import { OrderHistoryData2, columnOrder2 } from "../../commonComponents/tableData";
 import TableList from "../../commonComponents/tableList";
 

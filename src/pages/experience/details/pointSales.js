@@ -40,7 +40,7 @@ const PointSales = () => {
                 </div>
                 <div className="w-full">                             
                       <Row className='pointSaleAre mt-28' gutter={36} >
-                      <Col md={6}
+                      <Col md={6} xs={24}
                            >
                             <p>Champagne buckets </p>
                             <div className="pointaleItem mt-[10px]">
@@ -49,7 +49,7 @@ const PointSales = () => {
                                 </div>
                             </div>
                         </Col>
-                        <Col md={6}
+                        <Col md={6}  xs={24}
                            >
                             <p>Champagne buckets </p>
                             <div className="pointaleItem mt-[10px]">
@@ -58,7 +58,7 @@ const PointSales = () => {
                                 </div>
                             </div>
                         </Col>
-                        <Col md={6}
+                        <Col md={6}  xs={24}
                            >
                             <p>Champagne buckets </p>
                             <div className="pointaleItem mt-[10px]">
@@ -67,7 +67,7 @@ const PointSales = () => {
                                 </div>
                             </div>
                         </Col>
-                        <Col md={6}
+                        <Col md={6}  xs={24}
                            >
                             <p>Champagne buckets </p>
                             <div className="pointaleItem mt-[10px]">

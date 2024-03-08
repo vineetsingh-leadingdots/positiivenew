@@ -115,7 +115,7 @@ return (
         </div>
     </div>
     <Row gutter={[8, 16]}>
-        <Col md={8}>
+        <Col md={12} lg={12} xl={8}>
         <div
             className="experienceBox">
                  {products.map((product, index) => (

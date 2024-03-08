@@ -18,23 +18,23 @@ const Popup1 = () => {
 
             <Space>
                 <Button type="primary" onClick={showDefaultDrawer}>
-           Popup1
+                    Popup1
                 </Button>
             </Space>
             <Drawer
-             
+
                 placement="left"
                 size={size}
                 zIndex={999999}
                 onClose={onClose}
                 open={open}
                 width={397}
-              
+
             >
                 <div className="createNew ">
-                <div className="close cursor-pointer absolute top-4 right-4" onClick={onClose}>
-                            <img alt="close-circle" src="images/close-circle.svg"  />
-                        </div>
+                    <div className="close cursor-pointer absolute top-4 right-4" onClick={onClose}>
+                        <img alt="close-circle" src="images/close-circle.svg" />
+                    </div>
                     <div>
                         <h3>Wednesday May 2, 2023</h3>
                         <div className="w-full mt-10">
@@ -61,7 +61,7 @@ const Popup1 = () => {
                 </div>
             </Drawer>
 
-           
+
         </>
     )
 }

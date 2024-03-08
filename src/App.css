@@ -333,6 +333,9 @@ input[type="date"]::-webkit-calendar-picker-indicator { background: transparent;
     .card{ border-radius: 10px; box-shadow: 1px 17px 44px 0px rgba(3, 2, 41, 0.07); background: #fff;}
 select.form_control{  -moz-appearance:none; -webkit-appearance:none;  appearance:none; background: url(../public/images/dropdown.webp) no-repeat;
  background-position:95%;}
+ .ant-select-selector{  border:1px solid #CACACA; border-radius: 4px; font-family: Inter;
+    font-size: 14px; padding: 10px; min-height: 42px; width: 100%; color: #030229;}
+
  select.formControl{ -moz-appearance:none; -webkit-appearance:none;  appearance:none; background: url(../public/images/dropdown.webp) no-repeat;
     background-position:98%;     background-color: rgba(239, 240, 248, 0.60);}
 label{color: #6C6C70; font-family: "Inter"; margin-bottom: 8px;  font-size: 16px; font-style: normal;
@@ -458,7 +461,7 @@ line-height: 134.523%;
 .dropDownContent{ border-radius: 4px;  width: 100%; position: absolute; border: 1px solid #CACACA;  background: #FFF;}
 .dropDownContent ul li{ padding: 10px 20px; color: #A3A3A3; font-family: "Inter"; font-size: 14px;
     font-style: normal;  font-weight: 400;  line-height: 21px;}
-.onboardingArea{ padding: 44px 24px 40px; background: #fff; width: 100%; max-width: 964px; }
+.onboardingArea{ padding: 44px 24px 40px; background: #fff; width: 100%; max-width: 964px;     border-radius: 8px }
 .onboardingArea h2{ font-size: 24px; line-height: normal;}
 .onBoardingForm{ margin: 46px 0 0 0;}
 .maxW595{ max-width: 595px;}
@@ -609,7 +612,7 @@ opacity: 0;  transition: opacity 0.25s ease;  }
 .contentWrapper .headingH{  top: -45px; position: absolute; z-index: 11111;  left: 20px;}
 .breadcrumb{ width: 100%; background: #fff; padding: 4px 20px;   }
 .breadcrumb a{ color: #222; font-size: 12px;}
-.content{ padding: 16px 24px 90px 20px; }
+.content{ padding: 16px 20px 90px 20px; }
 .heading h2{ margin-bottom: 14px; font-size: 18px; color: #030229; font-weight: 500; line-height: normal;}
 .producSlide h3{color: #264653; margin-bottom: 6px;  font-family: "Inter";  font-size: 16px;  font-style: normal;  font-weight: 600; line-height: normal;}
 .producSlide span{color: #6C6C70; font-size: 14px; font-style: normal; font-weight: 400; display: block;
@@ -855,7 +858,7 @@ line-height: normal;
 .monthItem:hover span{ background: #264653;}
 .monthItem:hover span img{ filter: invert();}
 
-.calendarDropdown{ margin-top: 8px; border: 1px solid #264653;    }
+.calendarDropdown{ margin-top: 8px; border: 1px solid #264653; display: none;   }
 .calendarDropdown ul li{ padding: 12px 14px; display: flex; align-items: center; gap: 16px; border-bottom:1px solid #264653 ; color: #264653;
     font-family: "Inter";  font-size: 14px;  font-style: normal; font-weight: 400;  line-height: normal; width: 100%;}
 .calendarDropdown ul{ padding-top: 0 !important; gap: 0 !important;}
@@ -1345,7 +1348,14 @@ display: none;
 .suppliersTable table tr td { font-weight: 400; color: #030229; padding: 24px 30px;}
 .suppliersTable table tbody tr td:nth-child(1){ font-weight: 600; color: #264653;}
 .SuppliersRight .btnUpload{ padding: 6.5px 10px; width: 100%;}
-.suppliersDetails .stockContent p{ color: #030229; font-size: 14px; line-height: 21px; text-align: left;}
+.suppliersDetails .stockContent p{     position: relative;
+    max-width: 175px;
+    text-align: left;
+    color: #030229;
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;}
 .suppliersDetails .searhProductDe .stockImage {  width: 88px;  height: 96px;}
 .suppliersDetails .searhProductDe .stockImage img {height: 64px;}
 .suppliersDetails .searhProductDe .stockContent a{ margin-bottom: 0;}
@@ -1442,7 +1452,7 @@ line-height: normal;
 .btnCreate{ width: 190px; height: 40px; align-items: center; justify-content: space-between; border-radius: 4px;
     border: 1px solid #535353; background: #FFF; color: #264653; font-family: "Inter"; position: relative;
     font-size: 14px;  font-style: normal;  font-weight: 400; line-height: normal; padding: 8px 9px 7px;}
-.createNewDropDown {z-index: 222;  position: absolute; top: 40px;  left: 0;  width: 100%; display: none;    border-radius: 6px;  background: #FFF;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);}
+.createNewDropDown {z-index: 222;  position: absolute; top: 40px;  left: 0;  width: 100%;    border-radius: 6px;  background: #FFF;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);}
 
 .createNewDropDown ul{padding-top: 8px;  display: flex; justify-content: space-between; gap: 8px; flex-direction: column;}
 .createNewDropDown ul li{ cursor: pointer; position: relative; line-height: 0;}
@@ -1475,8 +1485,8 @@ line-height: normal;
 .reminderItemBox .buttonTrash{ position: absolute; right: 0;     top: -34px;}
 .addReminderItem .styled-input-single label:before{border:1px solid #8F8F8F}
 
-.reminderImagBox{ margin-top: 78px; display: flex;  flex-wrap: wrap; gap: 16px;}
-.reminderImageItem{display: flex;border-radius: 4px;  border: 1px solid #9A9A9A;    width: 180px;  height: 289px; padding: 10px 55px;
+.reminderImagBox{ margin-top: 78px; }
+.reminderImageItem{display: flex;border-radius: 4px;  border: 1px solid #9A9A9A;    width: 100%;  height: 289px; padding: 10px 30px;
     flex-direction: column; justify-content: center;  align-items: center;  flex-shrink: 0; }
 .checkBoxIcon{ position: relative ; top: -14px;}
 .checkBoxIcon input:checked + label + div { opacity: .1;}
@@ -2254,7 +2264,24 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
 .stateWidth{ width: 33.3%;}
 .ant-modal{ border-radius: 10px;}
 .ant-modal .ant-modal-content { max-height: 580px;  overflow-y: auto;}
+.youAreDone{ margin-top:215px; flex-direction: column; gap: 36px;}
+.btnGoHome{  color: #fff; font-size: 22px; border-radius: 8px; max-width: 326px;      font-family: 'neo_sans_intelmedium';   line-height: 50px;} 
+.btnGoHome:hover{ background: #2A9D8F; color: #fff;}
+.customSelect .ant-select-arrow{ background: url(../public/images/dropdown.webp) no-repeat;
+    background-position:98%;     background-color: rgba(239, 240, 248, 0.60); margin-top: 0;}
 
+    .ant-select-item-option-content .ant-radio-wrapper .ant-radio-inner{ border: 1px solid #264653; }
+    .ant-select-item-option-content .ant-radio-wrapper .ant-radio-checked .ant-radio-inner{ background-color: #264653;}
+
+ .ant-table-row >.ant-table-cell-row-hover {
+        background: #264653 !important;
+        color: #fff !important;
+    }
+    .ant-tabs-tab{padding: 10px 14px 16px 14px !important;}
+    .ant-tabs .ant-tabs-ink-bar{height: 4px !important; }
+    .ant-tabs-nav::before{    border-bottom: 1px solid #264653 !important;}
+    .ant-tabs .ant-tabs-ink-bar{     background: #264653;}
+    .orderDetailsNew .ant-tabs-nav{ margin: 0 24px !important;}
 
 @media (max-width: 1440px) {
 .orderContentRight{max-width: 373px;}
@@ -2302,6 +2329,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
         max-width: 100%;
     }
     .sendExperience .createNew{ width: 100%;}
+    .btnTop{ padding-left: 24px;}
    }
     
     @media (max-width:1230px) {
@@ -2309,7 +2337,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     .productTabArea .ordersTab  ul{  justify-content: flex-start; }
     .productTabArea ul li a {  padding: 8px 12px;}
     .orderTabs ul{ justify-content: flex-start;}
-
+    .suppliersMain .stockContent p{ text-align: right;}
     }
     
     @media (max-width:1195px) {
@@ -2348,6 +2376,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
         transition: left 0.3s ease, right 0.3s ease, bottom 0.3s ease, top 0.3s ease;left: -100%;  }
     .show.leftSidebar{display: block;  padding: 50px 16px 180px 16px; box-shadow: 1px 2px 3px #00000029; left: 0; transition: left 0.3s ease, right 0.3s ease, bottom 0.3s ease, top 0.3s ease; }
     .leftSidebar svg{ position: absolute; cursor: pointer;  cursor: pointer; right: 10px; width: 30px;  height: 30px;  background: #264653; border-radius: 50%;  display: flex; align-items: center;  justify-content: center;  top: 10px;  color: #fff;}
+    .leftSidebar ul { border: 0 !important;}
     .leftSidebar ul li a{ padding:16px 16px;}
     .leftSidebar svg{ fill: #fff;}
     .searchSec.show{ display: block; position: absolute; top: 50px; left: 0; right: 0; padding: 0 16px; max-width: 100%;}
@@ -2392,15 +2421,18 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
 
     .saleBox { gap: 8px;}
     .saleBox .pointaleItem {    width: 23%;  }
-
-
     .sendExperienceItem{ width: 100%; max-width: 48%;}
+    .selectedPopup-content .ant-modal-content {
+        padding: 56px 32px 24px 32px;
+    }
+   
+    
      /*ant*/
 
     }
     
     @media (max-width: 991px) {
-  
+        .onboardingArea{ max-width: 95%;   }
     }
     @media (max-width: 767px) {
 
@@ -2488,6 +2520,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     .STEP3 .setupTerritory table tr td{ padding: 10px !important;}
     .STEP3 .setupTerritory table th{ padding: 10px !important;}
     .onboardingArea .form_control {  max-width: 100%;}
+  
     .selectDropdown{     max-width: 100%;}
     .newOnbordingBtn{ flex-wrap: wrap;}
     .STEP3 h2 br{ display: none;}
@@ -2543,7 +2576,26 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     
     .sendExperience .createNew{ width: 100%;}
     .sendExperienceItem{ width: 100%; max-width: 100%;}
-
+    .accountItem .flex{ flex-direction: column;}
+    .btnTop{ flex-wrap: wrap; padding-left: 0;}
+    .experinceTabs .ant-tabs{ top:10px}
+    .suppliersDetails .card{ padding: 12px;}
+    .mostRecentArea{flex-direction: column; }
+    .mostRecentArea .sortBy{  width: 100%;}
+    .mostRecentArea .btnUpload{ width: 100%;}
+    .galleryTab{ padding-top: 16px;}
+    .suppliersItem .text-center{ text-align: left;}
+    .supplierTabList .contactList{ margin-bottom: 16px;}
+    .pointSaleAre { margin-top: 32px;}
+    .supplierDetailsTabs  .px-6{ padding: 0 ;}
+    .supplierDetailsTabs .heading {    padding-bottom: 16px;}
+    .suppliersMain .supplierDetailsTabs ul{    justify-content: space-between; margin-bottom: 24px;}
+    .contactView{     padding: 0 0 12px 0;}
+    .w-378px {   width: 100%; }
+    .editContact-content .ant-modal-body{ padding: 0 20px;  }
+    .editContact-content .popupContent  {    margin-top: 0; padding: 0;}
+    .editContact-content .popupContent .mt-8{ margin-top: 16px;}
+    .editContact-content  .header { padding: 0 0 24px 0;}
 }
     
     @media (max-width: 640px) {
@@ -2578,7 +2630,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     .rbc-toolbar button {  width: auto;  }
     
     /*onboard*/
-    .onboardingArea{ max-width: 100%;     padding: 16px;}
+    .onboardingArea{   padding: 16px;}
     .onboardingArea ol li{ min-width: 4rem;}
     .onboardingArea ol li span{ display: none;}
     .btnTop.flex.ml-auto.justify-end {  justify-content: flex-start;}
@@ -2593,6 +2645,11 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     .Suppliers.suppliersMain table tbody td:nth-child(2){ max-width: 100%; width: auto; word-wrap:normal; white-space: nowrap;}
     
     .saleBox .pointaleItem {    width: 100%;  }
+    .reminderInput{ width: 62%;}
+    .newProductBtns{ flex-direction: column;}
+    .newProductHeading{flex-direction: column; align-items: baseline; padding-bottom: 8px; }
+    .newProductHeading div{ width: 100%;}
+    
     }
     
     @media (max-width: 414px) {

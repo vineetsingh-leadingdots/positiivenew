@@ -8,7 +8,7 @@ import InputFields from "../commonComponents/inputFields";
 import { EyeIcon, LockIcon, MailOutlined } from "../commonComponents/commonSvg";
 import { useLoginUserMutation } from "../services/authApi";
 import { useNavigate } from "react-router-dom";
-
+import { Helmet, HelmetProvider } from 'react-helmet';
 const Login = () => {
 
   const [ loginUser, {isSuccess: loginUserSuccess} ] = useLoginUserMutation();
@@ -45,6 +45,7 @@ const Login = () => {
 
   return (
     <>
+    
       <HeaderLogin />
       <Row className="loginArea bg-white ">
         <Row style={{ textAlign: 'center' }}>

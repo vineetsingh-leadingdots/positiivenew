@@ -34,9 +34,9 @@ const Reminder = () => {
                     </div>
                 </div>
                 <div className="reminderImagBox">
-                    <Row gutter={[16, 16]}  >
+                    <Row gutter={[16, 16]}   >
                         {imageUrls.map((imageUrl, index) => (
-                            <Col key={index} className="gutter-row" >
+                            <Col key={index} className="gutter-row" xs={24} sm={2} md={6} lg={4}  >
                                 <div className="reminderImageItem">
                                     <img src={imageUrl} alt={`Image ${index}`} />
                                 </div>
