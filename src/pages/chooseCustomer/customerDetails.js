@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import EditCustomer from "./editCustomerPopup";
-import EditContactPopup from "./editContactPopup";
-import EditGoal from "./editGoal";
-import UploadPopUp from "./uploadPopUp";
 import TabsFile from "../../commonComponents/tabs";
 import { CustomerDetailsItem } from "./customerDetailsItem";
-import { Button, Drawer, Space } from 'antd';
+
 import CalendarDropdown from "./calendarDropdown";
 const ChooseCustomerDetails = () => {
   

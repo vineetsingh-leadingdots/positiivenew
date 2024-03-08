@@ -730,3 +730,15 @@ export const CalendarIcon3 = () => {
 }
 
 
+export const ShareIcon2 = () => {
+    return (
+        <>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M13.1259 8.42407H14.6884C15.1028 8.42407 15.5002 8.58869 15.7932 8.88172C16.0862 9.17474 16.2509 9.57217 16.2509 9.98657V17.4866C16.2509 17.901 16.0862 18.2984 15.7932 18.5914C15.5002 18.8845 15.1028 19.0491 14.6884 19.0491H5.31335C4.89895 19.0491 4.50153 18.8845 4.2085 18.5914C3.91547 18.2984 3.75085 17.901 3.75085 17.4866V9.98657C3.75085 9.57217 3.91547 9.17474 4.2085 8.88172C4.50153 8.58869 4.89895 8.42407 5.31335 8.42407H6.87585" stroke="#264653" strokeWidth="1.00189" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M13.1266 5.92379L10.0012 2.79834L6.87573 5.92379" stroke="#264653" strokeWidth="1.00189" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M10.0009 13.4624V2.79834" stroke="#264653" strokeWidth="1.00189" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+        </>
+    )
+}
+

@@ -1,46 +1,35 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import Popup from "reactjs-popup";
-const SharePopup = () => {
-  const [open, setOpen] = useState(false);
+import {Modal } from 'antd';
+import { ShareIcon2 } from "../../commonComponents/commonSvg";
+const SharePopup = () => { 
   const closeModal = () => {
     setOpen(false);
   };
+  const [modal1Open, setModal1Open] = useState(false);
   return (
     <>
-      <Popup
-        open={open}
-        onClose={() => closeModal()}
-        closeOnDocumentClick={false}
-        className="sharePopup"
-        trigger={
-          <button
-            className="btnUpload gap-3 md:w-auto w-full "
-            aria-describedby="popup-8"
-            onClick={() => setOpen((o) => !o)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-              <path d="M13.1259 8.42407H14.6884C15.1028 8.42407 15.5002 8.58869 15.7932 8.88172C16.0862 9.17474 16.2509 9.57217 16.2509 9.98657V17.4866C16.2509 17.901 16.0862 18.2984 15.7932 18.5914C15.5002 18.8845 15.1028 19.0491 14.6884 19.0491H5.31335C4.89895 19.0491 4.50153 18.8845 4.2085 18.5914C3.91547 18.2984 3.75085 17.901 3.75085 17.4866V9.98657C3.75085 9.57217 3.91547 9.17474 4.2085 8.88172C4.50153 8.58869 4.89895 8.42407 5.31335 8.42407H6.87585" stroke="#264653" strokeWidth="1.00189" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M13.1266 5.92379L10.0012 2.79834L6.87573 5.92379" stroke="#264653" strokeWidth="1.00189" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M10.0009 13.4624V2.79834" stroke="#264653" strokeWidth="1.00189" strokeLinecap="round" strokeLinejoin="round" />
-            </svg> Share
-          </button>
-        }
-        modal
-        nested
+       <button className="btnUpload mr-6" onClick={() => setModal1Open(true)}>
+       <ShareIcon2/> Share
+      </button>
+      <Modal
+        centered
+        open={modal1Open}
+        onOk={() => setModal1Open(false)}
+        onCancel={() => setModal1Open(false)}
+        footer={false}
+        closeIcon={false}
+        zIndex="999999999999"
+        width="518px"
+        className="sharePopup-content"
       >
-        {(close) => (
-          <div className="modal">
-            <button
-              className="close"
-              onClick={() => {
-                closeModal();
-                close();
-              }}
-            >
-              <img src="/images/close-circle.svg" />
-            </button>
-            <div className="header">
+        <>
+          <button
+            className="close"
+            onClick={() => setModal1Open(false)}
+          >
+            <img src="/images/close-circle.svg" />
+          </button>
+          <div className="header">
               <h2>Share <span>Clear all</span></h2>
             </div>
             <div className="popupContent ">
@@ -120,9 +109,9 @@ const SharePopup = () => {
                 <button className="btnBack submit ">Send</button>
               </div>
             </div>
-          </div>
-        )}
-      </Popup>
+        </>
+      </Modal>
+     
     </>
   );
 };

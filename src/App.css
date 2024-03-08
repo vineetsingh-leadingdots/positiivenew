@@ -1380,8 +1380,8 @@ box-shadow:0px !important; outline: 0 !important;  color: #030229;}
 #popup-root .popup-overlay{ z-index: 99999 !important; max-width: 1440px; margin: 0 auto;}
 #popup-root .max430-content{ width: 100%; max-width: 430px; max-height: 680px;  overflow-y: auto;}
 #popup-root .max607-content{ width: 100%; max-width: 607px; max-height: 680px;  padding: 32px 0 24px 0;  overflow-y: auto;}
-#popup-root .popup-content .close { position: absolute; right: 10px; top: 10px;}
-#popup-root .popup-content .header h3{ color: #030229; font-size: 16px;font-style: normal;
+.close { position: absolute; right: 10px; top: 10px;}
+.popup-content .header h3{ color: #030229; font-size: 16px;font-style: normal;
     font-weight: 500;  line-height: normal;}
 
  /*customerT*/
@@ -1405,7 +1405,8 @@ box-shadow:0px !important; outline: 0 !important;  color: #030229;}
     white-space: normal;
 }
 .editContact-content label{ color: #030229; font-size: 16px;  font-style: normal; font-weight: 600; line-height: 21px}
-#popup-root .editContact-content .header h3{ font-size: 24px;}
+ .editContact-content .header h3{ font-size: 24px;}
+ .editContact-content .ant-modal-content{     padding: 32px 0 24px 0;}
 .addNew {color: #264653; display: flex; font-size: 14px; font-style: normal; font-weight: 600;line-height: 21px}
 .addNew svg{ margin-right: 6px;}
 .editContact-content .btnUpload { min-width: 164px; border-radius: 10px;}
@@ -1628,12 +1629,12 @@ background: #6C6C70; min-width: 70px;     padding: 2px 10px;}
 .btnBack{ border-radius: 10px;  border: 1px solid #264653;background: #FFF; color: #264653; text-align: center;  font-family: "Nunito";  font-size: 14px;  padding: 11px 12px;  font-style: normal;  font-weight: 600; min-width: 148px; display: flex; gap: 8px; justify-content: center;
     line-height: normal;}
 .submit{ background: #264653; color: #fff;}
-#popup-root .sharePopup-content { width: 100%; max-width:518px;}
-#popup-root .sharePopup-content h2 { font-size: 20px;}
-#popup-root .sharePopup-content h2 span{ font-size: 14px; font-family: "Inter"; font-weight: 500;}
-#popup-root .sharePopup-content .popupContent{ padding: 54px 54px 0 ; }
-#popup-root .sharePopup-content h3{color: #264653;}
-#popup-root .sharePopup-content .sendExperienceContent{ padding: 60px 0 40px 0;}
+
+ .sharePopup-content h2 { font-size: 20px;}
+ .sharePopup-content h2 span{ font-size: 14px; font-family: "Inter"; font-weight: 500;}
+ .sharePopup-content .popupContent{ padding: 54px 54px 0 ; }
+ .sharePopup-content h3{color: #264653;}
+.sharePopup-content .sendExperienceContent{ padding: 60px 0 40px 0;}
 .deleteExperience{ display: flex; align-items: center;}
 
 /*superAdmin*/
@@ -1916,21 +1917,22 @@ background: #CACACA;border-radius: 4px;padding: 2px 24px;}
 .pointSaleArea .pointaleItem .pointImg img{ max-height: 220px; max-width: 100%;}
 
 /*searchDetails*/
-#popup-root .selectedPopup-content{ max-width: 851px; width: 100%; padding: 68px 66px 44px 66px;}
-#popup-root .comparePopup-content{ max-width:607px; width: 100%; padding: 32px 48px 40px 48px;}
-#popup-root .comparePopup-content h2{ font-size: 24px;}
-#popup-root .comparePopup-content label{color: #030229; margin-bottom: 8px; font-family: "Inter"; font-size: 16px;  font-style: normal;  font-weight: 600;  line-height: 21px}
-#popup-root .comparePopup-content textarea.form_control{ max-height: 44px;}
-#popup-root .comparePopup-content .css-b62m3t-container .css-13cymwt-control{min-height: 42px !important; border: 1px solid #CACACA !important; background: none !important; }
-#popup-root .comparePopup-content .css-b62m3t-container .css-t3ipsp-control{ min-height: 42px !important; border: 1px solid #CACACA !important; background: none !important; }
+ .selectedPopup-content .ant-modal-content{  padding: 68px 66px 44px 66px;}
+.comparePopup-content .ant-modal-content{  padding: 32px 48px 40px 48px;}
 
-#popup-root .comparePopup-content .reactSelectDropdown span{color: rgba(3, 2, 41, 0.60); font-family: "Inter";  font-size: 14px;  font-style: normal; font-weight: 400; line-height: normal;}
-#popup-root .comparePopup-content .reactSelectDropdown .styled-input-single label:before { border: 1px solid #898989;}
-#popup-root .comparePopup-content .btnBorder {color: rgba(38, 70, 83, 0.40);  text-align: center; font-family: "Inter"; font-size: 14px;  font-style: normal;
+ .comparePopup-content h2{ font-size: 24px;}
+ .comparePopup-content label{color: #030229; margin-bottom: 8px; font-family: "Inter"; font-size: 16px;  font-style: normal;  font-weight: 600;  line-height: 21px}
+ .comparePopup-content textarea.form_control{ max-height: 44px;}
+ .comparePopup-content .css-b62m3t-container .css-13cymwt-control{min-height: 42px !important; border: 1px solid #CACACA !important; background: none !important; }
+ .comparePopup-content .css-b62m3t-container .css-t3ipsp-control{ min-height: 42px !important; border: 1px solid #CACACA !important; background: none !important; }
+
+.comparePopup-content .reactSelectDropdown span{color: rgba(3, 2, 41, 0.60); font-family: "Inter";  font-size: 14px;  font-style: normal; font-weight: 400; line-height: normal;}
+ .comparePopup-content .reactSelectDropdown .styled-input-single label:before { border: 1px solid #898989;}
+ .comparePopup-content .btnBorder {color: rgba(38, 70, 83, 0.40);  text-align: center; font-family: "Inter"; font-size: 14px;  font-style: normal;
     font-weight: 600; line-height: normal; border: 1px solid #CACACA; border-radius: 10px;}
-#popup-root .comparePopup-content .afterSelect label{ color: rgba(3, 2, 41, 0.60); font-family: "Inter";
+ .comparePopup-content .afterSelect label{ color: rgba(3, 2, 41, 0.60); font-family: "Inter";
     font-size: 14px;  font-style: normal;  font-weight: 400;  line-height: normal;;}
-#popup-root .comparePopup-content .afterSelect .styled-input-single{ padding: 0px 0 8px 26px;}
+ .comparePopup-content .afterSelect .styled-input-single{ padding: 0px 0 8px 26px;}
 
 /*suppliersMain */
 .suppliersMain .stockContent{ padding-top: 7px;}
@@ -2250,8 +2252,8 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
 }
 .cityWidth{ width: 66.6%;}
 .stateWidth{ width: 33.3%;}
-
-
+.ant-modal{ border-radius: 10px;}
+.ant-modal .ant-modal-content { max-height: 580px;  overflow-y: auto;}
 
 
 @media (max-width: 1440px) {

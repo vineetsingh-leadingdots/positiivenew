@@ -107,7 +107,7 @@ const CalendarDropdown = () => {
             >
                 <a onClick={(e) => e.preventDefault()}>
                     <button className='btnUpload'>
-                        <CalendarIcon3 /> Add to calendar
+                        <CalendarIcon3  /> <span className='pl-2'>Add to calendar</span>
                     </button>
                 </a>
             </Dropdown>
