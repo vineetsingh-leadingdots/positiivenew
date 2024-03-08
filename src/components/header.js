@@ -3,11 +3,16 @@ import { Col, Row,  Menu, Dropdown } from "antd";
 import Divison from "./divison";
 import { Layout, Flex, Button } from 'antd'; 
 import Sidebar from './sidebar';
+import { useLogoutUserMutation } from '../services/authApi';
 const { Item } = Menu;
+import { useDispatch } from 'react-redux';
+import { logout } from '../redux/slice/authSlice';
 
 export function Header() {
-    const [showSider, setShowSider] = useState(false); 
 
+    const [ logoutUser ] = useLogoutUserMutation();
+    const [showSider, setShowSider] = useState(false); 
+    const  dispatch = useDispatch();
     const toggleSider = () => {
       setShowSider(!showSider); 
     };
@@ -16,22 +21,26 @@ export function Header() {
         setShowSider(!showSider); 
       };
 
+    const handlelLogoutUser = () => {
+        logoutUser();
+        dispatch(logout());
+    }
+
     const items = [
         {
             key: '1',
             label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-
+                <button target="_blank" rel="noopener noreferrer">
                     Settings
-                </a>
+                </button>
             ),
         },
         {
             key: '2',
             label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+                <button target="_blank" rel="noopener noreferrer" onClick={handlelLogoutUser}>
                     Logout
-                </a>
+                </button>
             ),
         },
 
