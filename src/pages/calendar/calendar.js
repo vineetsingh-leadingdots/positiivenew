@@ -4,6 +4,7 @@ import Popup1 from "./popup1";
 import Popup2 from "./popup2";
 import CustomCalendar from "./customCalendar";
 import CreateNewDropdown from "./createNewDropdown";
+import MyCalendar from "./clendarCheck";
 const CalendarView = () => {
 
     return (
@@ -26,7 +27,8 @@ const CalendarView = () => {
                     <Popup1 />
                     <Popup2 />
                     <div className="card pt-8">
-                        <CustomCalendar />
+                        {/* <CustomCalendar /> */}
+                        <MyCalendar/>
                     </div>
                 </div>
             </div>
