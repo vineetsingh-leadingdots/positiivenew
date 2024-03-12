@@ -37,7 +37,9 @@ const RoleAdd = () => {
                                         />
                                     </div>
                                 </div>                  
-
+                             <div className='w-full mb-6'>
+                                <h2>Permission *</h2>
+                             </div>
                             <div className="w-full formFooter">
                                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
                                     <button

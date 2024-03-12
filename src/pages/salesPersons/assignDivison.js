@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal } from 'antd';
 
-const DeletePopup = () => {
+const AssignDivisonPopup = () => {
 
     const [modal1Open, setModal1Open] = useState(false);
     const closeModal = () => {
@@ -9,8 +9,8 @@ const DeletePopup = () => {
     };
     return (
         <>
-            <button className="actionButton delete " onClick={() => setModal1Open(true)}>
-               <i className="fa fa-trash"/>
+            <button className="actionButton  " onClick={() => setModal1Open(true)}>
+             Assign Divison
             </button>
             <Modal
                 centered
@@ -20,7 +20,7 @@ const DeletePopup = () => {
                 footer={false}
                 closeIcon={false}
                 zIndex="999999999999"
-                width="400px"
+                width="480px"
                 className="sharePopup-content"
             >
                 <>
@@ -30,12 +30,18 @@ const DeletePopup = () => {
                     >
                         <img src="/images/close-circle.svg" />
                     </button>
-                    <h2> Are you sure?</h2>
-                    <div className="pt-6 deleteContent">
-                        <p>   You won't be able to revert this!</p>
-
+                    <h2> Assign Division</h2>
+                    <div className="pt-6 ">
+                    <div className=" w-full ">
+                                <div className="form-group mb-6 ">
+                                        <label className="formBlock mb-2 py-2">Divisions</label>
+                                       <select className="formControl" >
+                                      <option>Divisions1</option>
+                                       </select>
+                                    </div>
+                                </div> 
                         <div className="flex justify-center gap-5 popupBtn pt-10">
-                            <button className="btnBack submit ">Delete</button>
+                            <button className="btnBack submit ">Assign</button>
                             <button className="btnBack  " onClick={() => {
                                 closeModal();
                                 close();
@@ -50,4 +56,4 @@ const DeletePopup = () => {
     );
 };
 
-export default DeletePopup;
+export default AssignDivisonPopup;

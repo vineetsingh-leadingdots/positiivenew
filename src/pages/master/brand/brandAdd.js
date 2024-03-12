@@ -45,12 +45,11 @@ const BrandAdd = () => {
                                                     <img src={preview1} alt={file.name} />
                                                 ) : (
                                                     <img
-                                                        src="/images/logo.webp"
+                                                        src="/images/thumbnail.webp"
                                                         alt={"logo.webp"}
                                                     />
                                                 )}
                                             </div>
-
                                             <div className="file-upload">
                                                 <input
                                                     type="file"

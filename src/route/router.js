@@ -53,6 +53,34 @@ import SubRegion from '../pages/master/sub-region/sub-region';
 import SubRegionAdd from '../pages/master/sub-region/sub-regionAdd';
 import Role from '../pages/role/role';
 import RoleAdd from '../pages/role/roleAdd';
+import Member from '../pages/member/member';
+import MemberAdd from '../pages/member/memberAdd';
+import Supplier from '../pages/supplier/supplier';
+import SupplierAdd from '../pages/supplier/supplierAdd';
+import SupplierView from '../pages/supplier/supplierView';
+import Distributor from '../pages/distributor/distributor';
+import DistributorAdd from '../pages/distributor/distributorAdd';
+import DistributorView from '../pages/distributor/distributorView';
+import SalesPerson from '../pages/salesPersons/salesPersons';
+import SalesPersonAdd from '../pages/salesPersons/salesPersonAdd';
+import ProductList from '../pages/product/productList';
+import ProductAdd from '../pages/product/productAdd';
+import News from '../pages/news/news';
+import NewsAdd from '../pages/news/newsAdd';
+import Quiz from '../pages/quiz/quiz';
+import QuizAdd from '../pages/quiz/quizAdd';
+import Feedbacks from '../pages/feedback/feedback';
+import FeedbacksAdd from '../pages/feedback/feedbackAdd';
+import ExperienceList from '../pages/experienceMain/experienceList';
+import ExperienceAdd from '../pages/experienceMain/experienceAdd';
+import DivisionAdd from '../pages/divison/divisionAdd';
+import DivisionList from '../pages/divison/division';
+import Transactions from '../pages/miscellaneous/transactions';
+import PromotionsList from '../pages/miscellaneous/promotions';
+import MediaList from '../pages/miscellaneous/media';
+import ErrorLog from '../pages/miscellaneous/errorLog';
+
+
 
 
 
@@ -135,7 +163,33 @@ const RouterFile = () => (
 
           <Route path="/role/list" element={<Role/>} exact />
           <Route path="/role/add" element={<RoleAdd/>} exact />
-
+          <Route path="/member/list" element={<Member/>} exact />
+          <Route path="/member/add" element={<MemberAdd/>} exact />
+          <Route path="/supplier/list" element={<Supplier/>} exact />
+          <Route path="/supplier/add" element={<SupplierAdd/>} exact />
+          <Route path="/supplier/view" element={<SupplierView/>} exact />
+          <Route path="/distributor/list" element={<Distributor/>} exact />
+          <Route path="/distributor/add" element={<DistributorAdd/>} exact />
+          <Route path="/distributor/view" element={<DistributorView/>} exact />
+          <Route path="/sales-person/list" element={<SalesPerson/>} exact />
+          <Route path="/sales-person/add" element={<SalesPersonAdd/>} exact />
+          <Route path="/product/list" element={<ProductList/>} exact />
+          <Route path="/product/add" element={<ProductAdd/>} exact />
+          <Route path="/news/list" element={<News/>} exact />
+          <Route path="/news/add" element={<NewsAdd/>} exact />
+          <Route path="/quiz/list" element={<Quiz/>} exact />
+          <Route path="/quiz/add" element={<QuizAdd/>} exact />
+          <Route path="/feedback/list" element={<Feedbacks/>} exact />
+          <Route path="/feedback/add" element={<FeedbacksAdd/>} exact />
+          <Route path="/experience/list" element={<ExperienceList/>} exact />
+          <Route path="/experience/add" element={<ExperienceAdd/>} exact />
+          <Route path="/division/list" element={<DivisionList/>} exact />
+          <Route path="/division/add" element={<DivisionAdd/>} exact />
+          <Route path="/transactions/list" element={<Transactions/>} exact />
+          <Route path="/media/list" element={<MediaList/>} exact />
+          <Route path="/promotions/list" element={<PromotionsList/>} exact />
+          <Route path="/calendar/list" element={<Transactions/>} exact />
+          <Route path="/errorLog/list" element={<ErrorLog/>} exact />
         </Route>
       </Route>
     </Routes>

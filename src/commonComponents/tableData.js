@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import DeletePopup from "../components/deletePopup";
+import AssignDivisonPopup from "../pages/salesPersons/assignDivison";
 
 export const dataSource = [
     {
@@ -608,12 +609,11 @@ export const dataSource = [
       BrandName: 'Mike',
       Actions: <>
       <div className="flex gap-1">
-      <Link to="/brand/add" className="actionButton"><img src="/images/edit.png"/></Link>
+      <Link to="/brand/add" className="actionButton"><i className="fa fa-pencil"/></Link>
       <DeletePopup/>
       </div>
       </>,   
-    },
-    
+    },    
    
   ];
   
@@ -629,4 +629,362 @@ export const dataSource = [
       key: 'Actions',
     },
     
+  ];
+
+
+  
+  export const SupplierAdminData = [
+    {
+      key: '1',
+      SupplierName: 'Mike',
+      Email: 'supplier1@yopmail.com',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/supplier/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <Link to="/supplier/view" className="actionButton"><i className="fa fa-eye"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+    {
+      key: '2',
+      SupplierName: 'Mike',
+      Email: 'supplier1@yopmail.com',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/supplier/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <Link to="/supplier/view" className="actionButton"><i className="fa fa-eye"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },  
+   
+  ];
+  
+  export const SupplierAdminColumns = [
+    {
+      title: 'Supplier Name',
+      dataIndex: 'SupplierName',
+      key: 'SupplierName',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'Email',
+      key: 'Email',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+
+  
+  export const SalesPersonData = [
+    {
+      key: '1',
+      Name: 'Mike',
+      Email: 'supplier1@yopmail.com',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/sales-person/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <AssignDivisonPopup/>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+    {
+      key: '1',
+     Name: 'Mike',
+      Email: 'supplier1@yopmail.com',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/sales-person/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <AssignDivisonPopup/>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const SalesPersonColumns = [
+    {
+      title: ' Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'Email',
+      key: 'Email',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+  
+  export const ProductListData = [
+    {
+      key: '1',
+      Name: 'Mike',
+      CreatedDate: '12/03/20204',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/product/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+    {
+      key: '1',
+     Name: 'Mike',
+     CreatedDate: '12/03/20204',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/product/add" className="actionButton"><i className="fa fa-pencil"/></Link>     
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const ProductColumn = [
+    {
+      title: ' Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Created sDate',
+      dataIndex: 'CreatedDate',
+      key: 'CreatedDate',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+  
+  export const NewsData = [
+    {
+      key: '1',
+      NewsUrl: 'www.333333.com',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/news/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+     
+   
+  ];
+  
+  export const NewsColumn = [
+    {
+      title: ' News Url',
+      dataIndex: 'NewsUrl',
+      key: 'NewsUrl',
+    },
+   
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+  
+  export const QuizData = [
+    {
+      key: '1',
+      QuizName: 'bjjn nskxk',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/quiz/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+     
+   
+  ];
+  
+  export const QuizColumn = [
+    {
+      title: ' Quiz Name',
+      dataIndex: 'QuizName',
+      key: 'QuizName',
+    },
+   
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+  export const FeedbackData = [
+    {
+      key: '1',
+      FeedbackQuestion: 'Feedback Question',
+      QuestionType:"yes",
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/feedback/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+     
+   
+  ];
+  
+  export const FeedbackColumn = [
+    {
+      title: 'Feedback Question',
+      dataIndex: 'FeedbackQuestion',
+      key: 'FeedbackQuestion',
+    },
+    {
+      title: 'Question Type',
+      dataIndex: 'QuestionType',
+      key: 'QuestionType',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+
+  export const ExperenceData = [
+    {
+      key: '1',
+      ExperienceName: 'ExperienceName',
+      AddedBy:"customer1",
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/experience/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+     
+   
+  ];
+  
+  export const ExperenceColumn = [
+    {
+      title: 'Experience Name',
+      dataIndex: 'ExperienceName',
+      key: 'ExperienceName',
+    },
+    {
+      title: 'Added By (Customer)',
+      dataIndex: 'AddedBy',
+      key: 'AddedBy',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+  
+  export const DivisionData = [
+    {
+      key: '1',
+      DivisionName: 'DivisionName',     
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/division/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },  
+  ];
+  
+  export const DivisionColumn = [
+    {
+      title: 'Division Name',
+      dataIndex: 'DivisionName',
+      key: 'DivisionName',
+    },
+   
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+  
+  export const TransactionData = [
+    {
+      key: '1',
+      User: 'DivisionName',     
+      Company:'leadingdots',
+      IP:'100.250255.2636',
+      Event:'-',
+      Action:'-',
+      CreatedAt:'12/03/2024',
+      
+    },  
+  ];
+  
+  export const TransactionColumn = [
+    {
+      title: 'User',
+      dataIndex: 'User',
+      key: 'User',
+    },   
+    {
+      title: 'Company',
+      dataIndex: 'Company',
+      key: 'Company',
+    },
+    
+    {
+      title: 'IP',
+      dataIndex: 'IP',
+      key: 'IP',
+    },   
+    {
+      title: 'Event',
+      dataIndex: 'Event',
+      key: 'Event',
+    },
+    {
+      title: 'Action',
+      dataIndex: 'Action',
+      key: 'Action',
+    },
+    {
+      title: 'Created At',
+      dataIndex: 'CreatedAt',
+      key: 'CreatedAt',
+    },
   ];
