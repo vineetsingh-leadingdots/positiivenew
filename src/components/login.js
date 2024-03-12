@@ -14,6 +14,7 @@ const Login = () => {
   const [loginUser, {isSuccess: loginUserSuccess}] = useLoginUserMutation();
   const {Title} = Typography;
   const navigate = useNavigate();
+  const [passwordShown, setPasswordShown] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -92,9 +93,9 @@ const Login = () => {
             rowClass="form-group relative eyeIcon mb-12"
             name="password"
             placeholder="Password"
-            type="password"
+            type={passwordShown ? "text" : "password"}
             inputClass="formControl"
-            suffix={<EyeIcon />}
+            suffix={<EyeIcon setPasswordShown={setPasswordShown} passwordShown={passwordShown}/>}
             inputIcon={<LockIcon />}
             onChange={(e) => handlerChange(e)}
           />
