@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import DeletePopup from "../components/deletePopup";
 
 export const dataSource = [
     {
@@ -595,4 +597,36 @@ export const dataSource = [
       dataIndex: 'OrderedBy',
       key: 'OrderedBy',
     },
+  ];
+
+
+
+
+  export const BrandData = [
+    {
+      key: '1',
+      BrandName: 'Mike',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/brand/add" className="actionButton"><img src="/images/edit.png"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },
+    
+   
+  ];
+  
+  export const BrandColumns = [
+    {
+      title: 'Brand Name',
+      dataIndex: 'BrandName',
+      key: 'BrandName',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
   ];

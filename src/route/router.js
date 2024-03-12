@@ -21,6 +21,40 @@ import ChooseCustomerDetails from '../pages/chooseCustomer/customerDetails';
 import CalendarView from '../pages/calendar/calendar';
 import OnBoarding from '../components/onboarding/onBoarding';
 import { useSelector } from 'react-redux';
+import Brand from '../pages/master/brand/brand';
+import BrandAdd from '../pages/master/brand/brandAdd';
+import Variety from '../pages/master/variety/variety';
+import VarietyAdd from '../pages/master/variety/varietyAdd';
+import Attribute from '../pages/master/attribute/attribute';
+import AttributeAdd from '../pages/master/attribute/attributeAdd';
+import Size from '../pages/master/size/size';
+import SizeAdd from '../pages/master/size/sizeAdd';
+import Rating from '../pages/master/rating/rating';
+import RatingAdd from '../pages/master/rating/ratingAdd';
+import StyleAdd from '../pages/master/style/styleAdd';
+import Style from '../pages/master/style/style';
+import Category from '../pages/master/category/category';
+import CategoryAdd from '../pages/master/category/categoryAdd';
+import Type from '../pages/master/type/type';
+import TypeAdd from '../pages/master/type/typeAdd';
+import SubType from '../pages/master/sub-type/subType';
+import SubTypeAdd from '../pages/master/sub-type/subtypeAdd';
+import Nose from '../pages/master/nose/nose';
+import NoseAdd from '../pages/master/nose/noseAdd';
+import Classification from '../pages/master/classification/classification';
+import ClassificationAdd from '../pages/master/classification/classificationAdd';
+import Vintage from '../pages/master/vintage/vintage';
+import VintageAdd from '../pages/master/vintage/vintageAdd';
+import Country from '../pages/master/country/country';
+import CountryAdd from '../pages/master/country/countryAdd';
+import Region from '../pages/master/region/region';
+import RegionAdd from '../pages/master/region/regionAdd';
+import SubRegion from '../pages/master/sub-region/sub-region';
+import SubRegionAdd from '../pages/master/sub-region/sub-regionAdd';
+import Role from '../pages/role/role';
+import RoleAdd from '../pages/role/roleAdd';
+
+
 
 const ProtectedRoute = ({ redirectPath = '/login' }) => {
   const authToken = useSelector((state) => state.persistedReducer.user.accessToken);
@@ -66,6 +100,42 @@ const RouterFile = () => (
           <Route path="/customer/detail" element={<ChooseCustomerDetails />} exact />
           <Route path="/suppliers" element={<Suppliers />} exact />
           <Route path="/suppliers/detail" element={<SuppliersDetails />} exact />
+          
+          <Route path="/brand/list" element={<Brand/>} exact />
+          <Route path="/brand/add" element={<BrandAdd/>} exact />
+          <Route path="/variety/list" element={<Variety/>} exact />
+          <Route path="/variety/add" element={<VarietyAdd/>} exact />
+          <Route path="/attribute/list" element={<Attribute/>} exact />
+          <Route path="/attribute/add" element={<AttributeAdd/>} exact />
+          <Route path="/size/list" element={<Size/>} exact />
+          <Route path="/size/add" element={<SizeAdd/>} exact />
+          <Route path="/rating/list" element={<Rating/>} exact />
+          <Route path="/rating/add" element={<RatingAdd/>} exact />
+          <Route path="/style/list" element={<Style/>} exact />
+          <Route path="/style/add" element={<StyleAdd/>} exact />
+          <Route path="/category/list" element={<Category/>} exact />
+          <Route path="/category/add" element={<CategoryAdd/>} exact />
+          <Route path="/type/list" element={<Type/>} exact />
+          <Route path="/type/add" element={<TypeAdd/>} exact />
+          <Route path="/sub/type/list" element={<SubType/>} exact />
+          <Route path="/sub/type/add" element={<SubTypeAdd/>} exact />
+          <Route path="/nose/palate/list" element={<Nose/>} exact />
+          <Route path="/nose/palate/add" element={<NoseAdd/>} exact />
+          <Route path="/classification/list" element={<Classification/>} exact />
+          <Route path="/classification/add" element={<ClassificationAdd/>} exact />
+          <Route path="/vintage/list" element={<Vintage/>} exact />
+          <Route path="/vintage/add" element={<VintageAdd/>} exact />
+
+          <Route path="/country/list" element={<Country/>} exact />
+          <Route path="/country/add" element={<CountryAdd/>} exact />
+          <Route path="/region/list" element={<Region/>} exact />
+          <Route path="/region/add" element={<RegionAdd/>} exact />
+          <Route path="sub/region/list" element={<SubRegion/>} exact />
+          <Route path="sub/region/add" element={<SubRegionAdd/>} exact />
+
+          <Route path="/role/list" element={<Role/>} exact />
+          <Route path="/role/add" element={<RoleAdd/>} exact />
+
         </Route>
       </Route>
     </Routes>

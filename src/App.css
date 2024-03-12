@@ -363,7 +363,7 @@ label{color: #6C6C70; font-family: "Inter"; margin-bottom: 8px;  font-size: 16px
 .loginArea h6{ font-family: 'Inter'; line-height: normal; text-align: center; color: #5B5B5B;}
 .loginArea form{ margin: 60px 0 0 0 ; width: 100%;}
 .formControl{background: rgba(239, 240, 248, 0.60); padding: 8px 16px; border-radius: 8px; min-height: 52px; 
-    font-size: 16px; color: #5B5B5B; font-weight: 400; font-family: "Inter"; border: 0;}
+    font-size: 16px; color: #5B5B5B; font-weight: 400; font-family: "Inter"; border: 0; width: 100%;}
 
 .formControl:hover{background: rgba(239, 240, 248, 0.60);}
 /* .formControl input:focus{ background: red !important;}
@@ -1653,11 +1653,11 @@ background: #6C6C70; min-width: 70px;     padding: 2px 10px;}
 
 
 .imageView {
-    object-fit: cover;
+    object-fit: cover; 
 }
 .imageView {
     height: 150px;
-    width: 150px;
+    width: 150px; border: 1px solid #ececec;     border-radius: 50%;
 }
 .imageView.image_circle img {
     border-radius: 50%;
@@ -1710,7 +1710,7 @@ background: #6C6C70; min-width: 70px;     padding: 2px 10px;}
     margin: 0 5px;
     padding: 20px;
     position: relative;
-    width: 30px;
+    width: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1726,7 +1726,13 @@ background: #6C6C70; min-width: 70px;     padding: 2px 10px;}
     width: 460px;
 }.imageView.image_square {
     border-radius: 6px;
-}.imageView.image_rectangle img {
+}
+.imageView.image_square img{
+    border-radius: 0; width: 100%;
+
+}
+
+.imageView.image_rectangle img {
     border-radius: 0;
     height: 100%;
     width: 100%;
@@ -2282,6 +2288,34 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     .ant-tabs-nav::before{    border-bottom: 1px solid #264653 !important;}
     .ant-tabs .ant-tabs-ink-bar{     background: #264653;}
     .orderDetailsNew .ant-tabs-nav{ margin: 0 24px !important;}
+
+
+
+
+.deleteContent p{ font-size: 18px; text-align: center; padding: 30px 0;}
+.actionButton{ border: 1px solid #264653; padding: 4px ; min-height: 28px; min-width: 30px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+.actionButton.delete{ border: 1px solid red;}
+.actionButton:hover{ background: #fff;}
+.actionButton img{ height: 16px;}
+.formFooter{ border-top: 1px solid #ececec;}
+.masterPages .formControl{ font-size: 12px;}
+.imageButtonRadius button{ padding: 4px; min-height: 44px;}
+.imageButtonRadius button img{    max-height: 20px;}
+.file-upload img{ max-height: 20px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1440px) {
 .orderContentRight{max-width: 373px;}
