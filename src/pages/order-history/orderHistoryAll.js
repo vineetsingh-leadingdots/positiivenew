@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { OrderHistoryAllData, columnOrderAll } from "../../commonComponents/tableData";
 import TableList from "../../commonComponents/tableList";
+import { SearchIcon2 } from "../../commonComponents/commonSvg";
 const OrderHistoryAll = () => {
   return (
     <>
@@ -27,28 +28,7 @@ const OrderHistoryAll = () => {
               <div className="searchSec mb-2 md:mb-0">
                 <input type="text" className="form_control" placeholder="Search by Business name" />
                 <button>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                  >
-                    <g opacity="0.6">
-                      <path
-                        d="M6.14286 11.2857C8.98318 11.2857 11.2857 8.98318 11.2857 6.14286C11.2857 3.30254 8.98318 1 6.14286 1C3.30254 1 1 3.30254 1 6.14286C1 8.98318 3.30254 11.2857 6.14286 11.2857Z"
-                        stroke="black"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M13.0001 13.0001L10.4287 10.4287"
-                        stroke="black"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </g>
-                  </svg>
+             <SearchIcon2/>
                 </button>
               </div>
               <div className="md:pl-6 pl-2">

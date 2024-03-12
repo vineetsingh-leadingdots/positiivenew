@@ -73,7 +73,7 @@ const SuppliersDetails = () => {
                     </div>
                     <div className="w-full mt-2">
                         <div className="card pt-3" >
-                            <div className="productTabArea ">
+                            <div className="productTabArea supplierDetailsTabs">
                                 <div className="px-6">
                                     <ul >
                                         <li>
@@ -147,7 +147,7 @@ const SuppliersDetails = () => {
                                                 : "tabContent"
                                         }
                                     >
-                                        <div className="w-full " >
+                                        <div className="w-full px-3 " >
                                             <ContactView />
                                             <Goals />
                                             <Notes />

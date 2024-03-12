@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Popup from "reactjs-popup";
+
 import CustomerOnboarding from "./customerStep/customerOnboarding";
 import { CalendarIcon2, DropDownIcon, MeetingIcon, PrePlanIcon, ReminderIcon } from "../../commonComponents/commonSvg";
 import { Button, Drawer, Space } from 'antd';
@@ -15,7 +15,6 @@ const CreateNewDropdown = () => {
     }
  
     const [open, setOpen] = useState(false);
-    const [size, setSize] = useState();
     const showDefaultDrawer = () => {
         setOpen(true);
         setShowDropdown(!showDropdown)
@@ -32,7 +31,7 @@ const CreateNewDropdown = () => {
                         className={showDropdown ? " active btnCreate flex items-center md:ml-auto mb-6" : "btnCreate flex items-center ml-auto mb-6"}>
                         <div className="flex items-center">
                             <CalendarIcon2 />
-                            Create New
+                            <span className="pl-2">Create New</span>
                         </div>
                         <DropDownIcon />
                     </button>
@@ -48,8 +47,7 @@ const CreateNewDropdown = () => {
                                 Pre-Plan
                             </li>
                             <Drawer
-                                placement="right"
-                                size={size}
+                                placement="right"                               
                                 zIndex={999999}
                                 onClose={onClose}
                                 open={open}

@@ -32,7 +32,7 @@ const Login = () => {
         validateEmail(value, setErrorData);
         break;
       case "password":
-        validateEmail(value, setErrorData);
+        validatePassword(value, setErrorData);
         break;
       // Add cases for other form fields
       default:
@@ -62,6 +62,7 @@ const Login = () => {
 
   return (
     <>
+    
       <HeaderLogin />
       <Row className="loginArea bg-white ">
         <Row style={{textAlign: "center"}}>

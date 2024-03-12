@@ -1,16 +1,11 @@
-import { useState } from "react";
 import { Col, Row } from 'antd';
 import { Link } from "react-router-dom";
 import DisplayProduct from "../../commonComponents/displayProduct";
 import SearchFilter from "./searchFilter";
-import Popup from "reactjs-popup";
-import SelectFiled from "../../commonComponents/selectFiled";
-const Search = () => {
-  const [open, setOpen] = useState(false);
-  const closeModal = () => {
-    setOpen(false);
-  };
 
+import SelectProductPopup from "./selectProductPopup";
+const Search = () => {
+  
   const products = [
     {
       productImg: "/images/p7.webp",
@@ -107,139 +102,8 @@ const Search = () => {
             <div className="filter" >
               <SearchFilter />
             </div>
-            <Popup
-              open={open}
-              onClose={() => closeModal()}
-              closeOnDocumentClick={false}
-              className="selectedPopup"
-              trigger={
-                <button
-                  className="selectedBtn mt-3 "
-                  aria-describedby="popup-8"
-                  onClick={() => setOpen((o) => !o)}
-                >
-                  Selected (4)
-                </button>
-              }
-              modal
-              nested
-            >
-              {(close) => (
-                <div className="modal">
-                  <button
-                    className="close"
-                    onClick={() => {
-                      closeModal();
-                      close();
-                    }}
-                  >
-                    <img src="/images/close-circle.svg" />
-                  </button>
-
-                  <div className="popupContent">
-                    <Row gutter={[16, 16]}  >
-                      {products.map((product, index) => (
-                        <Col key={index} className="gutter-row" xs={24} md={12}>
-                          <DisplayProduct
-                            productImg={product.productImg}
-                            productName={product.productName}
-                            productLocation={product.productLocation}
-                            purchaseText={product.purchaseText}
-                            purchasePrice={product.purchasePrice}
-                            productDeal={product.productDeal}
-                            checkboxId={product.checkboxId}
-                          />
-                        </Col>
-                      ))}
-                    </Row>
-                    <Row className="w-full flex justify-center mt-8 popupBtn">
-                      <Popup
-                        open={open}
-                        onClose={() => closeModal()}
-                        closeOnDocumentClick={false}
-                        className="comparePopup"
-                        trigger={
-                          <button
-                            className="btnBg mr-4 "
-                            aria-describedby="popup-8"
-                            onClick={() => setOpen((o) => !o)}
-                          >
-                            Create an Experience
-                          </button>
-                        }
-                        modal
-                        nested
-                      >
-                        {(close) => (
-                          <div className="modal">
-                            <button
-                              className="close"
-                              onClick={() => {
-                                closeModal();
-                                close();
-                              }}
-                            >
-                              <img src="/images/close-circle.svg" />
-                            </button>
-
-                            <div className="popupContent">
-                              <h2>Save your experiences</h2>
-                              <div className=" w-full mt-6 md:mt-10">
-                                <div className="md:max-w-[378px] w-full mb-5">
-                                  <label>Name the experiences</label>
-                                  <input type="text" className="form_control" />
-                                </div>
-                                <div className="md:max-w-[378px] w-full mb-5">
-                                  <label>Description</label>
-                                  <textarea className="form_control"></textarea>
-                                </div>
-                                <div className="md:max-w-[378px] w-full ">
-                                  <label>Choose customers</label>
-                                   <SelectFiled/>
-                                  <div className="w-full afterSelect mt-4">
-                                    <div className="styled-input-container styled-input--square">
-                                      <div className="styled-input-single">
-                                        <input
-                                          checked="checked"
-                                          onChange={() => null}
-                                          type="checkbox"
-                                          name="fieldset-2"
-                                          id="Cantina Mexico 65865"
-                                        />
-                                        <label htmlFor="checked">Cantina Mexico 65865</label>
-                                      </div>
-                                    </div>
-                                    <div className="styled-input-container styled-input--square">
-                                      <div className="styled-input-single">
-                                        <input
-                                          checked="checked"
-                                          onChange={() => null}
-                                          type="checkbox"
-                                          name="fieldset-2"
-                                          id="Flannery’s Bar 34567"
-                                        />
-                                        <label htmlFor="checked">Flannery’s Bar 34567</label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex justify-center w-full popupBtn">
-                                  <button className="btnBorder mr-4">Save</button>
-                                  <button className="btnBorder mr-4" onClick={() => {
-                                    closeModal(); close();
-                                  }}>Cancel</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </Popup>
-                      <button className="btnBorder ">Compare items</button>
-                    </Row>
-                  </div>
-                </div>
-              )}
-            </Popup>
+         
+            <SelectProductPopup/>
           </div>
         </Col>
         <Row gutter={[16, 16]}  >

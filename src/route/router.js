@@ -19,7 +19,7 @@ import SuppliersDetails from '../pages/suppliersMain/suppliersDetails';
 import ChooseCustomer from '../pages/chooseCustomer/customer';
 import ChooseCustomerDetails from '../pages/chooseCustomer/customerDetails';
 import CalendarView from '../pages/calendar/calendar';
-import OnBoarding from '../components/onBoarding';
+import OnBoarding from '../components/onboarding/onBoarding';
 import { useSelector } from 'react-redux';
 
 const ProtectedRoute = ({ redirectPath = '/login' }) => {

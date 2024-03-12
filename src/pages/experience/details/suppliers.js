@@ -85,7 +85,7 @@ const SuppliersTab = () => {
                     </div>
                     <Row gutter={16}
                         className=" mt-4 supplierTabList">
-                        <Col md={12} >
+                        <Col xs={24} md={12} >
                             <div className="contactList">
                                 <h3>Contacts <button className="ml-1"><img
                                     src="/images/create.svg" /></button></h3>
@@ -117,7 +117,7 @@ const SuppliersTab = () => {
                                 </div>
                             </div>
                         </Col>
-                        <Col md={12} >
+                        <Col xs={24} md={12} >
                             <div className="contactList">
                                 <h3>Notes <button className="ml-1"><img
                                     src="/images/create.svg" /></button></h3>
