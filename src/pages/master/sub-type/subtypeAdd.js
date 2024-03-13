@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom";
-
+import { Helmet, HelmetProvider } from 'react-helmet-async'; 
 const SubTypeAdd = () => {
     const navigate = useNavigate()
 
     return (
         <>
+         <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | SubType Add </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> SubType Add</h2>

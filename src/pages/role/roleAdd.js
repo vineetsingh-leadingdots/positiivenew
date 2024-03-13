@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {useNavigate} from "react-router-dom";
 
 const RoleAdd = () => {
@@ -6,6 +7,11 @@ const RoleAdd = () => {
   
     return (
         <>
+         <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Role Add </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> Role Add</h2>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async';   
 import {useNavigate} from "react-router-dom";
 
 const SizeAdd = () => {
@@ -6,6 +7,11 @@ const SizeAdd = () => {
 
     return (
         <>
+         <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Size Add  </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> Size Add</h2>

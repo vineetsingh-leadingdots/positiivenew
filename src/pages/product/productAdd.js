@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import UploadField from '../../commonComponents/uploadField';
@@ -17,6 +18,11 @@ const ProductAdd = () => {
 
     return (
         <>
+         <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Product Add </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-2'> Add Product</h2>

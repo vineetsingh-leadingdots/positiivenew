@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Col, Row } from 'antd';
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +8,11 @@ const NewsAdd = () => {
 
     return (
         <>
+        <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | News Add </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> News Add</h2>

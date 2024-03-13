@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import SearchField from '../../components/searchFIeld'
 import TableList from '../../commonComponents/tableList'
 import { TransactionColumn, TransactionData } from '../../commonComponents/tableData'
@@ -9,6 +10,11 @@ const PromotionsList = () => {
 
     return (
         <>
+         <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Promotion </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'>Promotions</h2>

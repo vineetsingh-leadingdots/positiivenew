@@ -35,7 +35,7 @@ const ForgotPassword = () => {
            <Row style={{ display: "flex", width: "100%", justifyContent: "center" }} >
            <Button className="btn-save" >Submit</Button>          
           </Row>
-          <p className="dontAccounta">           
+          <p className="dontAccounta pt-2">           
             <Link to="/login">
               Login
             </Link>

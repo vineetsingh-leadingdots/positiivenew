@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom";
 
@@ -7,6 +8,11 @@ const MemberAdd = () => {
 
     return (
         <>
+          <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Member Add </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> Member Add</h2>

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import FeaturedProduct from './featuredProduct'
 import Breadcrumb from '../../commonComponents/breadcrumb'
-import {  Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 import TableList from '../../commonComponents/tableList';
 import StockProduct from '../../commonComponents/stockProduct';
 import { columns, dataSource } from '../../commonComponents/tableData';
@@ -47,12 +47,17 @@ const Dashboard = () => {
       productCase: "10 cases",
       productAmount: "$15.99"
     },
- 
+
   ];
   return (
     <>
-    
-     {/* <Breadcrumb linkTo="/dashboard" imgSrc="/images/home2.svg"/>
+      <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Dashboard </title>
+        </Helmet>
+      </HelmetProvider>
+
+      {/* <Breadcrumb linkTo="/dashboard" imgSrc="/images/home2.svg"/>
       <div className="headingH">
         <h2>Dashboard</h2>
       </div>
@@ -110,7 +115,7 @@ const Dashboard = () => {
         </Row>
       </Col> 
       </Row> */}
-      <Breadcrumb linkTo="/dashboard" imgSrc="/images/home2.svg"/>
+      <Breadcrumb linkTo="/dashboard" imgSrc="/images/home2.svg" />
       <div className="headingH">
         <h2>Dashboard</h2>
       </div>
@@ -129,7 +134,7 @@ const Dashboard = () => {
                   <div className="heading pl-6 pb-2">
                     <h2 style={{ marginBottom: "0" }}>Recent Orders</h2>
                   </div>
-                  <TableList data={dataSource} columns={columns} className="dashboardTable"/>
+                  <TableList data={dataSource} columns={columns} className="dashboardTable" />
                 </div>
               </div>
             </Col>
@@ -158,7 +163,7 @@ const Dashboard = () => {
           </Row>
         </Col>
       </Row>
-         </>
+    </>
   )
 }
 

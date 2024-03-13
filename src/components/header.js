@@ -29,7 +29,7 @@ export function Header() {
             key: '1',
             label: (
                 <button target="_blank" rel="noopener noreferrer">
-                    Settings
+                   <span className='fa fa-cogs'/> Settings
                 </button>
             ),
         },
@@ -37,7 +37,7 @@ export function Header() {
             key: '2',
             label: (
                 <button target="_blank" rel="noopener noreferrer" onClick={handlelLogoutUser}>
-                    Logout
+                   <span className='fa fa-sign-out'/>  Logout
                 </button>
             ),
         },
@@ -70,9 +70,7 @@ export function Header() {
                         <div className="bellIcon padding toggleIcon md:hidden" onClick={showDefaultDrawer} >
                            <BurgerMenu/>
                         </div>
-                        {/* <div className="bellIcon padding md:hidden searchIcon" >
-                            <span className={searchShow ? "fa fa-times" : "fa fa-search"} />
-                        </div> */}
+                        
 
                         <Col className="bellIcon padding cursor-pointer" >
                             <BellIcon/>

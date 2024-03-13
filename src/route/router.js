@@ -79,6 +79,7 @@ import Transactions from '../pages/miscellaneous/transactions';
 import PromotionsList from '../pages/miscellaneous/promotions';
 import MediaList from '../pages/miscellaneous/media';
 import ErrorLog from '../pages/miscellaneous/errorLog';
+import AssignProduct from '../pages/product/assignProduct';
 
 
 
@@ -174,6 +175,7 @@ const RouterFile = () => (
           <Route path="/sales-person/list" element={<SalesPerson/>} exact />
           <Route path="/sales-person/add" element={<SalesPersonAdd/>} exact />
           <Route path="/product/list" element={<ProductList/>} exact />
+          <Route path="/assign/product" element={<AssignProduct/>} exact />
           <Route path="/product/add" element={<ProductAdd/>} exact />
           <Route path="/news/list" element={<News/>} exact />
           <Route path="/news/add" element={<NewsAdd/>} exact />
@@ -190,6 +192,7 @@ const RouterFile = () => (
           <Route path="/promotions/list" element={<PromotionsList/>} exact />
           <Route path="/calendar/list" element={<Transactions/>} exact />
           <Route path="/errorLog/list" element={<ErrorLog/>} exact />
+      
         </Route>
       </Route>
     </Routes>

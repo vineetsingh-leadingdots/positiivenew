@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import TabsFile from "../../commonComponents/tabs";
 import { ExperenceDetailsItems } from "./details/experenceDetailsItems";
 
@@ -12,12 +10,11 @@ const ExperenceDetails = () => {
   
     return (
         <>
-            {/* <HelmetProvider>
-                <Helmet>
-                    <title>Positiive | My Experience {experience ? "Update" : "Add"}</title>
-                </Helmet>
-            </HelmetProvider>
-            {isLoading ? <WineLoader/> : ""} */}
+          <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Experience Details </title>
+        </Helmet>
+      </HelmetProvider>
 
             <div className="customerDetailsPage">
                 <div className="headingH">

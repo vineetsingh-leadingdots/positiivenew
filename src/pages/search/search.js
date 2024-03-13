@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd';
+import { Helmet, HelmetProvider } from 'react-helmet-async';   
 import { Link } from "react-router-dom";
 import DisplayProduct from "../../commonComponents/displayProduct";
 import SearchFilter from "./searchFilter";
@@ -49,6 +50,11 @@ const Search = () => {
   ];
   return (
     <>
+     <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Search </title>
+        </Helmet>
+      </HelmetProvider>
     <div className="breadcrumb">
         <Link to="/order-history" className="flex items-center">
           <span>

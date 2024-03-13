@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet, HelmetProvider } from 'react-helmet-async'; 
 const OrderHistoryDetails = () => {
   return (
     <>
+    <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Order History </title>
+        </Helmet>
+      </HelmetProvider>
       <div className="headingH">
         <h2>Order History</h2>
       </div>

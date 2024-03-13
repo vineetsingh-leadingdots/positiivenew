@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { PlusIcon2 } from "../../commonComponents/commonSvg";
 import TabsFile from "../../commonComponents/tabs";
 import ExperiencesItems from "./allExp";
@@ -23,7 +24,11 @@ const AllExperence = () => {
     const handleClick = () => setDeleteShow(!deleteShow);
     return (
         <>
-
+  <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Experiences </title>
+        </Helmet>
+      </HelmetProvider>
             <div className="breadcrumb">
                 <Link to="/order-history" className="flex items-center">
                     <span>

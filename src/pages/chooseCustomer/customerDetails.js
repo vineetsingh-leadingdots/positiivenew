@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import EditCustomer from "./editCustomerPopup";
 import TabsFile from "../../commonComponents/tabs";
 import { CustomerDetailsItem } from "./customerDetailsItem";
@@ -10,6 +10,11 @@ const ChooseCustomerDetails = () => {
   
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Customer Details</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="customerDetailsPage">       
         <div className="breadcrumb">
           <Link to="/order-history" className="flex items-center">

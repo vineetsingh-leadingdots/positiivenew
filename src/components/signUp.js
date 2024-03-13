@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import HeaderLogin from './headerLogin'
 import { Link } from "react-router-dom";
 import { Button, Col, Typography } from 'antd';
@@ -49,18 +50,23 @@ const SignUp = () => {
 
   return (
     <>
+      <HelmetProvider>
+                <Helmet>
+                <title>Positiive | Sales Reps Sign Up </title>
+                </Helmet>
+            </HelmetProvider>
       <HeaderLogin />
-
       <Row className="loginArea bg-white ">
         <Row style={{ textAlign: 'center' }}>
           <Col span={24}>
             <Image src="/images/logo.webp" width="144" className="mx-auto" />
           </Col>
+         
           <Col span={24}>
-            <Title level={4} style={{ textAlign: 'center' }}>Welcome </Title>
+            <Title level={2} style={{  fontSize: "14px" }}>Build by Sales Reps for Sales Reps</Title>
           </Col>
           <Col span={24}>
-            <Title level={5} style={{ margin: "0", fontSize: "14px" }}>Login to your customer portal account</Title>
+            <h6>Sign up for your account</h6>
           </Col>
         </Row>
         <form

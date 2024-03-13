@@ -764,7 +764,7 @@ export const dataSource = [
       key: 'Name',
     },
     {
-      title: 'Created sDate',
+      title: 'Created Date',
       dataIndex: 'CreatedDate',
       key: 'CreatedDate',
     },
@@ -987,4 +987,599 @@ export const dataSource = [
       dataIndex: 'CreatedAt',
       key: 'CreatedAt',
     },
+  ];
+
+  export const MembersListData = [
+    {
+      key: '1',
+      MembersName: 'John',  
+      Email:'johnlee@gmail.com',    
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/member/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    }, 
+  ];
+  
+  export const MembersListColumn = [
+    {
+      title: 'Experience Name',
+      dataIndex: 'MembersName',
+      key: 'MembersName',
+    },   
+
+    {
+      title: 'Email',
+      dataIndex: 'Email',
+      key: 'Email',
+    },  
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+  
+
+  
+  export const RoleData = [
+    {
+      key: '1',
+      Name: 'John',    
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/member/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    }, 
+  ];
+  
+  export const RoleColumn = [
+    {
+      title: 'Role Name',
+      dataIndex: 'Name',
+      key: 'MembersName',
+    },   
+
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+  
+  export const DistributorAdminData = [
+    {
+      key: '1',
+      Distributor: 'Mike',
+      Email: 'supplier1@yopmail.com',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <Link to="/distributor/view" className="actionButton"><i className="fa fa-eye"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+    {
+      key: '2',
+      Distributor: 'Mike',
+      Email: 'supplier1@yopmail.com',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <Link to="/distributor/view" className="actionButton"><i className="fa fa-eye"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },  
+   
+  ];
+  
+  export const DistributorAdminColumns = [
+    {
+      title: 'Distributor Name',
+      dataIndex: 'Distributor',
+      key: 'Distributor',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'Email',
+      key: 'Email',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+  
+  export const VintageData = [
+    {
+      key: '1',
+      Name: 'Mike',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/vintage/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const VintageColumns = [
+    {
+      title: 'Vintage Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+  
+  export const VarietyData = [
+    {
+      key: '1',
+      Name: 'Mike',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/variety/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const VarietyColumns = [
+    {
+      title: 'Variety Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+  
+  export const CountryData = [
+    {
+      key: '1',
+      Name: 'USA',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/country/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const CountryColumns = [
+    {
+      title: 'Country Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+  
+  export const AttributeData = [
+    {
+      key: '1',
+      Name: 'Mike',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/attribute/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const AttributeColumns = [
+    {
+      title: 'Attribute Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+
+  
+  export const RegionsData = [
+    {
+      key: '1',
+      Name: 'Texas',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/region/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const RegionsColumns = [
+    {
+      title: 'Regions Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+  
+  export const RegionsSubData = [
+    {
+      key: '1',
+      Name: 'Houston',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/region/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const RegionsSubColumns = [
+    {
+      title: 'Sub Region Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+  
+  export const SizeData = [
+    {
+      key: '1',
+      Name: 'Size',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/sub/region/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const SizeColumns = [
+    {
+      title: 'Size Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+  
+  export const RatingData = [
+    {
+      key: '1',
+      Name: 'Rating',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/rating/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const RatingColumns = [
+    {
+      title: 'Rating Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+  
+  export const StylesData = [
+    {
+      key: '1',
+      Name: 'Style',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/style/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const StylesColumns = [
+    {
+      title: 'Style Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+
+  
+  export const CategoryData = [
+    {
+      key: '1',
+      Name: 'Category',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/category/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const CategoryColumns = [
+    {
+      title: 'Category Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },    
+  ];
+
+
+  
+  export const TypeData = [
+    {
+      key: '1',
+      Name: 'Type',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/type/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const TypeColumns = [
+    {
+      title: 'Type Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },    
+  ];
+
+
+
+  
+  export const SubTypesData = [
+    {
+      key: '1',
+      Name: 'Type',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/type/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const SubTypesColumns = [
+    {
+      title: 'SubType Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },    
+  ];
+
+
+  
+  export const NosePalatesData = [
+    {
+      key: '1',
+      Name: 'Nose ',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/nose/palate/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const NosePalatesColumns = [
+    {
+      title: 'Nose Palate Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },    
+  ];
+
+  
+  export const ClassificationData = [
+    {
+      key: '1',
+      Name: 'Classification ',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/classification/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+   
+  ];
+  
+  export const ClassificationColumns = [
+    {
+      title: 'Classification Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },    
+  ];
+
+  
+  
+  export const AssignProductData = [
+    {
+      key: '1',
+        checkBox:<>
+       <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+        <input type="checkbox" name="fieldset-2" id="blanco"/>
+          <label for="blanco">
+            </label>
+            </div>
+            </div>
+      </>,
+      SrNo: '13223 ',
+      Image:'-',
+      ProductName:"-",	
+      Country:"-",
+      ProductType:"-",	
+      Variety:"-",
+      Vintage:"-",      
+    },    
+   
+  ];
+  
+  export const AssignProductColumns = [
+
+    {
+      title: '',
+      dataIndex: 'checkBox',
+      key: 'checkBox',
+      render: (checkBox) => checkBox,
+    },
+    {
+      title: 'Sr.No',
+      dataIndex: 'SrNo',
+      key: 'SrNo',
+    },
+    {
+      title: 'Image',
+      dataIndex: 'Image',
+      key: 'Image',
+    },
+    {
+      title: 'ProductName',
+      dataIndex: 'ProductName',
+      key: 'ProductName',
+    },
+    {
+      title: 'Country',
+      dataIndex: 'Country',
+      key: 'Country',
+    },
+    {
+      title: 'Product Type',
+      dataIndex: 'ProductType',
+      key: 'ProductType',
+    },
+    {
+      title: 'Variety',
+      dataIndex: 'Variety',
+      key: 'Variety',
+    },
+    {
+      title: 'Vintage',
+      dataIndex: 'Vintage',
+      key: 'Vintage',
+    },
+     
   ];

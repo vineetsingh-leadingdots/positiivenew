@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {useNavigate} from "react-router-dom";
 
 const ClassificationAdd = () => {
@@ -6,6 +7,11 @@ const ClassificationAdd = () => {
 
     return (
         <>
+          <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Classification Add </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> Classification Add</h2>

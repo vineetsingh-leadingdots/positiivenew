@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet, HelmetProvider } from 'react-helmet-async'; 
 import { OrderHistoryData2, columnOrder2 } from "../../commonComponents/tableData";
 import TableList from "../../commonComponents/tableList";
 
@@ -19,7 +20,11 @@ const OrderHistory2 = () => {
     }
    
     return (
-        <>
+        <><HelmetProvider>
+        <Helmet>
+          <title>Positiive | Order History </title>
+        </Helmet>
+      </HelmetProvider>
 
            <div className="orderHistory2">
            <div className="breadcrumb">

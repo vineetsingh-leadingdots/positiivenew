@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet, HelmetProvider } from 'react-helmet-async'; 
 import { Link } from "react-router-dom";
 import TableList from '../../commonComponents/tableList';
 import { OrderHistoryData, columnOrder } from "../../commonComponents/tableData";
@@ -11,6 +12,11 @@ const OrderHistory = () => {
   };
   return (
     <>
+     <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Order History </title>
+        </Helmet>
+      </HelmetProvider>
       <div className="breadcrumb">
         <Link to="/order-history" className="flex items-center">
           <span>

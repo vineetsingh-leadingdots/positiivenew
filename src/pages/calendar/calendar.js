@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Popup1 from "./popup1";
 import Popup2 from "./popup2";
 import CustomCalendar from "./customCalendar";
@@ -9,6 +10,12 @@ const CalendarView = () => {
 
     return (
         <>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Calendar </title>
+                </Helmet>
+            </HelmetProvider>
+
             <div className="breadcrumb">
                 <Link to="/calendar" className="flex items-center">
                     <span>
@@ -28,7 +35,7 @@ const CalendarView = () => {
                     <Popup2 />
                     <div className="card pt-8">
                         {/* <CustomCalendar /> */}
-                        <MyCalendar/>
+                        <MyCalendar />
                     </div>
                 </div>
             </div>

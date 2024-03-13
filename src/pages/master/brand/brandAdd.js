@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const BrandAdd = () => {
     const navigate = useNavigate()
@@ -14,6 +15,11 @@ const BrandAdd = () => {
     }
     return (
         <>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Brand Add </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> Brand Add</h2>
@@ -31,13 +37,13 @@ const BrandAdd = () => {
                                         <div className='imageButtonRadius'>
                                             <button type="button"
                                                 onClick={() => setImageView('image_circle')}
-                                                className='btn_circle'><img src='/images/img.png'/></button>
+                                                className='btn_circle'><img src='/images/img.png' /></button>
                                             <button type="button"
                                                 onClick={() => setImageView('image_rectangle')}
-                                                className='btn_rectangle'><img src='/images/img.png'/></button>
+                                                className='btn_rectangle'><img src='/images/img.png' /></button>
                                             <button type="button"
                                                 onClick={() => setImageView('image_square')}
-                                                className='btn_square'><img src='/images/img.png'/></button>
+                                                className='btn_square'><img src='/images/img.png' /></button>
                                         </div>
                                         <div className="relative mt-6 text-center">
                                             <div className={`imageView ${imageView} rounded-full border-2 mb-2`}>
@@ -57,7 +63,7 @@ const BrandAdd = () => {
                                                     onChange={handleUpload}
                                                     className="formControl"
                                                 />
-                                               <img src='/images/img-upload.png'/>
+                                                <img src='/images/img-upload.png' />
                                             </div>
                                         </div>
                                     </div>
@@ -68,18 +74,18 @@ const BrandAdd = () => {
                                     <div className="help-block"></div>
                                 </div>
                             </div>
-                                <div className=" w-full ">
-                                    <div className="form-group mb-6 ">
-                                        <label className="formBlock mb-2 py-2">Name *</label>
-                                        <input
-                                            id="name"
-                                            name="name"
-                                            type="text"
-                                            placeholder="Enter brand name"
-                                            className="formControl"
-                                        />
-                                    </div>
-                                </div>                    
+                            <div className=" w-full ">
+                                <div className="form-group mb-6 ">
+                                    <label className="formBlock mb-2 py-2">Name *</label>
+                                    <input
+                                        id="name"
+                                        name="name"
+                                        type="text"
+                                        placeholder="Enter brand name"
+                                        className="formControl"
+                                    />
+                                </div>
+                            </div>
 
                             <div className="w-full formFooter">
                                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">

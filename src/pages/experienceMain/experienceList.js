@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import SearchField from '../../components/searchFIeld'
 import AddButton from '../../components/addButton'
 import TableList from '../../commonComponents/tableList'
@@ -9,6 +10,11 @@ const ExperienceList = () => {
 
     return (
         <>
+        <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Experience </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> Experiences</h2>

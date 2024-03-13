@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet, HelmetProvider } from 'react-helmet-async'; 
 import { OrderHistoryAllData, columnOrderAll } from "../../commonComponents/tableData";
 import TableList from "../../commonComponents/tableList";
 import { SearchIcon2 } from "../../commonComponents/commonSvg";
 const OrderHistoryAll = () => {
   return (
     <>
+    <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Order History </title>
+        </Helmet>
+      </HelmetProvider>
     <div className="historyPage">     
       <div className="breadcrumb">
         <Link to="/order-history" className="flex items-center">

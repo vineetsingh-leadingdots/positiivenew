@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {useNavigate} from "react-router-dom";
 
 const AttributeAdd = () => {
@@ -6,6 +7,11 @@ const AttributeAdd = () => {
 
     return (
         <>
+        <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Attribute Add</title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'> Attribute Add</h2>

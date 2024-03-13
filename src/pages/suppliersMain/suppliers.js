@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 import TableList from "../../commonComponents/tableList";
 import { SupplierColumnData, supplierPageData } from "./supplierData";
@@ -7,7 +8,11 @@ import SupplierTopCard from "./supplierTopCard";
 const Suppliers = () => {
   return (
     <>
-
+<HelmetProvider>
+        <Helmet>
+          <title>Positiive | Suppliers </title>
+        </Helmet>
+      </HelmetProvider>
       <div className="suppliersMain">
         <div className="breadcrumb">
           <Link to="/order-history" className="flex items-center">

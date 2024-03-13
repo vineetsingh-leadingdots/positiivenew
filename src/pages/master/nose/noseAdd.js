@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom";
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const NoseAdd = () => {
     const navigate = useNavigate()
     const [file, setFile] = useState();
@@ -14,6 +14,11 @@ const NoseAdd = () => {
     }
     return (
         <>
+        <HelmetProvider>
+                <Helmet>
+                    <title>Positiive | Nose Palate Add  </title>
+                </Helmet>
+            </HelmetProvider>
             <div className='content masterPages'>
                 <div className='w-full mb-4'>
                     <h2 className='mb-4'>Nose Palate Add</h2>

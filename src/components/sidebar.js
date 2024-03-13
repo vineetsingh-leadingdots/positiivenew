@@ -22,7 +22,8 @@ const items = [
   {
     label: 'Products', key: '8', icon: <ProductOutlined />,
     children: [
-      { label: 'Product List', key: '8-1', link: '/brand/list' },
+      { label: 'Product List', key: '8-1', link: '/product/list' },
+      { label: 'Assign Product', key: '8-2', link: '/assign/product' },
     ]
   },
   {
@@ -54,12 +55,27 @@ const items = [
   },
   { label: 'Suppliers', key: '10', icon: <PeopleCircleIcon />, link: '/suppliers' },
   { label: 'Sales Person', key: '11', icon: <PeopleCircleIcon />, link: '/sales-person/list' },
-  { label: 'Company Goals', key: '12', icon: <CompanyGoalsIcon />, link: '/company-goals' },
-  { label: 'Innovations', key: '13', icon: <HardwareChipIcon />, link: '/innovations' },
-  { label: 'Industry News', key: '14', icon: <CompanyGoalsIcon />, link: '/industry-news' },
-  { label: 'Compliance', key: '15', icon: <ComplianceIcon />, link: '/compliance' },
+  { label: 'Company Goals', key: '12', icon: <CompanyGoalsIcon />, link: '/company-goals/list' },
+  { label: 'Innovations', key: '13', icon: <HardwareChipIcon />, link: '/innovations/list' },
+  { label: 'Industry News', key: '14', icon: <CompanyGoalsIcon />, link: '/news/list' },
+  { label: 'Compliance', key: '15', icon: <ComplianceIcon />, link: '/compliance/list' },
   { label: 'Customer', key: '16', icon: <UsergroupAddOutlined  />, link: '/customer' },
-  { label: 'Logout', key: '17', icon: <LogoutOutlined style={{ fontSize: "20px" }} />, link: '/logout' },
+  { label: 'Users', key: '17', icon: <span className='fa fa-users'  />, link: '/member/list' },
+  { label: 'Roles', key: '18', icon: <span className='fa fa-list'  />, link: '/role/list' },
+  { label: 'Supplier', key: '19', icon: <span className='fa fa-truck'  />, link: '/supplier/list' },
+  { label: 'Distributor', key: '20', icon: <span className='fa fa-link'  />, link: '/distributor/list' },
+
+
+  { label: 'Quiz', key: '21', icon: <span className='fa fa-question-circle'  />, link: '/quiz/list' },
+  { label: 'Feedbacks', key: '22', icon: <span className='fa fa-comments'  />, link: '/feedback/list' },
+  { label: 'My Experiences', key: '23', icon: <><img src="/images/sparkles.svg"/></>, link: '/experience/list' },
+  { label: 'Divisions', key: '24', icon: <UsergroupAddOutlined  />, link: '/division/list' },
+  { label: 'Transactions', key: '25', icon: <span className='fa fa-dollar'  />, link: '/transactions/list' },
+  { label: 'Media', key: '26', icon: <span className='fa fa-camera'  />, link: '/media/list' },
+  { label: 'Promotions', key: '27', icon: <span className='fa fa-bullhorn'  />, link: '/promotions/list' },
+  { label: 'Calendar', key: '28', icon: <span className='fa fa-calendar'  />, link: '/calendar/list' },
+  { label: 'Error Logs', key: '29', icon: <span className='fa fa-exclamation-triangle'  />, link: '/errorLog/list' },
+  { label: 'Logout', key: '30', icon: <LogoutOutlined style={{ fontSize: "20px" }} />, link: '/logout' },
 ];
 
 const Sidebar = () => {

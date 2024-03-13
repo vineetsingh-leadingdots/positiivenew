@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import TableList from "../../commonComponents/tableList";
 import { CustomerColumn, CustomerData } from "./customerTableData";
-// import { Helmet, HelmetProvider } from "react-helmet-async";
+
 const ChooseCustomer = () => {
   return (
     <>
-      {/* <HelmetProvider>
+      <HelmetProvider>
         <Helmet>
           <title>Positiive | Customer</title>
         </Helmet>
-      </HelmetProvider> */}
+      </HelmetProvider>
       <div className="chooseCutomerPage">
 
         <div className="breadcrumb">
