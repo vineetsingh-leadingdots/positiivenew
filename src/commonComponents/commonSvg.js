@@ -107,8 +107,8 @@ export const PhoneIcon = () => {
 
 }
 
-export const EyeIcon = () => {
-    const [passwordShown, setPasswordShown] = useState(false);
+export const EyeIcon = ({ setPasswordShown, passwordShown}) => {
+   
     return (
         <>
             <div className="eyeIcon2">
@@ -119,7 +119,6 @@ export const EyeIcon = () => {
             </div>
         </>
     )
-
 }
 
 export const HomeIcon = () => {

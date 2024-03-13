@@ -28,24 +28,44 @@ export const validatePassword = (password, setErrorData) => {
   };
 };
 
-export const validateName = (name) => {
+export const validateFirstName = (name, setErrorData) => {
   return {
-    valid: name.trim() !== "",
-    message: "Please enter your name."
+    valid: name.trim() !== "" ? setErrorData((prevErrors) => ({
+      ...prevErrors,
+      firstNameError: ""
+    }))
+  : setErrorData((prevErrors) => ({
+      ...prevErrors,
+      firstNameError: "Password must be at least 8 characters long."
+    }))
   };
 };
 
-export const validateLastName = (lastName) => {
+export const validateLastName = (lastName, setErrorData) => {
   return {
-    valid: lastName.trim() !== "",
-    message: "Please enter your last name."
+    valid: lastName.trim() !== "" ? setErrorData((prevErrors) => ({
+      ...prevErrors,
+      lastNameError: ""
+    }))
+  : setErrorData((prevErrors) => ({
+      ...prevErrors,
+      lastNameError: "Password must be at least 8 characters long."
+    })),
   };
 };
 
-export const validatePhone = (phone) => {
+export const validatePhone = (phone, setErrorData) => {
   const phoneRegex = /^\d{10}$/;
   return {
-    valid: phoneRegex.test(phone),
+   
+    valid: phoneRegex.test(phone)  ? setErrorData((prevErrors) => ({
+      ...prevErrors,
+      mobileNumberError: ""
+    }))
+  : setErrorData((prevErrors) => ({
+      ...prevErrors,
+      mobileNumberError: "Password must be at least 8 characters long."
+    })),
     message: "Please enter a valid phone number (10 digits)."
   };
 };
