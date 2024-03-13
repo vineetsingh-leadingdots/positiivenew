@@ -25,7 +25,6 @@ export const authApi = createApi({
           dispatch(user(data))
           dispatch(authToken(data?.accessToken))
         } catch (error) {
-          console.log(error?.error?.status, "error");
           // onError side-effect
           commonErrorHandler(error?.error,   dispatch);
         }

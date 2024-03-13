@@ -38,7 +38,7 @@ export const commonErrorHandler = (error, dispatch) => {
         placement: 'top',
         duration: 2,
         closeIcon:true,
-        description: `${error.data.message}`,
+        description: `${error?.data?.message}`,
         threshold:2
       });
       notification.error(config)
