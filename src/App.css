@@ -2340,11 +2340,12 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
 .ant-modal-root, .ant-modal-mask{max-width: 1440px; width: 100%;left: 0;  right: 0;  margin: 0 auto;}
 .ant-modal-wrap.ant-modal-centered{ max-width: 1440px; width: 100%; left: 0;  right: 0;  margin: 0 auto;}
 
-
-
-
-
-
+.dashboardCard .icon{ width: 58px;  height: 58px;  background: #264653;  border-radius: 8px;
+    display: flex;  align-items: center;  justify-content: center;  font-size: 22px; color: #fff;}
+.dashboardCard h4{ margin-bottom: 8px; text-transform: uppercase; color: #52545C; opacity: .8;}
+.dashboardCard a{ display: flex; opacity: .8; font-weight: 600;   justify-content: space-between; font-size: 14px;  align-items: center;}
+.dashboardCard a span{ background: #264653; color: #fff; border-radius: 50%; display: flex; padding: 4px; width: 24px; height: 24px; align-items: center; justify-content: center;}
+.dashboardCard h2{ color: #264653;}
 
 
 
@@ -2407,6 +2408,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     
     @media (max-width:1195px) {
     .productTabArea ul li a{padding: 8px 8px;}
+    .calendarPageIn{ width: 100%;}
     }
     @media (max-width: 1120px) {
     
@@ -2418,6 +2420,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     .orderFour .stockList .stockContent {      width: 70%;  }
     .experenceDetails .dealLeft{ flex-wrap: wrap; gap: 4px;}
     .productLocation{ flex-wrap: wrap;}
+   
     }
     @media (max-width: 1023px) {
     .mainWrapper{ flex-wrap: wrap;}    
@@ -2498,6 +2501,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     
     @media (max-width: 991px) {
         .onboardingArea{ max-width: 95%;   }
+       
     }
     @media (max-width: 767px) {
 
@@ -2722,7 +2726,7 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
     .newProductBtns{ flex-direction: column;}
     .newProductHeading{flex-direction: column; align-items: baseline; padding-bottom: 8px; }
     .newProductHeading div{ width: 100%;}
-    
+    .createNewBtn{ padding-top: 60px;}
     }
     
     @media (max-width: 414px) {

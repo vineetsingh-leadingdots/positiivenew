@@ -80,6 +80,8 @@ import PromotionsList from '../pages/miscellaneous/promotions';
 import MediaList from '../pages/miscellaneous/media';
 import ErrorLog from '../pages/miscellaneous/errorLog';
 import AssignProduct from '../pages/product/assignProduct';
+import DashboardAdmin from '../pages/dashboard/dashboardAdmin';
+import DashboardSupplier from '../pages/supplierAdmin/dashboard/dashboardSupplier';
 
 
 
@@ -116,6 +118,7 @@ const RouterFile = () => (
       <Route element={<ProtectedRoute/>}>
         <Route element={<AdminLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin/dashboard" element={<DashboardAdmin/>} />
           <Route path="/search" element={<Search />} />
           <Route path="/search/detail" element={<SearchDetail />} />
           <Route path="/order-history" element={<OrderHistory />} exact />
@@ -192,6 +195,11 @@ const RouterFile = () => (
           <Route path="/promotions/list" element={<PromotionsList/>} exact />
           <Route path="/calendar/list" element={<Transactions/>} exact />
           <Route path="/errorLog/list" element={<ErrorLog/>} exact />
+
+         
+          {/* Supplier-Dashbaord*/}
+
+          <Route path="/supplier/dashboard" element={<DashboardSupplier/>} />
       
         </Route>
       </Route>
