@@ -1,12 +1,26 @@
 import { useState } from "react";
 import { Modal } from 'antd';
+import { useDeleteBrandMutation } from "../services/brandApi";
+import { useEffect } from "react";
 
-const DeletePopup = () => {
-
+const DeletePopup = ({deleteId, refetch}) => {
+    const [ deleteBrand, { isSuccess: deleteBrandSuccess }] = useDeleteBrandMutation();
     const [modal1Open, setModal1Open] = useState(false);
     const closeModal = () => {
         setModal1Open(false);
     };
+    const handleDelete = (e) => {
+        e.preventDefault();
+        deleteBrand(deleteId);
+    };
+
+    useEffect(() => {
+        if(deleteBrandSuccess){
+            refetch();
+            closeModal();
+        }
+    }, [ deleteBrandSuccess ]);
+    
     return (
         <>
             <button className="actionButton delete " onClick={() => setModal1Open(true)}>
@@ -35,7 +49,12 @@ const DeletePopup = () => {
                         <p>   You won't be able to revert this!</p>
 
                         <div className="flex justify-center gap-5 popupBtn pt-10">
-                            <button className="btnBack submit ">Delete</button>
+                            <button 
+                                className="btnBack submit " 
+                                onClick={handleDelete}
+                            >
+                                Delete
+                            </button>
                             <button className="btnBack  " onClick={() => {
                                 closeModal();
                                 close();

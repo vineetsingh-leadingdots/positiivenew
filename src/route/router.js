@@ -81,10 +81,6 @@ import MediaList from '../pages/miscellaneous/media';
 import ErrorLog from '../pages/miscellaneous/errorLog';
 import AssignProduct from '../pages/product/assignProduct';
 
-
-
-
-
 const ProtectedRoute = ({ redirectPath = '/login' }) => {
   const authToken = useSelector((state) => state.persistedReducer.user.accessToken);
   if (!authToken) {
@@ -129,7 +125,6 @@ const RouterFile = () => (
           <Route path="/customer/detail" element={<ChooseCustomerDetails />} exact />
           <Route path="/suppliers" element={<Suppliers />} exact />
           <Route path="/suppliers/detail" element={<SuppliersDetails />} exact />
-          
           <Route path="/brand/list" element={<Brand/>} exact />
           <Route path="/brand/add" element={<BrandAdd/>} exact />
           <Route path="/variety/list" element={<Variety/>} exact />
