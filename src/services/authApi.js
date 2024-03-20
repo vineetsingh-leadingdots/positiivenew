@@ -46,7 +46,6 @@ export const authApi = createApi({
           // onSuccess side-effect
           dispatch(user(data))
         } catch (error) {
-          console.log(error?.error?.status, "error");
           // onError side-effect
           commonErrorHandler(error?.error,   dispatch);
         }
@@ -68,7 +67,6 @@ export const authApi = createApi({
           // onSuccess side-effect
           dispatch(user(data))
         } catch (error) {
-          console.log(error?.error?.status, "error");
           // onError side-effect
           commonErrorHandler(error?.error,   dispatch);
         }

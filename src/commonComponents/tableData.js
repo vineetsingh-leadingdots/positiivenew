@@ -600,22 +600,18 @@ export const dataSource = [
     },
   ];
 
-
-
-
-  export const BrandData = [
-    {
-      key: '1',
-      BrandName: 'Mike',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/brand/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },    
-   
-  ];
+  // export const BrandData = [
+  //   {
+  //     key: '1',
+  //     BrandName: 'Mike',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/brand/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },    
+  // ];
   
   export const BrandColumns = [
     {
