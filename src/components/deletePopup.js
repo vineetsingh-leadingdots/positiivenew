@@ -2,16 +2,23 @@ import { useState } from "react";
 import { Modal } from 'antd';
 import { useDeleteBrandMutation } from "../services/brandApi";
 import { useEffect } from "react";
+import { useDeleteAttributeMutation } from "../services/attributeApi";
 
-const DeletePopup = ({deleteId, refetch}) => {
+const DeletePopup = ({deleteId, attributeDeleteId, refetch, refetchAttribute}) => {
     const [ deleteBrand, { isSuccess: deleteBrandSuccess }] = useDeleteBrandMutation();
-    const [modal1Open, setModal1Open] = useState(false);
+    const [ deleteAttribute, { isSuccess: deleteAttributeSuccess }] = useDeleteAttributeMutation();
+    const [modal1Open, setModal1Open] = useState(false); 
     const closeModal = () => {
         setModal1Open(false);
     };
     const handleDelete = (e) => {
         e.preventDefault();
-        deleteBrand(deleteId);
+        if(deleteId){
+            deleteBrand(deleteId);
+        }
+        else if(attributeDeleteId){
+            deleteAttribute(attributeDeleteId);
+        }
     };
 
     useEffect(() => {
@@ -19,7 +26,11 @@ const DeletePopup = ({deleteId, refetch}) => {
             refetch();
             closeModal();
         }
-    }, [ deleteBrandSuccess ]);
+        else if(deleteAttributeSuccess){
+            refetchAttribute();
+            closeModal();
+        }
+    }, [ deleteBrandSuccess, deleteAttributeSuccess ]);
     
     return (
         <>
