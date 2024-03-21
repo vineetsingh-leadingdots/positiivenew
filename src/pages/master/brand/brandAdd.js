@@ -97,7 +97,6 @@ const BrandAdd = () => {
                                         </div>
                                         <div className="relative mt-6 text-center">
                                             <div className={`imageView ${imageView} rounded-full border-2 mb-2`}>
-                                                {console.log(preview1, brandData, "preview")}
                                                 {brandData ? (
                                                     <img src={preview1 ? preview1 : brandData?.file} alt="LOGO" />
                                                 ) : (

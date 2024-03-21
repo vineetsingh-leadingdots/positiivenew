@@ -13,7 +13,7 @@ const Brand = () => {
     const { data: brandListData, refetch } = useListBrandQuery();
     const navigate = useNavigate();
 
-     useEffect(() => {
+    useEffect(() => {
         refetch();
     }, [ brandListData ]);
 

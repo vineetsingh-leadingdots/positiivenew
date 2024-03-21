@@ -1187,19 +1187,19 @@ export const dataSource = [
   ];
 
   
-  export const AttributeData = [
-    {
-      key: '1',
-      Name: 'Mike',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/attribute/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },    
+  // export const AttributeData = [
+  //   {
+  //     key: '1',
+  //     Name: 'Mike',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/attribute/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },    
    
-  ];
+  // ];
   
   export const AttributeColumns = [
     {

@@ -1,11 +1,39 @@
-import React from 'react'
+import React from 'react';
+import { useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import SearchField from '../../../components/searchFIeld'
 import AddButton from '../../../components/addButton'
 import TableList from '../../../commonComponents/tableList'
-import { AttributeColumns, AttributeData, BrandColumns, BrandData } from '../../../commonComponents/tableData'
+import { AttributeColumns, AttributeData } from '../../../commonComponents/tableData'
+import { useListAttributeQuery } from '../../../services/attributeApi';
+import DeletePopup from '../../../components/deletePopup';
+import { useNavigate } from 'react-router';
 
 const Attribute = () => {
+
+    const { data: attributeListData, refetch } = useListAttributeQuery();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        refetch();
+    }, [ attributeListData ]);
+
+    const tableData = attributeListData?.data.map((attribute) => ({
+        key: attribute?.id?.toString(), 
+        Name: attribute?.name,
+        Actions: (
+            <div className="flex gap-1">
+               <button onClick={() => navigate("/attribute/add", { state: { AttributeData: attribute } })} className="actionButton">
+                    <i className="fa fa-pencil" />
+                </button>
+                <DeletePopup
+                    attributeDeleteId={attribute?.id}
+                    refetchAttribute={refetch}
+                />
+            </div>
+        ),
+    }));
+
 
     return (
         <>
@@ -29,7 +57,7 @@ const Attribute = () => {
                 </div>
                 <div className='card '>
                     <div className='tableAreaMaster '>
-                        <TableList data={AttributeData} columns={AttributeColumns} />
+                        <TableList data={tableData} columns={AttributeColumns} />
                     </div>
                 </div>
             </div>
