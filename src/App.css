@@ -2350,6 +2350,23 @@ button.btn-beer.wine.absolute.bottom-7.left-24{  position: absolute;  bottom: 8p
 .dashboardCard a span{ background: #264653; color: #fff; border-radius: 50%; display: flex; padding: 4px; width: 24px; height: 24px; align-items: center; justify-content: center;}
 .dashboardCard h2{ color: #264653;}
 
+.timeCard{ border-radius: 4px; background: #EAEAEA; padding: 12px; text-align: center; max-width: 208px;}
+.timeCard p{ font-weight: 500; color: #49454F;}
+.timeCardBox{ display: flex; justify-content: center; gap: 10px; margin: 12px auto; }
+.timeCardBox .timeItem{  background: #264653; border-radius: 8px;   border: 2px solid #fff;
+    width: 46px;  height: 43px; font-size: 18px;  color: #fff;  display: flex;
+    align-items: center;  justify-content: center;  font-weight: 600;     overflow: hidden;}
+.timeDots{  width: 20px;  height: 43px; font-size: 18px;  color: #000;  display: flex;
+    align-items: center;  justify-content: center;  font-weight: 900;}
+    .timeZoneSwitch{ width: 100%;}
+.timeZoneSwitch label{ position: relative;     line-height: 19px; font-size: 13px; margin-bottom: 0; cursor: pointer; width: auto;}
+.timeZoneSwitch label input{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; visibility: hidden; }    
+.timeZoneSwitch label span{  width: 100%; display: block; color: #fff; }
+.timeZoneSwitch label input:checked + span{ color: #c3c3c3;  background-color:#456572fc;}
+.timeBoxBtn .timeBtn{ font-size: 14px; text-align: center; color: #fff; text-transform: uppercase; background: #264653;    line-height: 18px; border-radius: 30px; }
+.timeBoxBtn{ display: flex; justify-content: center; gap: 16px; }
+.timeBtn.cancel{ background-color:#456572fc; text-transform: capitalize;     color: #c3c3c3;}
+
 
 
 @media (max-width: 1440px) {
