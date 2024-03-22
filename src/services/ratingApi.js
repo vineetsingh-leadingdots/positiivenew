@@ -3,8 +3,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 //import { useNavigate } from 'react-router-dom';
 
-export const attributeApi = createApi({
-  reducerPath: "attributeApi",
+export const ratingApi = createApi({
+  reducerPath: "ratingApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -18,18 +18,18 @@ export const attributeApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listAttribute: builder.query({
+    listRating: builder.query({
       query : () => {
         return {
-          url: `/attribute/lists`,
+          url: `/rating/lists`,
           method: "GET"
         };
       },
     }),
-    createAttribute: builder.mutation({
+    createRating: builder.mutation({
       query : (formData) => {
         return {
-          url: `/attribute/create-or-update`,
+          url: `/rating/create-or-update`,
           method: "POST",
           body: formData
         };
@@ -43,8 +43,8 @@ export const attributeApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Attribute Created/Updated Successfully',
-            description: 'Your attribute has been created/updated successfully.',
+            message: 'Rating Created/Updated Successfully',
+            description: 'Your rating has been created/updated successfully.',
             threshold: 2
           });
           
@@ -54,10 +54,10 @@ export const attributeApi = createApi({
         }
       },
     }),
-    deleteAttribute: builder.mutation({
-      query : (attributeId) => {
+    deleteRating: builder.mutation({
+      query : (ratingId) => {
         return {
-          url: `/attribute/delete/${attributeId}`,
+          url: `/rating/delete/${ratingId}`,
           method: "DELETE"
         };
       },
@@ -67,12 +67,12 @@ export const attributeApi = createApi({
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Attribute Deleted Successfully',
+            message: 'Rating Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your attribute has been deleted successfully.',
+            description: 'Your rating has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -82,6 +82,6 @@ export const attributeApi = createApi({
     }),
   })
 });
-export const { useCreateAttributeMutation, useDeleteAttributeMutation, useListAttributeQuery } = attributeApi;
+export const { useCreateRatingMutation, useDeleteRatingMutation, useListRatingQuery} = ratingApi;
 
 

@@ -41,7 +41,7 @@ export const brandApi = createApi({
           // onSuccess side-effect
           notification.success({
             placement: 'top',
-            duration: 2,
+            duration: 5,
             closeIcon:true,
             message: 'Brand Created/Updated Successfully',
             description: 'Your brand has been created/updated successfully.',
@@ -69,7 +69,7 @@ export const brandApi = createApi({
           notification.success({
             message: 'Brand Deleted Successfully',
             placement: 'top',
-            duration: 2,
+            duration: 5,
             closeIcon:true,
             threshold: 2,
             description: 'Your brand has been deleted successfully.',
