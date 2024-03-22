@@ -3,10 +3,12 @@ import { Modal } from 'antd';
 import { useDeleteBrandMutation } from "../services/brandApi";
 import { useEffect } from "react";
 import { useDeleteAttributeMutation } from "../services/attributeApi";
+import { useDeleteRatingMutation } from "../services/ratingApi";
 
-const DeletePopup = ({deleteId, attributeDeleteId, refetch, refetchAttribute}) => {
+const DeletePopup = ({deleteId, attributeDeleteId, ratingdeleteId, refetch, refetchAttribute, refetchRating}) => {
     const [ deleteBrand, { isSuccess: deleteBrandSuccess }] = useDeleteBrandMutation();
     const [ deleteAttribute, { isSuccess: deleteAttributeSuccess }] = useDeleteAttributeMutation();
+    const [ deleteRating, { isSuccess: deleteRatingSuccess }] = useDeleteRatingMutation();
     const [modal1Open, setModal1Open] = useState(false); 
     const closeModal = () => {
         setModal1Open(false);
@@ -19,6 +21,9 @@ const DeletePopup = ({deleteId, attributeDeleteId, refetch, refetchAttribute}) =
         else if(attributeDeleteId){
             deleteAttribute(attributeDeleteId);
         }
+        else if(ratingdeleteId){
+            deleteRating(ratingdeleteId);
+        }
     };
 
     useEffect(() => {
@@ -30,7 +35,11 @@ const DeletePopup = ({deleteId, attributeDeleteId, refetch, refetchAttribute}) =
             refetchAttribute();
             closeModal();
         }
-    }, [ deleteBrandSuccess, deleteAttributeSuccess ]);
+        else if(deleteRatingSuccess){
+            refetchRating();
+            closeModal();
+        }
+    }, [ deleteBrandSuccess, deleteAttributeSuccess, deleteRatingSuccess ]);
     
     return (
         <>
@@ -68,7 +77,7 @@ const DeletePopup = ({deleteId, attributeDeleteId, refetch, refetchAttribute}) =
                             </button>
                             <button className="btnBack  " onClick={() => {
                                 closeModal();
-                                close();
+                                //close();
                             }}
                             >Cancel</button>
 
