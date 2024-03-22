@@ -83,10 +83,6 @@ import AssignProduct from '../pages/product/assignProduct';
 import DashboardAdmin from '../pages/dashboard/dashboardAdmin';
 import DashboardSupplier from '../pages/supplierAdmin/dashboard/dashboardSupplier';
 
-
-
-
-
 const ProtectedRoute = ({ redirectPath = '/login' }) => {
   const authToken = useSelector((state) => state.persistedReducer.user.accessToken);
   if (!authToken) {
@@ -132,7 +128,6 @@ const RouterFile = () => (
           <Route path="/customer/detail" element={<ChooseCustomerDetails />} exact />
           <Route path="/suppliers" element={<Suppliers />} exact />
           <Route path="/suppliers/detail" element={<SuppliersDetails />} exact />
-          
           <Route path="/brand/list" element={<Brand/>} exact />
           <Route path="/brand/add" element={<BrandAdd/>} exact />
           <Route path="/variety/list" element={<Variety/>} exact />

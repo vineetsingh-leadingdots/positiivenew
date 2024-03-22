@@ -1,12 +1,37 @@
 import { useState } from "react";
 import { Modal } from 'antd';
+import { useDeleteBrandMutation } from "../services/brandApi";
+import { useEffect } from "react";
+import { useDeleteAttributeMutation } from "../services/attributeApi";
 
-const DeletePopup = () => {
-
-    const [modal1Open, setModal1Open] = useState(false);
+const DeletePopup = ({deleteId, attributeDeleteId, refetch, refetchAttribute}) => {
+    const [ deleteBrand, { isSuccess: deleteBrandSuccess }] = useDeleteBrandMutation();
+    const [ deleteAttribute, { isSuccess: deleteAttributeSuccess }] = useDeleteAttributeMutation();
+    const [modal1Open, setModal1Open] = useState(false); 
     const closeModal = () => {
         setModal1Open(false);
     };
+    const handleDelete = (e) => {
+        e.preventDefault();
+        if(deleteId){
+            deleteBrand(deleteId);
+        }
+        else if(attributeDeleteId){
+            deleteAttribute(attributeDeleteId);
+        }
+    };
+
+    useEffect(() => {
+        if(deleteBrandSuccess){
+            refetch();
+            closeModal();
+        }
+        else if(deleteAttributeSuccess){
+            refetchAttribute();
+            closeModal();
+        }
+    }, [ deleteBrandSuccess, deleteAttributeSuccess ]);
+    
     return (
         <>
             <button className="actionButton delete " onClick={() => setModal1Open(true)}>
@@ -35,7 +60,12 @@ const DeletePopup = () => {
                         <p>   You won't be able to revert this!</p>
 
                         <div className="flex justify-center gap-5 popupBtn pt-10">
-                            <button className="btnBack submit ">Delete</button>
+                            <button 
+                                className="btnBack submit " 
+                                onClick={handleDelete}
+                            >
+                                Delete
+                            </button>
                             <button className="btnBack  " onClick={() => {
                                 closeModal();
                                 close();

@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import SearchField from '../../../components/searchFIeld'
 import AddButton from '../../../components/addButton'
 import TableList from '../../../commonComponents/tableList'
-import { BrandColumns, BrandData } from '../../../commonComponents/tableData'
+import { BrandColumns } from '../../../commonComponents/tableData'
+import { useListBrandQuery } from '../../../services/brandApi';
+import { useNavigate } from 'react-router-dom';
+import DeletePopup from '../../../components/deletePopup';
 
 const Brand = () => {
+
+    const { data: brandListData, refetch } = useListBrandQuery();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        refetch();
+    }, [ brandListData ]);
+
+    const tableData = brandListData?.data.map((brand) => ({
+        key: brand?.id?.toString(), 
+        BrandName: brand?.name,
+        Actions: (
+            <div className="flex gap-1">
+               <button onClick={() => navigate("/brand/add", { state: { brandData: brand } })} className="actionButton">
+                    <i className="fa fa-pencil" />
+                </button>
+                <DeletePopup
+                    deleteId={brand?.id}
+                    refetch={refetch}
+                />
+            </div>
+        ),
+    }));
 
     return (
         <>
@@ -29,7 +55,7 @@ const Brand = () => {
                 </div>
                 <div className='card '>
                     <div className='tableAreaMaster '>
-                        <TableList data={BrandData} columns={BrandColumns} />
+                        <TableList data={tableData} columns={BrandColumns} />
                     </div>
                 </div>
             </div>

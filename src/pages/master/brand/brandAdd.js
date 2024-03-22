@@ -1,17 +1,67 @@
-import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useCreateBrandMutation } from '../../../services/brandApi';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const BrandAdd = () => {
-    const navigate = useNavigate()
-    const [file, setFile] = useState();
-    const [preview1, setPreview1] = useState()
+    const [ createBrand, { isSuccess:createBrandSuccess } ] = useCreateBrandMutation();
+    const navigate = useNavigate();
+    const [preview1, setPreview1] = useState();
     const [imageView, setImageView] = useState('image_circle');
+    const {state} = useLocation();
+    const [ brandData, setBrandData ] = useState({
+        file: "",
+        fileName: ""
+    });
+
+    useEffect(() => {
+        if (state?.brandData) {
+            const { brand_logo, name } = state?.brandData;
+            setBrandData({
+                file: brand_logo,
+                fileName: name
+            });
+        }
+    }, [ state ]);
+
+    useEffect(() => {
+        if(createBrandSuccess){
+            navigate("/brand/list");
+        }
+    }, [ createBrandSuccess ]);
+
     let object1Url;
-    function handleUpload(event) {
-        setFile(event.target.files[0]);
+    const handleUpload = (event) => {
+        setBrandData((prevBrandData) => ({
+            ...prevBrandData,
+            file: event.target.files[0]
+        }));;
         object1Url = URL.createObjectURL(event.target.files[0])
         setPreview1(object1Url);
+    }
+
+    const handleFileChange = (e) => {
+        setBrandData((prevBrandData) => ({
+            ...prevBrandData,
+            fileName: e.target.value
+        }));
+    }
+
+    const handelSubmit = (e) => {
+        e.preventDefault();
+        if(state?.brandData?.id){
+            var formdata = new FormData();
+            formdata.append("name", brandData?.fileName);
+            formdata.append("brand_logo", brandData?.file);
+            formdata.append("id", state.brandData.id);
+            createBrand(formdata);
+        }
+        else{
+            var formdata = new FormData();
+            formdata.append("name", brandData?.fileName);
+            formdata.append("brand_logo", brandData?.file);
+            createBrand(formdata);
+        }  
     }
     return (
         <>
@@ -30,8 +80,8 @@ const BrandAdd = () => {
 
                             <div className="w-full ">
                                 <div className="form-group mb-10 text-center relative">
-                                    <div className="flex 	flex-wrap justify-center">
-                                        <label className="formBlock block w-full text-center	">
+                                    <div className="flex flex-wrap justify-center">
+                                        <label className="formBlock block w-full text-center">
                                             Icon
                                         </label>
                                         <div className='imageButtonRadius'>
@@ -47,8 +97,8 @@ const BrandAdd = () => {
                                         </div>
                                         <div className="relative mt-6 text-center">
                                             <div className={`imageView ${imageView} rounded-full border-2 mb-2`}>
-                                                {file ? (
-                                                    <img src={preview1} alt={file.name} />
+                                                {brandData ? (
+                                                    <img src={preview1 ? preview1 : brandData?.file} alt="LOGO" />
                                                 ) : (
                                                     <img
                                                         src="/images/thumbnail.webp"
@@ -67,7 +117,7 @@ const BrandAdd = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {(file) ? (<label> {file.name} </label>) : null}
+                                    {/* {(brandData) ? (<label> {brandData?.fileName} </label>) : null} */}
                                     <br />
 
 
@@ -76,13 +126,15 @@ const BrandAdd = () => {
                             </div>
                             <div className=" w-full ">
                                 <div className="form-group mb-6 ">
-                                    <label className="formBlock mb-2 py-2">Name *</label>
+                                    <label className="formBlock mb-2 py-2">Name*</label>
                                     <input
                                         id="name"
                                         name="name"
                                         type="text"
+                                        defaultValue={brandData?.fileName}
                                         placeholder="Enter brand name"
                                         className="formControl"
+                                        onChange={handleFileChange}
                                     />
                                 </div>
                             </div>
@@ -92,6 +144,7 @@ const BrandAdd = () => {
                                     <button
                                         type="submit"
                                         className=" btn-save btnSm "
+                                        onClick={handelSubmit}
                                     >
                                         Submit
                                     </button>
