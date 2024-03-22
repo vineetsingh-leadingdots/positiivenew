@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Popup1 from "./popup1";
 import Popup2 from "./popup2";
-import CustomCalendar from "./customCalendar";
+
 import CreateNewDropdown from "./createNewDropdown";
-import MyCalendar from "./clendarCheck";
+
+import CustomCalendar from "./customCalendar";
 const CalendarView = () => {
 
     return (
@@ -33,9 +34,8 @@ const CalendarView = () => {
                     <CreateNewDropdown />
                     <Popup1 />
                     <Popup2 />
-                    <div className="card pt-8">
-                        {/* <CustomCalendar /> */}
-                        <MyCalendar />
+                    <div className="card pt-8">                      
+                    <CustomCalendar/>                  
                     </div>
                 </div>
             </div>

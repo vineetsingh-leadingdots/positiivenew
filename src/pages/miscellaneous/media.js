@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import SearchField from '../../components/searchFIeld'
 import TableList from '../../commonComponents/tableList'
-import { TransactionColumn, TransactionData } from '../../commonComponents/tableData'
+import { MediaColumn, MediaData } from '../../commonComponents/tableData'
 
 
 
@@ -24,7 +24,7 @@ const MediaList = () => {
                 </div>
                 <div className='card '>
                     <div className='tableAreaMaster '>
-                        <TableList data={TransactionData} columns={TransactionColumn} />
+                        <TableList data={MediaData} columns={MediaColumn} />
                     </div>
                 </div>
             </div>

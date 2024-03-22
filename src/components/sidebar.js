@@ -75,6 +75,8 @@ const items = [
   { label: 'Promotions', key: '27', icon: <span className='fa fa-bullhorn'  />, link: '/promotions/list' },
   { label: 'Calendar', key: '28', icon: <span className='fa fa-calendar'  />, link: '/calendar/list' },
   { label: 'Error Logs', key: '29', icon: <span className='fa fa-exclamation-triangle'  />, link: '/errorLog/list' },
+  { label: 'Customer Note', key: '31', icon: <span className='fa fa-pencil'  />, link: '/customer-note/list' },
+  { label: 'Sale Note', key: '32', icon: <span className='fas fa-comment-dollar	'  />, link: '/sale-note/list' },
   { label: 'Logout', key: '30', icon: <LogoutOutlined style={{ fontSize: "20px" }} />, link: '/logout' },
 ];
 
