@@ -32,7 +32,34 @@ const items = [
             </>
         ),
         key: '1',
-        children: <p>Content of panel 1</p>,
+        children:
+        <>
+       <div className='timeCard '>
+                        <p>Enter time to meet customer</p>
+                        <div className='timeCardBox'>
+                            <div className='timeItem'>
+                                1
+                            </div>
+                            <div className='timeDots'>
+                                :
+                            </div>
+                            <div className='timeItem'>
+                                00
+                            </div>
+                            <div className='timeItem'>
+                                <div className='timeZoneSwitch'>
+                                    <label><input type='radio' checked name='AM' /><span>AM</span></label>
+                                    <label><input type='radio' name='AM' /><span>PM</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="timeBoxBtn">
+                            <button className="timeBtn cancel">Cancel</button>
+                            <button className="timeBtn ">Ok</button>
+                        </div>
+                    </div>
+        
+        </>,
     },
     {
         label: (
@@ -107,6 +134,7 @@ const FilterDropdown = () => (
         <MoreIcon />
       </button>
     </a>
+    
   </Dropdown>
 );
 
