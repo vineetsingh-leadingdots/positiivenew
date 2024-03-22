@@ -630,33 +630,33 @@ export const dataSource = [
 
 
   
-  export const SupplierAdminData = [
-    {
-      key: '1',
-      SupplierName: 'Mike',
-      Email: 'supplier1@yopmail.com',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/supplier/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <Link to="/supplier/view" className="actionButton"><i className="fa fa-eye"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },    
-    {
-      key: '2',
-      SupplierName: 'Mike',
-      Email: 'supplier1@yopmail.com',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/supplier/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <Link to="/supplier/view" className="actionButton"><i className="fa fa-eye"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },  
+  // export const SupplierAdminData = [
+  //   {
+  //     key: '1',
+  //     SupplierName: 'Mike',
+  //     Email: 'supplier1@yopmail.com',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/supplier/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <Link to="/supplier/view" className="actionButton"><i className="fa fa-eye"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },    
+  //   {
+  //     key: '2',
+  //     SupplierName: 'Mike',
+  //     Email: 'supplier1@yopmail.com',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/supplier/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <Link to="/supplier/view" className="actionButton"><i className="fa fa-eye"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },  
    
-  ];
+  // ];
   
   export const SupplierAdminColumns = [
     {
@@ -1200,8 +1200,8 @@ export const dataSource = [
     },    
     {
       key: '2',
-      Distributor: 'Mike',
-      Email: 'supplier1@yopmail.com',
+      Distributor: 'Jonas',
+      Email: 'supplier2@yopmail.com',
       Actions: <>
       <div className="flex gap-1">
       <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
