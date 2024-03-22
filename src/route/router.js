@@ -80,6 +80,13 @@ import PromotionsList from '../pages/miscellaneous/promotions';
 import MediaList from '../pages/miscellaneous/media';
 import ErrorLog from '../pages/miscellaneous/errorLog';
 import AssignProduct from '../pages/product/assignProduct';
+import DashboardAdmin from '../pages/dashboard/dashboardAdmin';
+import DashboardSupplier from '../pages/supplierAdmin/dashboard/dashboardSupplier';
+import CustomerNote from '../pages/customer-note/customerNote';
+import CustomerNoteAdd from '../pages/customer-note/customerNoteAdd';
+import SaleNote from '../pages/sale-note/saleNote';
+import SaleNoteAdd from '../pages/sale-note/saleNoteAdd';
+import MediaAdd from '../pages/miscellaneous/mediaAdd';
 
 const ProtectedRoute = ({ redirectPath = '/login' }) => {
   const authToken = useSelector((state) => state.persistedReducer.user.accessToken);
@@ -112,6 +119,7 @@ const RouterFile = () => (
       <Route element={<ProtectedRoute/>}>
         <Route element={<AdminLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin/dashboard" element={<DashboardAdmin/>} />
           <Route path="/search" element={<Search />} />
           <Route path="/search/detail" element={<SearchDetail />} />
           <Route path="/order-history" element={<OrderHistory />} exact />
@@ -184,9 +192,19 @@ const RouterFile = () => (
           <Route path="/division/add" element={<DivisionAdd/>} exact />
           <Route path="/transactions/list" element={<Transactions/>} exact />
           <Route path="/media/list" element={<MediaList/>} exact />
+          <Route path="/media/add" element={<MediaAdd/>} exact />
           <Route path="/promotions/list" element={<PromotionsList/>} exact />
           <Route path="/calendar/list" element={<Transactions/>} exact />
           <Route path="/errorLog/list" element={<ErrorLog/>} exact />
+          <Route path="/customer-note/list" element={<CustomerNote/>} exact />
+          <Route path="/customer-note/add" element={<CustomerNoteAdd/>} exact />
+          <Route path="/sale-note/list" element={<SaleNote/>} exact />
+          <Route path="/sale-note/add" element={<SaleNoteAdd/>} exact />
+          
+         
+          {/* Supplier-Dashbaord*/}
+
+          <Route path="/supplier/dashboard" element={<DashboardSupplier/>} />
       
         </Route>
       </Route>

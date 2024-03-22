@@ -1,9 +1,56 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import {useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCreateAttributeMutation } from '../../../services/attributeApi';
 
 const AttributeAdd = () => {
     const navigate = useNavigate()
+    const [ createAttribute, { isSuccess: createAttributeSuccess} ] = useCreateAttributeMutation();
+    const [formData, setFormData] = useState({
+        name: ''
+    });
+    const {state} = useLocation();
+
+    useEffect(() => {
+        if (state?.AttributeData) {
+            const { name } = state?.AttributeData;
+            setFormData({
+                name: name
+            });
+        }
+    }, [ state ]);
+
+    useEffect(() => {
+        if(createAttributeSuccess){
+            navigate("/attribute/list");
+        }
+    }, [ createAttributeSuccess ]);
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(state?.AttributeData?.id){
+            let value = {
+                name: formData?.name,
+                id: state?.AttributeData?.id
+            }
+            createAttribute(value)
+        }
+        else{
+            let value = {
+                name: formData?.name
+            }
+            createAttribute(value)
+        }
+    };
 
     return (
         <>
@@ -26,8 +73,10 @@ const AttributeAdd = () => {
                                             id="name"
                                             name="name"
                                             type="text"
+                                            defaultValue={formData?.name}
                                             placeholder="Enter Attribute name"
                                             className="formControl"
+                                            onChange={handleChange}
                                         />
                                     </div>
                                 </div>                  
@@ -37,6 +86,7 @@ const AttributeAdd = () => {
                                     <button
                                         type="submit"
                                         className=" btn-save btnSm "
+                                        onClick={handleSubmit}
                                     >
                                         Submit
                                     </button>

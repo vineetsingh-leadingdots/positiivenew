@@ -1,9 +1,57 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
+import { useCreateRatingMutation } from '../../../services/ratingApi';
 
 const RatingAdd = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [ createRating, { isSuccess: createRatingSuccess} ] = useCreateRatingMutation();
+    const [formData, setFormData] = useState({
+        name: ''
+    });
+
+    useEffect(() => {
+        if(createRatingSuccess){
+            navigate("/rating/list");
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ createRatingSuccess ]);
+
+    const {state} = useLocation();
+
+    useEffect(() => {
+        if (state?.ratingData) {
+            const { name } = state?.ratingData;
+            setFormData({
+                name: name
+            });
+        }
+    }, [ state ]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(state?.ratingData?.id){
+            let val = {
+                name: formData?.name,
+                id: state?.ratingData?.id
+            }
+            createRating(val);
+        }
+        else{
+            let val = {
+                name: formData?.name
+            }
+            createRating(val);
+        }
+    };
 
     return (
         <>
@@ -28,6 +76,8 @@ const RatingAdd = () => {
                                             type="text"
                                             placeholder="Enter rating name"
                                             className="formControl"
+                                            onChange={handleChange}
+                                            defaultValue={formData?.name}
                                         />
                                     </div>
                                 </div>                  
@@ -37,6 +87,7 @@ const RatingAdd = () => {
                                     <button
                                         type="submit"
                                         className=" btn-save btnSm "
+                                        onClick={handleSubmit}
                                     >
                                         Submit
                                     </button>

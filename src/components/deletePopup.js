@@ -2,16 +2,28 @@ import { useState } from "react";
 import { Modal } from 'antd';
 import { useDeleteBrandMutation } from "../services/brandApi";
 import { useEffect } from "react";
+import { useDeleteAttributeMutation } from "../services/attributeApi";
+import { useDeleteRatingMutation } from "../services/ratingApi";
 
-const DeletePopup = ({deleteId, refetch}) => {
+const DeletePopup = ({deleteId, attributeDeleteId, ratingdeleteId, refetch, refetchAttribute, refetchRating}) => {
     const [ deleteBrand, { isSuccess: deleteBrandSuccess }] = useDeleteBrandMutation();
-    const [modal1Open, setModal1Open] = useState(false);
+    const [ deleteAttribute, { isSuccess: deleteAttributeSuccess }] = useDeleteAttributeMutation();
+    const [ deleteRating, { isSuccess: deleteRatingSuccess }] = useDeleteRatingMutation();
+    const [modal1Open, setModal1Open] = useState(false); 
     const closeModal = () => {
         setModal1Open(false);
     };
     const handleDelete = (e) => {
         e.preventDefault();
-        deleteBrand(deleteId);
+        if(deleteId){
+            deleteBrand(deleteId);
+        }
+        else if(attributeDeleteId){
+            deleteAttribute(attributeDeleteId);
+        }
+        else if(ratingdeleteId){
+            deleteRating(ratingdeleteId);
+        }
     };
 
     useEffect(() => {
@@ -19,7 +31,15 @@ const DeletePopup = ({deleteId, refetch}) => {
             refetch();
             closeModal();
         }
-    }, [ deleteBrandSuccess ]);
+        else if(deleteAttributeSuccess){
+            refetchAttribute();
+            closeModal();
+        }
+        else if(deleteRatingSuccess){
+            refetchRating();
+            closeModal();
+        }
+    }, [ deleteBrandSuccess, deleteAttributeSuccess, deleteRatingSuccess ]);
     
     return (
         <>
@@ -57,7 +77,7 @@ const DeletePopup = ({deleteId, refetch}) => {
                             </button>
                             <button className="btnBack  " onClick={() => {
                                 closeModal();
-                                close();
+                                //close();
                             }}
                             >Cancel</button>
 

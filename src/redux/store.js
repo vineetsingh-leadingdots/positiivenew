@@ -5,6 +5,8 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import brandSlice from './masterSlice/brandSlice';
 import { brandApi } from '../services/brandApi';
+import { attributeApi } from '../services/attributeApi';
+import { ratingApi } from '../services/ratingApi';
 import supplierSlice from './supplierSlice/supplierSlice';
 import { supplierApi } from '../services/supplierApi';
 
@@ -23,10 +25,12 @@ export const store = configureStore({
     persistedReducer,
     [authApi.reducerPath]: authApi.reducer,
     [brandApi.reducerPath]: brandApi.reducer,
-    [supplierApi.reducerPath]: supplierApi.reducer
+    [supplierApi.reducerPath]: supplierApi.reducer,
+    [attributeApi.reducerPath]: attributeApi.reducer,
+    [ratingApi.reducerPath]: ratingApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(supplierApi.middleware)
+    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware)
 });
 
 export const persistor = persistStore(store);

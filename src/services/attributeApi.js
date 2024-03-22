@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
-export const brandApi = createApi({
-  reducerPath: "brandAPI",
+export const attributeApi = createApi({
+  reducerPath: "attributeApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -18,18 +18,18 @@ export const brandApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listBrand: builder.query({
+    listAttribute: builder.query({
       query : () => {
         return {
-          url: `/brand/lists`,
+          url: `/attribute/lists`,
           method: "GET"
         };
       },
     }),
-    createBrand: builder.mutation({
+    createAttribute: builder.mutation({
       query : (formData) => {
         return {
-          url: `/brand/create-or-update`,
+          url: `/attribute/create-or-update`,
           method: "POST",
           body: formData
         };
@@ -43,8 +43,8 @@ export const brandApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Brand Created/Updated Successfully',
-            description: 'Your brand has been created/updated successfully.',
+            message: 'Attribute Created/Updated Successfully',
+            description: 'Your attribute has been created/updated successfully.',
             threshold: 2
           });
           
@@ -54,10 +54,10 @@ export const brandApi = createApi({
         }
       },
     }),
-    deleteBrand: builder.mutation({
-      query : (brandId) => {
+    deleteAttribute: builder.mutation({
+      query : (attributeId) => {
         return {
-          url: `/brand/delete/${brandId}`,
+          url: `/attribute/delete/${attributeId}`,
           method: "DELETE"
         };
       },
@@ -67,12 +67,12 @@ export const brandApi = createApi({
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Brand Deleted Successfully',
+            message: 'Attribute Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your brand has been deleted successfully.',
+            description: 'Your attribute has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -82,6 +82,6 @@ export const brandApi = createApi({
     }),
   })
 });
-export const { useCreateBrandMutation, useListBrandQuery, useDeleteBrandMutation } = brandApi;
+export const { useCreateAttributeMutation, useDeleteAttributeMutation, useListAttributeQuery } = attributeApi;
 
 

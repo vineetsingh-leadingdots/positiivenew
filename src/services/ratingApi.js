@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
-export const brandApi = createApi({
-  reducerPath: "brandAPI",
+export const ratingApi = createApi({
+  reducerPath: "ratingApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -18,18 +18,18 @@ export const brandApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listBrand: builder.query({
+    listRating: builder.query({
       query : () => {
         return {
-          url: `/brand/lists`,
+          url: `/rating/lists`,
           method: "GET"
         };
       },
     }),
-    createBrand: builder.mutation({
+    createRating: builder.mutation({
       query : (formData) => {
         return {
-          url: `/brand/create-or-update`,
+          url: `/rating/create-or-update`,
           method: "POST",
           body: formData
         };
@@ -43,8 +43,8 @@ export const brandApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Brand Created/Updated Successfully',
-            description: 'Your brand has been created/updated successfully.',
+            message: 'Rating Created/Updated Successfully',
+            description: 'Your rating has been created/updated successfully.',
             threshold: 2
           });
           
@@ -54,10 +54,10 @@ export const brandApi = createApi({
         }
       },
     }),
-    deleteBrand: builder.mutation({
-      query : (brandId) => {
+    deleteRating: builder.mutation({
+      query : (ratingId) => {
         return {
-          url: `/brand/delete/${brandId}`,
+          url: `/rating/delete/${ratingId}`,
           method: "DELETE"
         };
       },
@@ -67,12 +67,12 @@ export const brandApi = createApi({
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Brand Deleted Successfully',
+            message: 'Rating Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your brand has been deleted successfully.',
+            description: 'Your rating has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -82,6 +82,6 @@ export const brandApi = createApi({
     }),
   })
 });
-export const { useCreateBrandMutation, useListBrandQuery, useDeleteBrandMutation } = brandApi;
+export const { useCreateRatingMutation, useDeleteRatingMutation, useListRatingQuery} = ratingApi;
 
 
