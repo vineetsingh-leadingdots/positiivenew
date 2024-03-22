@@ -871,6 +871,78 @@ export const dataSource = [
     
   ];
 
+  
+  export const CustomerNoteData = [
+    {
+      key: '1',
+      CustomerNote: 'Customer note',
+      NoteDate: '22/03/2024',     
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/customer-note/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+     
+  ];
+  
+  export const CustomerNoteColumn = [
+    {
+      title: 'Customer Note',
+      dataIndex: 'CustomerNote',
+      key: 'CustomerNote',
+    },
+    {
+      title: 'Date',
+      dataIndex: 'NoteDate',
+      key: 'NoteDate',
+    },
+    
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
+
+
+  
+  export const SaleNoteData = [
+    {
+      key: '1',
+      SaleNote: 'Sale note',
+      NoteDate: '22/03/2024',     
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/sale-note/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+     
+  ];
+  
+  export const SaleNoteColumn = [
+    {
+      title: 'Sale Note',
+      dataIndex: 'SaleNote',
+      key: 'SaleNote',
+    },
+    {
+      title: 'Date',
+      dataIndex: 'NoteDate',
+      key: 'NoteDate',
+    },
+    
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
 
 
   export const ExperenceData = [
@@ -984,6 +1056,67 @@ export const dataSource = [
       key: 'CreatedAt',
     },
   ];
+
+
+  export const MediaData = [
+    {
+      key: '1',
+      User: 'DivisionName',     
+      Company:'leadingdots',
+      IP:'100.250255.2636',
+      Event:'-',
+      CreatedAt:'12/03/2024',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/media/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,
+     
+      
+    },  
+  ];
+  
+  export const MediaColumn = [
+    {
+      title: 'User',
+      dataIndex: 'User',
+      key: 'User',
+    },   
+    {
+      title: 'Company',
+      dataIndex: 'Company',
+      key: 'Company',
+    },
+    
+    {
+      title: 'IP',
+      dataIndex: 'IP',
+      key: 'IP',
+    },   
+    {
+      title: 'Event',
+      dataIndex: 'Event',
+      key: 'Event',
+    },
+    {
+      title: 'Action',
+      dataIndex: 'Action',
+      key: 'Action',
+    },
+    {
+      title: 'Created At',
+      dataIndex: 'CreatedAt',
+      key: 'CreatedAt',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+  ];
+
+
 
   export const MembersListData = [
     {

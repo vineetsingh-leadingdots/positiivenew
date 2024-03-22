@@ -311,7 +311,7 @@ a:hover{ color: #2a9d8f;}
 .btnBorder:hover{ background: #264653; color: #fff !important;  border: 1px solid #264653;}
 
 input[type="date"]:before { color: transparent;  background: none;  display: block;  font-family: 'FontAwesome';
-    content: '\f073'; position: absolute;    top: 10px;  right: 10px;  font-size: 17px; color: #030229;}
+    content: '\f073'; position: absolute;     top: 50%;  right: 2%; transform: translate(-1%, -50%); font-size: 17px; color: #030229;}
 input[type="date"]{ position: relative;}
 input[type="date"]::-webkit-calendar-picker-indicator { background: transparent;  bottom: 0;  color: transparent;
     cursor: pointer;  height: auto; left: 0;  position: absolute;  right: 0;   top: 0;   width: auto;}
@@ -363,8 +363,11 @@ label{color: #6C6C70; font-family: "Inter"; margin-bottom: 8px;  font-size: 16px
 .loginArea h6{ font-family: Inter !important; font-size: 14px; font-weight: 400; line-height: normal; text-align: center; color: #5B5B5B;}
 .loginArea form{ margin: 60px 0 0 0 ; width: 100%;}
 .formControl{background: rgba(239, 240, 248, 0.60); padding: 8px 16px; border-radius: 8px; min-height: 52px; 
-    font-size: 16px; color: #5B5B5B; font-weight: 400; font-family: "Inter"; border: 0; width: 100%;}
+    font-size: 16px;     outline: 0; color: #5B5B5B; font-weight: 400; font-family: "Inter"; border: 0; width: 100%;}
     .loginArea .formControl input { }
+ .ant-picker-outlined:focus-within{ box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1); background: rgba(239, 240, 248, 0.60) !important; border-color: rgba(239, 240, 248, 0.60) !important;  }
+ .formControl:focus{ box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1); background: rgba(239, 240, 248, 0.60) !important; border-color: rgba(239, 240, 248, 0.60) !important;  }
+
 /* .formControl:hover{background: rgba(239, 240, 248, 0.60);} */
 /* .formControl input:focus{ background: red !important;}
 input:-internal-autofill-selected { background: red !important;} */
