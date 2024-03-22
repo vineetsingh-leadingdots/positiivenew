@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { Helmet, HelmetProvider } from 'react-helmet-async'; 
+import React from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import TableList from '../../commonComponents/tableList';
-import { OrderHistoryData, columnOrder } from "../../commonComponents/tableData";
 import TabsFile from "../../commonComponents/tabs";
-import { items, orderHistoryItem } from "../../commonComponents/tabItems";
+import { orderHistoryItem } from "../../commonComponents/tabItems";
 const OrderHistory = () => {
-  const [toggleState2, setToggleState2] = useState("OrderHistory");
-  const toggleTab2 = (index) => {
-    setToggleState2(index);
-  };
+  // const [toggleState2, setToggleState2] = useState("OrderHistory");
+  // const toggleTab2 = (index) => {
+  //   setToggleState2(index);
+  // };
   return (
     <>
-     <HelmetProvider>
+      <HelmetProvider>
         <Helmet>
           <title>Positiive | Order History </title>
         </Helmet>
@@ -41,16 +39,20 @@ const OrderHistory = () => {
                     <img src="/images/resturant.webp" />
                   </div>
                   <div className="stockContent">
-                    <h3>LaNova Bistro  14112345</h3>
-                    <p>82 Washington Street Brooklyn NY, 22182 212.289.2919 <img src="/images/map.webp" /></p>
+                    <h3>LaNova Bistro 14112345</h3>
+                    <p>
+                      82 Washington Street Brooklyn NY, 22182 212.289.2919{" "}
+                      <img src="/images/map.webp" />
+                    </p>
                   </div>
                 </div>
                 <div className="searhProductDeRight">
                   <div className="btnTop flex ml-auto justify-end md:mb-9 mb-4">
                     <button className="btnShare mr-6">
-                      <img src="/images/share.webp" />Share
+                      <img src="/images/share.webp" />
+                      Share
                     </button>
-                    <button className="btnUpload  " >
+                    <button className="btnUpload  ">
                       <img src="/images/cart2.webp" /> Create order
                     </button>
                   </div>
@@ -60,8 +62,8 @@ const OrderHistory = () => {
                 </div>
               </div>
             </div>
-            <div className="productTabArea orderTabs">              
-            <TabsFile items={orderHistoryItem}/>              
+            <div className="productTabArea orderTabs">
+              <TabsFile items={orderHistoryItem} />
             </div>
           </div>
         </div>

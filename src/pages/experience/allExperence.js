@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { PlusIcon2 } from "../../commonComponents/commonSvg";
@@ -7,21 +7,21 @@ import ExperiencesItems from "./allExp";
 
 
 const AllExperence = () => {
-    const [toggleState2, setToggleState2] = useState("Overdetail");
-    const toggleTab2 = (index) => {
-        setToggleState2(index);
-    };
-    const [toggleState3, setToggleState3] = useState("750ML");
-    const toggleTab3 = (index) => {
-        setToggleState3(index);
-    };
+    // const [toggleState2, setToggleState2] = useState("Overdetail");
+    // const toggleTab2 = (index) => {
+    //     setToggleState2(index);
+    // };
+    // const [toggleState3, setToggleState3] = useState("750ML");
+    // const toggleTab3 = (index) => {
+    //     setToggleState3(index);
+    // };
 
-    const [toggleState4, setToggleState4] = useState("experiencesAll");
-    const toggleTab4 = (index) => {
-        setToggleState4(index);
-    };
-    const [deleteShow, setDeleteShow] = useState(false);
-    const handleClick = () => setDeleteShow(!deleteShow);
+    // const [toggleState4, setToggleState4] = useState("experiencesAll");
+    // const toggleTab4 = (index) => {
+    //     setToggleState4(index);
+    // };
+    //const [deleteShow, setDeleteShow] = useState(false);
+    //const handleClick = () => setDeleteShow(!deleteShow);
     return (
         <>
   <HelmetProvider>

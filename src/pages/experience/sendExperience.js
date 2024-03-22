@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+
 import React, { useState } from "react";
-import { Button, Drawer, Space } from 'antd';
+import { Drawer } from 'antd';
 import { EmailIcon, SendIcon, SmsIcon, WhatsappIcon } from "../../commonComponents/commonSvg";
 const SendExperience = () => {
   const [open, setOpen] = useState(false);

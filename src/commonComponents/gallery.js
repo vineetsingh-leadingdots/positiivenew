@@ -1,10 +1,10 @@
+import React from "react";
 import { Col, Row } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import UploadPopUp from "../pages/chooseCustomer/uploadPopUp";
 
 const Gallery = () => {
-
   const [toggleState4, setToggleState4] = useState("galleryAll");
   const toggleTab4 = (index) => {
     setToggleState4(index);
@@ -13,9 +13,11 @@ const Gallery = () => {
     <>
       <div className="tabsSec pt-7">
         <div className="flex w-full justify-end">
-          <UploadPopUp/>
+          <UploadPopUp />
           <div className="sortBy">
-            <select className="form_control"><option>Most recent</option></select>
+            <select className="form_control">
+              <option>Most recent</option>
+            </select>
           </div>
         </div>
         <div className="galleryTab">
@@ -23,9 +25,7 @@ const Gallery = () => {
             <li>
               <Link
                 onClick={() => toggleTab4("galleryAll")}
-                className={
-                  toggleState4 === "galleryAll" ? " active" : "  "
-                }
+                className={toggleState4 === "galleryAll" ? " active" : "  "}
               >
                 All
               </Link>
@@ -33,9 +33,7 @@ const Gallery = () => {
             <li>
               <Link
                 onClick={() => toggleTab4("Favorites")}
-                className={
-                  toggleState4 === "Favorites" ? " active" : "  "
-                }
+                className={toggleState4 === "Favorites" ? " active" : "  "}
               >
                 Favorites
               </Link>
@@ -60,12 +58,15 @@ const Gallery = () => {
                     </div>
                     <div className="galleryContent">
                       <h3>Making Makers Mark</h3>
-                      <p>Take an in depth look at the production of a bottle of Jameson </p>
+                      <p>
+                        Take an in depth look at the production of a bottle of
+                        Jameson{" "}
+                      </p>
                       <button className="btnPhoto videoBtn">Video</button>
                     </div>
                   </div>
                 </Col>
-                <Col  xs={24}  sm={12} md={8} xl={6}>
+                <Col xs={24} sm={12} md={8} xl={6}>
                   <div className="galleryItem ">
                     <div className="galleryImage">
                       <img src="/images/g1.webp" />
@@ -75,55 +76,69 @@ const Gallery = () => {
                     </div>
                     <div className="galleryContent">
                       <h3>Billboard in Brooklyn</h3>
-                      <p>Billboard in Bushwick Brooklyn 39th street & 10th Ave. </p>
+                      <p>
+                        Billboard in Bushwick Brooklyn 39th street & 10th Ave.{" "}
+                      </p>
                       <button className="btnPhoto videoBtn">Video</button>
                     </div>
                   </div>
                 </Col>
-                <Col  xs={24}  sm={12} md={8} xl={6}>
+                <Col xs={24} sm={12} md={8} xl={6}>
                   <div className="galleryItem ">
                     <div className="galleryImage">
                       <img src="/images/g1.webp" />
                     </div>
                     <div className="galleryContent">
                       <h3>Billboard in Brooklyn</h3>
-                      <p>Billboard in Bushwick Brooklyn 39th street & 10th Ave. </p>
-                      <button className="btnPhoto document_btn">Document</button>
+                      <p>
+                        Billboard in Bushwick Brooklyn 39th street & 10th Ave.{" "}
+                      </p>
+                      <button className="btnPhoto document_btn">
+                        Document
+                      </button>
                     </div>
                   </div>
                 </Col>
-                <Col  xs={24}  sm={12} md={8} xl={6}>
+                <Col xs={24} sm={12} md={8} xl={6}>
                   <div className="galleryItem  ">
                     <div className="galleryImage">
                       <img src="/images/g1.webp" />
                     </div>
                     <div className="galleryContent">
                       <h3>Billboard in Brooklyn</h3>
-                      <p>Billboard in Bushwick Brooklyn 39th street & 10th Ave. </p>
+                      <p>
+                        Billboard in Bushwick Brooklyn 39th street & 10th Ave.{" "}
+                      </p>
                       <button className="btnPhoto videoBtn">Video</button>
                     </div>
                   </div>
                 </Col>
-                <Col  xs={24}  sm={12} md={8} xl={6}>
+                <Col xs={24} sm={12} md={8} xl={6}>
                   <div className="galleryItem ">
                     <div className="galleryImage">
                       <img src="/images/document.webp" />
                     </div>
                     <div className="galleryContent">
                       <h3>Billboard in Brooklyn</h3>
-                      <p>Billboard in Bushwick Brooklyn 39th street & 10th Ave. </p>
-                      <button className="btnPhoto document_btn">Document</button>
+                      <p>
+                        Billboard in Bushwick Brooklyn 39th street & 10th Ave.{" "}
+                      </p>
+                      <button className="btnPhoto document_btn">
+                        Document
+                      </button>
                     </div>
                   </div>
                 </Col>
-                <Col  xs={24}  sm={12} md={8} xl={6}>
+                <Col xs={24} sm={12} md={8} xl={6}>
                   <div className="galleryItem  ">
                     <div className="galleryImage">
                       <img src="/images/g1.webp" />
                     </div>
                     <div className="galleryContent">
                       <h3>Billboard in Brooklyn</h3>
-                      <p>Billboard in Bushwick Brooklyn 39th street & 10th Ave. </p>
+                      <p>
+                        Billboard in Bushwick Brooklyn 39th street & 10th Ave.{" "}
+                      </p>
                       <button className="btnPhoto videoBtn">Video</button>
                     </div>
                   </div>
@@ -143,7 +158,7 @@ const Gallery = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Outlet} from "react-router-dom";
-import { Layout, Flex, Col } from 'antd';
+import { Layout, Flex } from 'antd';
 import Sidebar from './sidebar';
 import { Header } from './header';
 import { Footer } from './footer';

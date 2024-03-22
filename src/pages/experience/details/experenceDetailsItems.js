@@ -1,3 +1,4 @@
+import React from "react";
 import Gallery from "../../../commonComponents/gallery";
 import AccountDetails from "./accountDetails";
 import ExperiencesTab from "./experiencesTab";

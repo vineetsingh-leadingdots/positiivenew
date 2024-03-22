@@ -1,4 +1,5 @@
-import {Provider, useSelector} from "react-redux";
+import React from "react";
+import {Provider} from "react-redux";
 import "./App.css";
 import {store, persistor} from "./redux/store";
 import {PersistGate} from "redux-persist/integration/react";

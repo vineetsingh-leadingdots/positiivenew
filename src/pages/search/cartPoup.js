@@ -1,9 +1,10 @@
+import React from "react";
 import { useState } from "react";
 // import Popup from "reactjs-popup";
 import PriceSlider from "./priceSlider";
 import { MinusIcon, PlusIcon } from "../../commonComponents/commonSvg";
 import { Modal } from 'antd';
-import { columns, columnsCart, dataSource, dataSourceCart } from '../../commonComponents/tableData';
+import { columnsCart, dataSourceCart } from '../../commonComponents/tableData';
 import TableList from "../../commonComponents/tableList";
 const CartPopPup = () => {
   const [toggleState4, setToggleState4] = useState("Cases");

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import HeaderLogin from './headerLogin'
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import HeaderLogin from "./headerLogin";
 import { Link } from "react-router-dom";
 import { Button, Col, Typography } from "antd";
 
@@ -44,6 +44,7 @@ const SignUp = () => {
     mobileNumberError: "",
     confirmPassword: "",
   });
+  console.log(errorData);
 
   const handlerChange = (e) => {
     const { name, value } = e.target;
@@ -91,17 +92,17 @@ const SignUp = () => {
   return (
     <>
       <HelmetProvider>
-                <Helmet>
-                <title>Positiive | Sales Reps Sign Up </title>
-                </Helmet>
-            </HelmetProvider>
+        <Helmet>
+          <title>Positiive | Sales Reps Sign Up </title>
+        </Helmet>
+      </HelmetProvider>
       <HeaderLogin />
       <Row className="loginArea bg-white ">
         <Row style={{ textAlign: "center" }}>
           <Col span={24}>
             <Image src="/images/logo.webp" width="144" className="mx-auto" />
           </Col>
-         
+
           <Col span={24}>
             <Title level={4} style={{ textAlign: "center" }}>
               Welcome{" "}

@@ -1,11 +1,11 @@
-import React from 'react'
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import FeaturedProduct from './featuredProduct'
-import Breadcrumb from '../../commonComponents/breadcrumb'
-import { Col, Row } from 'antd';
-import TableList from '../../commonComponents/tableList';
-import StockProduct from '../../commonComponents/stockProduct';
-import { columns, dataSource } from '../../commonComponents/tableData';
+import React from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import FeaturedProduct from "./featuredProduct";
+import Breadcrumb from "../../commonComponents/breadcrumb";
+import { Col, Row } from "antd";
+import TableList from "../../commonComponents/tableList";
+import StockProduct from "../../commonComponents/stockProduct";
+import { columns, dataSource } from "../../commonComponents/tableData";
 const Dashboard = () => {
   const products = [
     {
@@ -16,7 +16,7 @@ const Dashboard = () => {
       productDeal: "Special Offer",
       btnClassName: "btn-beer ",
       productCase: "5 cases",
-      productAmount: "$19.99"
+      productAmount: "$19.99",
     },
     {
       productImg: "/images/p2.webp",
@@ -26,7 +26,7 @@ const Dashboard = () => {
       productDeal: "Best Deal",
       btnClassName: "btn-beer wine",
       productCase: "10 cases",
-      productAmount: "$15.99"
+      productAmount: "$15.99",
     },
     {
       productImg: "/images/p2.webp",
@@ -36,8 +36,9 @@ const Dashboard = () => {
       productDeal: "Best Deal",
       btnClassName: "btn-beer wine",
       productCase: "10 cases",
-      productAmount: "$15.99"
-    }, {
+      productAmount: "$15.99",
+    },
+    {
       productImg: "/images/p2.webp",
       productTitle: "Libby Wine",
       productName: "Wine",
@@ -45,9 +46,8 @@ const Dashboard = () => {
       productDeal: "Best Deal",
       btnClassName: "btn-beer wine",
       productCase: "10 cases",
-      productAmount: "$15.99"
+      productAmount: "$15.99",
     },
-
   ];
   return (
     <>
@@ -119,7 +119,7 @@ const Dashboard = () => {
       <div className="headingH">
         <h2>Dashboard</h2>
       </div>
-      <Row className='content'>
+      <Row className="content">
         <Col className="w-full dashboardPage">
           <Row gutter={10}>
             <Col xs={24} lg={16} xl={16}>
@@ -134,7 +134,11 @@ const Dashboard = () => {
                   <div className="heading pl-6 pb-2">
                     <h2 style={{ marginBottom: "0" }}>Recent Orders</h2>
                   </div>
-                  <TableList data={dataSource} columns={columns} className="dashboardTable" />
+                  <TableList
+                    data={dataSource}
+                    columns={columns}
+                    className="dashboardTable"
+                  />
                 </div>
               </div>
             </Col>
@@ -164,7 +168,7 @@ const Dashboard = () => {
         </Col>
       </Row>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

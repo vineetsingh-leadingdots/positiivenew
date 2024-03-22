@@ -1,3 +1,4 @@
+import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';  
 import { Link } from "react-router-dom";
 import TabsFile from "../../commonComponents/tabs";
@@ -65,7 +66,7 @@ const SearchDetail = () => {
                   <DollarIcon />
                   </span>
                     69% savings
-                    <div className="line"></div>
+                    {/* <div className="line"></div> */}
                     Purchase 6 cases (12 bottles per case)
                   </div>
 

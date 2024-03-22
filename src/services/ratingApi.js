@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
