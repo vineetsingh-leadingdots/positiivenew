@@ -24,7 +24,7 @@ const AttributeAdd = () => {
         if(createAttributeSuccess){
             navigate("/attribute/list");
         }
-    }, [ createAttributeSuccess ])
+    }, [ createAttributeSuccess ]);
 
     const handleChange = (e) => {
         e.preventDefault();

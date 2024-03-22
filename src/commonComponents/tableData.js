@@ -1306,19 +1306,19 @@ export const dataSource = [
   ];
 
   
-  export const RatingData = [
-    {
-      key: '1',
-      Name: 'Rating',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/rating/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },    
+  // export const RatingData = [
+  //   {
+  //     key: '1',
+  //     Name: 'Rating',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/rating/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },    
    
-  ];
+  // ];
   
   export const RatingColumns = [
     {
