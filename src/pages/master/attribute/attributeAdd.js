@@ -5,8 +5,8 @@ import { useCreateAttributeMutation } from "../../../services/attributeApi";
 
 const AttributeAdd = () => {
   const navigate = useNavigate();
-  const [createAttribute, { isSuccess: createAttributeSuccess }] =
-    useCreateAttributeMutation();
+  const [createAttribute, { isSuccess: createAttributeSuccess }] = useCreateAttributeMutation();
+  
   const [formData, setFormData] = useState({
     name: "",
   });
