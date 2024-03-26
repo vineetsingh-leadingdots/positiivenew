@@ -9,6 +9,9 @@ import { attributeApi } from '../services/attributeApi';
 import { ratingApi } from '../services/ratingApi';
 import supplierSlice from './supplierSlice/supplierSlice';
 import { supplierApi } from '../services/supplierApi';
+import roleSlice from './roleSlice/roleSlice';
+import { roleApi } from '../services/roleApi';
+
 
 const persistConfig = {
   key: "root", // This is the key used to store the data in storage
@@ -22,15 +25,17 @@ export const store = configureStore({
     authUser: authSlice,
     brandData: brandSlice,
     supplierData: supplierSlice,
+    roleData: roleSlice,
     persistedReducer,
     [authApi.reducerPath]: authApi.reducer,
     [brandApi.reducerPath]: brandApi.reducer,
     [supplierApi.reducerPath]: supplierApi.reducer,
     [attributeApi.reducerPath]: attributeApi.reducer,
-    [ratingApi.reducerPath]: ratingApi.reducer
+    [ratingApi.reducerPath]: ratingApi.reducer,
+    [roleApi.reducerPath]: roleApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware)
+    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(roleApi.middleware)
 });
 
 export const persistor = persistStore(store);

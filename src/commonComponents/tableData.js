@@ -1154,18 +1154,18 @@ export const dataSource = [
   
 
   
-  export const RoleData = [
-    {
-      key: '1',
-      Name: 'John',    
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/member/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    }, 
-  ];
+  // export const RoleData = [
+  //   {
+  //     key: '1',
+  //     Name: 'John',    
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/member/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   }, 
+  // ];
   
   export const RoleColumn = [
     {

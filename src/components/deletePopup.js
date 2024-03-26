@@ -4,11 +4,13 @@ import { useDeleteBrandMutation } from "../services/brandApi";
 import { useEffect } from "react";
 import { useDeleteAttributeMutation } from "../services/attributeApi";
 import { useDeleteRatingMutation } from "../services/ratingApi";
+import { useDeleteroleMutation } from "../services/roleApi";
 
-const DeletePopup = ({deleteId, attributeDeleteId, ratingdeleteId, refetch, refetchAttribute, refetchRating}) => {
+const DeletePopup = ({deleteId, attributeDeleteId, ratingdeleteId, roledeleteId , refetch, refetchAttribute, refetchRating, refetchRole}) => {
     const [ deleteBrand, { isSuccess: deleteBrandSuccess }] = useDeleteBrandMutation();
     const [ deleteAttribute, { isSuccess: deleteAttributeSuccess }] = useDeleteAttributeMutation();
     const [ deleteRating, { isSuccess: deleteRatingSuccess }] = useDeleteRatingMutation();
+    const [ deleteRole, { isSuccess: deleteRoleSuccess}] = useDeleteroleMutation();
     const [modal1Open, setModal1Open] = useState(false); 
     const closeModal = () => {
         setModal1Open(false);
@@ -23,6 +25,8 @@ const DeletePopup = ({deleteId, attributeDeleteId, ratingdeleteId, refetch, refe
         }
         else if(ratingdeleteId){
             deleteRating(ratingdeleteId);
+        }else if(roledeleteId){
+            deleteRole(roledeleteId);
         }
     };
 
@@ -38,8 +42,11 @@ const DeletePopup = ({deleteId, attributeDeleteId, ratingdeleteId, refetch, refe
         else if(deleteRatingSuccess){
             refetchRating();
             closeModal();
+        }else if(deleteRoleSuccess){
+            refetchRole();
+            closeModal();
         }
-    }, [ deleteBrandSuccess, deleteAttributeSuccess, deleteRatingSuccess ]);
+    }, [ deleteBrandSuccess, deleteAttributeSuccess, deleteRatingSuccess, deleteRoleSuccess ]);
     
     return (
         <>
