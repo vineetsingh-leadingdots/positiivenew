@@ -21,7 +21,7 @@ const PriceSlider = () => {
             dotBorderColor:'#264653',
             handleSize:"20px",
             railSize:"10px",
-            dotBorderColor:"#264653",
+            //dotBorderColor:"#264653",
             controlSize:"80px",
             handleSizeHover:"20px",
             trackHoverBg:"#264653",

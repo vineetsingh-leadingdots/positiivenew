@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Upload } from 'antd';
+import { Upload } from 'antd';
 import { UploadIcon } from './commonSvg';
 const UploadField = () => (
 

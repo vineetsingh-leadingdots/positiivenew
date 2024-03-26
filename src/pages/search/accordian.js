@@ -2,10 +2,10 @@ import { DownOutlined } from '@ant-design/icons';
 import React from 'react';
 import { Collapse, theme } from 'antd';
 import PriceSlider from './priceSlider';
-const text = `
-  A dog is a type of domesticated animal.
+// const text = `
+//   A dog is a type of domesticated animal.
   
-`;
+// `;
 const getItems = (panelStyle) => [
   {
     key: '1',
@@ -592,7 +592,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Scotland"
                   />
-                  <label for="Scotland">Scotland</label>
+                  <label htmlFor="Scotland">Scotland</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -602,7 +602,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Portugal"
                   />
-                  <label for="Portugal">Portugal</label>
+                  <label htmlFor="Portugal">Portugal</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -612,7 +612,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Argentina"
                   />
-                  <label for="Argentina">Argentina</label>
+                  <label htmlFor="Argentina">Argentina</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -622,7 +622,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Ireland"
                   />
-                  <label for="Ireland">Ireland</label>
+                  <label htmlFor="Ireland">Ireland</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -632,7 +632,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="New Zealand"
                   />
-                  <label for="New Zealand">New Zealand</label>
+                  <label htmlFor="New Zealand">New Zealand</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -642,7 +642,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="South Africa"
                   />
-                  <label for="South Africa">South Africa</label>
+                  <label htmlFor="South Africa">South Africa</label>
                 </div>
               </div>
             </div>
@@ -663,7 +663,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="United States"
                   />
-                  <label for="United States">United States</label>
+                  <label htmlFor="United States">United States</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -673,7 +673,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="France"
                   />
-                  <label for="France">France</label>
+                  <label htmlFor="France">France</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -683,7 +683,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Italy"
                   />
-                  <label for="Italy">Italy</label>
+                  <label htmlFor="Italy">Italy</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -693,7 +693,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Spain"
                   />
-                  <label for="Spain">Spain</label>
+                  <label htmlFor="Spain">Spain</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -703,7 +703,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Mexico"
                   />
-                  <label for="Mexico">Mexico</label>
+                  <label htmlFor="Mexico">Mexico</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -713,7 +713,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Scotland"
                   />
-                  <label for="Scotland">Scotland</label>
+                  <label htmlFor="Scotland">Scotland</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -723,7 +723,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Portugal"
                   />
-                  <label for="Portugal">Portugal</label>
+                  <label htmlFor="Portugal">Portugal</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -733,7 +733,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Argentina"
                   />
-                  <label for="Argentina">Argentina</label>
+                  <label htmlFor="Argentina">Argentina</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -743,7 +743,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Ireland"
                   />
-                  <label for="Ireland">Ireland</label>
+                  <label htmlFor="Ireland">Ireland</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -753,7 +753,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="New Zealand"
                   />
-                  <label for="New Zealand">New Zealand</label>
+                  <label htmlFor="New Zealand">New Zealand</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -763,7 +763,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="South Africa"
                   />
-                  <label for="South Africa">South Africa</label>
+                  <label htmlFor="South Africa">South Africa</label>
                 </div>
               </div>
             </div>
@@ -784,7 +784,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Emerald"
                   />
-                  <label for="Emerald">Emerald</label>
+                  <label htmlFor="Emerald">Emerald</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -794,7 +794,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Sapphire"
                   />
-                  <label for="Sapphire">Sapphire</label>
+                  <label htmlFor="Sapphire">Sapphire</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -804,7 +804,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Pearl"
                   />
-                  <label for="Pearl">Pearl</label>
+                  <label htmlFor="Pearl">Pearl</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -814,7 +814,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Transatlantic"
                   />
-                  <label for="Transatlantic">Transatlantic</label>
+                  <label htmlFor="Transatlantic">Transatlantic</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -824,7 +824,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Signature "
                   />
-                  <label for="Signature ">Signature </label>
+                  <label htmlFor="Signature ">Signature </label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -834,7 +834,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Coastal Pacific"
                   />
-                  <label for="Coastal Pacific">Coastal Pacific</label>
+                  <label htmlFor="Coastal Pacific">Coastal Pacific</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -844,7 +844,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Atlantic"
                   />
-                  <label for="Atlantic">Atlantic</label>
+                  <label htmlFor="Atlantic">Atlantic</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -854,7 +854,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Craft"
                   />
-                  <label for="Craft">Craft</label>
+                  <label htmlFor="Craft">Craft</label>
                 </div>
               </div>
             </div>
@@ -875,7 +875,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Organic"
                   />
-                  <label for="Organic">Organic</label>
+                  <label htmlFor="Organic">Organic</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -885,7 +885,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Sustainable"
                   />
-                  <label for="Sustainable">Sustainable</label>
+                  <label htmlFor="Sustainable">Sustainable</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -895,7 +895,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Biodynamic"
                   />
-                  <label for="Biodynamic">Biodynamic</label>
+                  <label htmlFor="Biodynamic">Biodynamic</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -905,7 +905,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Vegan"
                   />
-                  <label for="Vegan">Vegan</label>
+                  <label htmlFor="Vegan">Vegan</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -915,7 +915,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Ready to Drink  "
                   />
-                  <label for="Ready to Drink  ">Ready to Drink  </label>
+                  <label htmlFor="Ready to Drink  ">Ready to Drink  </label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -925,7 +925,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Non-Alcoholic"
                   />
-                  <label for="Non-Alcoholic">Non-Alcoholic</label>
+                  <label htmlFor="Non-Alcoholic">Non-Alcoholic</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -935,7 +935,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Low-Alcohol"
                   />
-                  <label for="Low-Alcohol">Low-Alcohol</label>
+                  <label htmlFor="Low-Alcohol">Low-Alcohol</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -945,7 +945,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Carbon Neutral"
                   />
-                  <label for="Carbon Neutral">Carbon Neutral</label>
+                  <label htmlFor="Carbon Neutral">Carbon Neutral</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -955,7 +955,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Additive Free"
                   />
-                  <label for="Additive Free">Additive Free</label>
+                  <label htmlFor="Additive Free">Additive Free</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -965,7 +965,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Low Calorie"
                   />
-                  <label for="Low Calorie">Low Calorie</label>
+                  <label htmlFor="Low Calorie">Low Calorie</label>
                 </div>
               </div>
               <div className="styled-input-container styled-input--square">
@@ -975,7 +975,7 @@ const getItems = (panelStyle) => [
                     name="fieldset-2"
                     id="Minority Owned"
                   />
-                  <label for="Minority Owned">Minority Owned</label>
+                  <label htmlFor="Minority Owned">Minority Owned</label>
                 </div>
               </div>
             </div>

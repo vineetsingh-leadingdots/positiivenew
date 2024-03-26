@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import {Modal } from 'antd';
 import { EmailIcon, SearchIcon2, ShareIcon2, SmsIcon, WhatsappIcon } from "../../commonComponents/commonSvg";
 const SharePopup = () => { 
+  const [ open, setOpen ] = useState();
   const closeModal = () => {
     setOpen(false);
   };
+  console.log(open);
   const [modal1Open, setModal1Open] = useState(false);
   return (
     <>

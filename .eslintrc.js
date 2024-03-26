@@ -17,24 +17,20 @@ module.exports = {
         "react"
     ],
     rules: {
-        // ... any rules you want
-        'react/jsx-uses-react': 'error',
-        'react/jsx-uses-vars': 'error',
+        // indent: ["error", 2],
         'no-unused-expressions': [
-            'error',
-            {
-              allowShortCircuit: true,
-              allowTernary: true,
-              allowTaggedTemplates: true,
-            },
-          ],
-          "react/self-closing-comp": "error",
-          "react/no-danger": "error",
-          "react/prop-types": "off",
-          "react/jsx-filename-extension": [ 1, { extensions: [ ".js", ".jsx" ] } ],
-          // "brace-style": [2, "allman", { allowSingleLine: true }],
-          "constructor-super": 2,
-          "guard-for-in": 2,
-          "react-hooks/exhaustive-deps": "off"
-       },
+          'error',
+          {
+            allowShortCircuit: true,
+            allowTernary: true,
+            allowTaggedTemplates: true,
+          },
+        ],
+        semi: [ "error", "always" ],
+        "react/self-closing-comp": "error",
+        "react/no-danger": "error",
+        "react/prop-types": "off",
+        //"react/jsx-filename-extension": [ 1, { extensions: [ ".js", ".jsx" ] } ],
+        "guard-for-in": 2
+      }
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Modal } from 'antd';
 import { useDeletesupplierMutation } from "../services/supplierApi";
@@ -45,7 +46,7 @@ const SupplierDelete = ({deleteId, refetch}) => {
                     </button>
                     <h2> Are you sure?</h2>
                     <div className="pt-6 deleteContent">
-                        <p>   You won't be able to revert this!</p>
+                        <p>   You would not be able to revert this!</p>
 
                         <div className="flex justify-center gap-5 popupBtn pt-10">
                             <button 

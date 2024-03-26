@@ -1,24 +1,29 @@
-import React from 'react'
+import React from "react";
 
-const DisplayProduct = ({checkboxId, productImg, cashImg, productName, purchasePrice, purchaseText, productDeal, productLocation}) => {
+const DisplayProduct = ({
+  checkboxId,
+  productImg,
+  cashImg,
+  productName,
+  purchasePrice,
+  purchaseText,
+  productDeal,
+  productLocation,
+}) => {
   return (
     <>
       <div className="displayProduct">
         <div className="checkBoxSec">
           <div className="styled-input-container styled-input--square">
             <div className="styled-input-single">
-              <input
-                type="checkbox"
-                name="fieldset-2"
-                id={checkboxId}
-              />
+              <input type="checkbox" name="fieldset-2" id={checkboxId} />
               <label htmlFor={checkboxId} />
             </div>
           </div>
         </div>
         <div className="stockList">
           <div className="stockImage">
-            <img src={productImg}/>
+            <img src={productImg} />
           </div>
           <div className="stockContent">
             <h3>{productName}</h3>
@@ -36,13 +41,14 @@ const DisplayProduct = ({checkboxId, productImg, cashImg, productName, purchaseP
           </div>
           <div className="priceDiv">
             <h5>
-              {purchasePrice}<span>per case</span>
+              {purchasePrice}
+              <span>per case</span>
             </h5>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default DisplayProduct
+export default DisplayProduct;

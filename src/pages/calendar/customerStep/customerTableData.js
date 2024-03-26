@@ -1,4 +1,4 @@
-
+import React from "react";
   
   export const CustomerData = [
     {
@@ -6,8 +6,8 @@
       checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,
@@ -22,8 +22,8 @@
       checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,
@@ -37,8 +37,8 @@
       checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,
@@ -52,8 +52,8 @@
       checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,
@@ -67,8 +67,8 @@
       checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,
@@ -82,8 +82,8 @@
       checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,

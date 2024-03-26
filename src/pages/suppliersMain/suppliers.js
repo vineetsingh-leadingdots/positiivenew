@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import TableList from "../../commonComponents/tableList";
 import { SupplierColumnData, supplierPageData } from "./supplierData";
@@ -8,7 +8,7 @@ import SupplierTopCard from "./supplierTopCard";
 const Suppliers = () => {
   return (
     <>
-<HelmetProvider>
+      <HelmetProvider>
         <Helmet>
           <title>Positiive | Suppliers </title>
         </Helmet>
@@ -33,7 +33,7 @@ const Suppliers = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Suppliers
+export default Suppliers;

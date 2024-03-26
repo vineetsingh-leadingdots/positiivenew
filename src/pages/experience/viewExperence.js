@@ -1,21 +1,22 @@
+import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const ViewExperence = () => {
-  const [toggleState2, setToggleState2] = useState("Overview");
-  const toggleTab2 = (index) => {
-    setToggleState2(index);
-  };
-  const [toggleState3, setToggleState3] = useState("750ML");
-  const toggleTab3 = (index) => {
-    setToggleState3(index);
-  };
+  // const [toggleState2, setToggleState2] = useState("Overview");
+  // const toggleTab2 = (index) => {
+  //   setToggleState2(index);
+  // };
+  // const [toggleState3, setToggleState3] = useState("750ML");
+  // const toggleTab3 = (index) => {
+  //   setToggleState3(index);
+  // };
 
-  const [toggleState4, setToggleState4] = useState("galleryAll");
-  const toggleTab4 = (index) => {
-    setToggleState4(index);
-  };
+  // const [toggleState4, setToggleState4] = useState("galleryAll");
+  // const toggleTab4 = (index) => {
+  //   setToggleState4(index);
+  // };
   const [expandShow, setExpandShow] = useState(false);
   const expandClick = () => setExpandShow(!expandShow);
   return (
@@ -65,7 +66,7 @@ const ViewExperence = () => {
                           name="fieldset-2"
                           id="tequila"
                         />
-                        <label for="tequila" />
+                        {/* <label for="tequila" /> */}
                       </div>
                     </div>
                   </div>

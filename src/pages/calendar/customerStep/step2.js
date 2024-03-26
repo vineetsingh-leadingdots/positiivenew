@@ -1,15 +1,14 @@
-import Search from "../../search/search"
-
-
+import React from "react";
+import Search from "../../search/search";
 
 const StepTwo = () => {
   return (
     <>
-    <div className="customerStep customerOnboard">
-    <Search/>
-    </div>
+      <div className="customerStep customerOnboard">
+        <Search />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default StepTwo
+export default StepTwo;

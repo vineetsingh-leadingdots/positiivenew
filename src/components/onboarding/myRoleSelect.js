@@ -1,3 +1,4 @@
+import React from 'react';
 import { Select } from 'antd';
 import { Radio } from 'antd';
 
@@ -35,7 +36,7 @@ const MyRoleSelect = () => {
       </Option>
     </Select>
   );
-}
+};
 
 export default MyRoleSelect;
-;
+

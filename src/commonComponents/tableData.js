@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import DeletePopup from "../components/deletePopup";
 import AssignDivisonPopup from "../pages/salesPersons/assignDivison";
@@ -333,8 +334,8 @@ export const dataSource = [
       checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,
@@ -349,8 +350,8 @@ export const dataSource = [
       checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,
@@ -1651,8 +1652,8 @@ export const dataSource = [
         checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          <label for="blanco">
-            </label>
+          {/* <label for="blanco">
+            </label> */}
             </div>
             </div>
       </>,

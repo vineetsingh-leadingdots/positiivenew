@@ -1,6 +1,5 @@
-import { useState } from "react";
+import React from "react";
 import { Row, Col } from "antd";
-import { MoreIcon } from "../../../commonComponents/commonSvg";
 import FilterDropdown from "./filterDropdown";
 import FilterDropdownFirst from "./filterDropdownFirst";
 

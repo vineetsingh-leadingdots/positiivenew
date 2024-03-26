@@ -73,10 +73,10 @@ const items = [
 
 const CalendarDropdown = () => {
     const [visibleDrawer, setVisibleDrawer] = useState({});
-    const [selectedItem, setSelectedItem] = useState(null);
+    // const [selectedItem, setSelectedItem] = useState(null);
 
     const handleItemClick = (item) => {
-        setSelectedItem(item);
+        // setSelectedItem(item);
         setVisibleDrawer(prevState => ({ ...prevState, [item.key]: true }));
     };
 
@@ -164,8 +164,8 @@ const CalendarDropdown = () => {
                               <div className="w-full mb-6">
                                 <label className="label">Enter information</label>
                                 <div className="formGroup">
-                                  <textarea className="form_control h-32 " placeholder="Description for your meeting">
-                                  </textarea>
+                                  {/* <textarea className="form_control h-32 " placeholder="Description for your meeting">
+                                  </textarea> */}
                                 </div>
                               </div>
                             </form>

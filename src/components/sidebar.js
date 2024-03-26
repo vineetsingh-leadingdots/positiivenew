@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { LogoutOutlined, ProductOutlined, UsergroupAddOutlined  } from '@ant-design/icons';
-import { Button, Menu } from 'antd';
+import { Menu } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { BasketIcon, CalendarIcon, CompanyGoalsIcon, ComplianceIcon, ExperienceIcon, HardwareChipIcon, HeartCircleIcon, HomeIcon, MasterIcon, PeopleCircleIcon, SearchIcon, SparklesIcon } from '../commonComponents/commonSvg';
+import { BasketIcon, CalendarIcon, CompanyGoalsIcon, ComplianceIcon, ExperienceIcon, HardwareChipIcon, HeartCircleIcon, HomeIcon, PeopleCircleIcon, SearchIcon, SparklesIcon } from '../commonComponents/commonSvg';
 
 const { SubMenu } = Menu;
 
@@ -81,7 +81,7 @@ const items = [
 ];
 
 const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed] = useState(false);
   const [openKeys, setOpenKeys] = useState([]);
 
   const onOpenChange = keys => {

@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import TableList from '../../commonComponents/tableList'
-import {  RoleColumn } from '../../commonComponents/tableData'
+import React, { useEffect } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import TableList from "../../commonComponents/tableList";
+import { RoleColumn } from "../../commonComponents/tableData";
 import { useListroleQuery } from '../../services/roleApi';
-import SearchField from '../../components/searchFIeld'
-import AddButton from '../../components/addButton'
-
+import SearchField from "../../components/searchFIeld";
+import AddButton from "../../components/addButton";
 import { Link } from 'react-router-dom';
 import DeletePopup from '../../components/deletePopup';
 
@@ -38,35 +37,31 @@ const Role = () => {
       </>,
     }
     ));
-
-    return (
-        <>
-         <HelmetProvider>
-                <Helmet>
-                    <title>Positiive | Role </title>
-                </Helmet>
-            </HelmetProvider>
-            <div className='content'>
-                <div className='w-full mb-4'>
-                    <h2 className='mb-4'> Roles</h2>
-                    <div className='flex justify-between searchWithButton'>
-                        <SearchField  placeholder="Search by name"/>
-                        <div className='btnRight'>
-                            <AddButton
-                                linkHref="/role/add"
-                                btnText="Add Role"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className='card '>
-                    <div className='tableAreaMaster '>
-                        <TableList data={tableData} columns={RoleColumn} />
-                    </div>
-                </div>
+  return (
+    <>
+      <HelmetProvider>
+        <Helmet>
+          <title>Positiive | Role </title>
+        </Helmet>
+      </HelmetProvider>
+      <div className="content">
+        <div className="w-full mb-4">
+          <h2 className="mb-4"> Roles</h2>
+          <div className="flex justify-between searchWithButton">
+            <SearchField placeholder="Search by name" />
+            <div className="btnRight">
+              <AddButton linkHref="/role/add" btnText="Add Role" />
             </div>
-        </>
-    )
-}
+          </div>
+        </div>
+        <div className="card ">
+          <div className="tableAreaMaster ">
+            <TableList data={tableData} columns={RoleColumn} />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default Role
+export default Role;

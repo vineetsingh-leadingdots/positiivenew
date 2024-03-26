@@ -1,4 +1,5 @@
 import Marketing from "./marketing";
+import React from "react";
 import Award from "./award";
 import Overview from "./overview";
 import Promotions from "./promotions";
@@ -8,7 +9,6 @@ import Gallery from "./gallery";
 import TechSheet from "./techSheet";
 import { OrderHistoryData, PendingOrderData, columnOrder, columnPendingOrder } from "./tableData";
 import TableList from "./tableList";
-import ExperienceCard from "./experienceCard";
 
 export const items = [
     {

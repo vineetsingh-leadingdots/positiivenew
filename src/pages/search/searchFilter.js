@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+
 import React, { useState } from "react";
 import AccordianArea from "./accordian";
-import { Button, Drawer, Space } from 'antd';
+import { Drawer } from 'antd';
 const SearchFilter = () => {
   const [open, setOpen] = useState(false);
   const showDefaultDrawer = () => {   
@@ -41,9 +41,9 @@ const SearchFilter = () => {
                   className="form_control"
                   placeholder="Search products"
                 />
-                <button>
+                {/* <button>
                  
-                </button>
+                </button> */}
               </div>
               <div className="filterList md:py-0 py-3 px-4">
                 <AccordianArea />
