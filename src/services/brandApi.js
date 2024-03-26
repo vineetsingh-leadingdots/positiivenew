@@ -25,6 +25,17 @@ export const brandApi = createApi({
           method: "GET"
         };
       },
+      async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
+        //onStart side-effect
+      try {
+        const { data } = await queryFulfilled;
+        console.log(data);
+        // onSuccess side-effect  
+      } catch (error) {
+        // onError side-effect
+        commonErrorHandler(error?.error,   dispatch);
+      }
+    },
     }),
     createBrand: builder.mutation({
       query : (formData) => {

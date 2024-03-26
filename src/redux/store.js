@@ -10,6 +10,7 @@ import { ratingApi } from '../services/ratingApi';
 import supplierSlice from './supplierSlice/supplierSlice';
 import { supplierApi } from '../services/supplierApi';
 import { varietyApi } from '../services/varietyApi';
+import { sizeApi } from '../services/sizeApi';
 
 const persistConfig = {
   key: "root", // This is the key used to store the data in storage
@@ -29,10 +30,11 @@ export const store = configureStore({
     [supplierApi.reducerPath]: supplierApi.reducer,
     [attributeApi.reducerPath]: attributeApi.reducer,
     [ratingApi.reducerPath]: ratingApi.reducer,
-    [varietyApi.reducerPath]: varietyApi.reducer
+    [varietyApi.reducerPath]: varietyApi.reducer,
+    [sizeApi.reducerPath]: sizeApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(varietyApi.middleware)
+    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(varietyApi.middleware).concat(sizeApi.middleware)
 });
 
 export const persistor = persistStore(store);

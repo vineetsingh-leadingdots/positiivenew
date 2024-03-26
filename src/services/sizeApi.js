@@ -4,8 +4,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 //import { useNavigate } from 'react-router-dom';
 
-export const ratingApi = createApi({
-  reducerPath: "ratingApi",
+export const sizeApi = createApi({
+  reducerPath: "sizeApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -19,10 +19,10 @@ export const ratingApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listRating: builder.query({
+    listSize: builder.query({
       query : () => {
         return {
-          url: `/rating/lists`,
+          url: `/size/lists`,
           method: "GET"
         };
       },
@@ -38,10 +38,10 @@ export const ratingApi = createApi({
       }
     },
     }),
-    createRating: builder.mutation({
+    createSize: builder.mutation({
       query : (formData) => {
         return {
-          url: `/rating/create-or-update`,
+          url: `/size/create-or-update`,
           method: "POST",
           body: formData
         };
@@ -55,8 +55,8 @@ export const ratingApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Rating Created/Updated Successfully',
-            description: 'Your rating has been created/updated successfully.',
+            message: 'Size Created/Updated Successfully',
+            description: 'Your size has been created/updated successfully.',
             threshold: 2
           });
           
@@ -66,10 +66,10 @@ export const ratingApi = createApi({
         }
       },
     }),
-    deleteRating: builder.mutation({
-      query : (ratingId) => {
+    deleteSize: builder.mutation({
+      query : (id) => {
         return {
-          url: `/rating/delete/${ratingId}`,
+          url: `/size/delete/${id}`,
           method: "DELETE"
         };
       },
@@ -79,12 +79,12 @@ export const ratingApi = createApi({
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Rating Deleted Successfully',
+            message: 'Size Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your rating has been deleted successfully.',
+            description: 'Your size has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -94,6 +94,6 @@ export const ratingApi = createApi({
     }),
   })
 });
-export const { useCreateRatingMutation, useDeleteRatingMutation, useListRatingQuery} = ratingApi;
+export const { useCreateSizeMutation, useDeleteSizeMutation, useListSizeQuery } = sizeApi;
 
 

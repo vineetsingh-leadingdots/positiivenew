@@ -26,6 +26,17 @@ export const varietyApi = createApi({
           method: "GET"
         };
       },
+      async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
+        //onStart side-effect
+      try {
+        const { data } = await queryFulfilled;
+        console.log(data);
+        // onSuccess side-effect  
+      } catch (error) {
+        // onError side-effect
+        commonErrorHandler(error?.error,   dispatch);
+      }
+    },
     }),
     createVariety: builder.mutation({
       query : (formData) => {
@@ -56,9 +67,9 @@ export const varietyApi = createApi({
       },
     }),
     deleteVariety: builder.mutation({
-      query : (ratingId) => {
+      query : (Id) => {
         return {
-          url: `/variety/delete/${ratingId}`,
+          url: `/variety/delete/${Id}`,
           method: "DELETE"
         };
       },

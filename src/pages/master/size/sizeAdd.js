@@ -1,9 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCreateSizeMutation } from "../../../services/sizeApi";
 
 const SizeAdd = () => {
   const navigate = useNavigate();
+  const [ createSize, {isSuccess: createSizeSuccess} ] = useCreateSizeMutation();
+
+  const [formData, setFormData] = useState({
+    name: ""
+  });
+
+  useEffect (() => {
+    if (createSizeSuccess) {
+      navigate("/size/list");
+    }
+  }, [createSizeSuccess]);
+
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state?.sizeDataList) {
+      setFormData({
+        name: state?.sizeDataList?.name,
+      });
+    }
+  }, [state]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (state?.sizeDataList?.id) {
+      let val = {
+        name: formData?.name,
+        id: state?.sizeDataList?.id,
+      };
+      createSize(val);
+    } else {
+      let val = {
+        name: formData?.name,
+      };
+      createSize(val);
+    }
+  };
+
 
   return (
     <>
@@ -28,13 +72,15 @@ const SizeAdd = () => {
                     type="text"
                     placeholder="Enter size name"
                     className="formControl"
+                    onChange={handleInputChange}
+                    defaultValue={formData?.name}
                   />
                 </div>
               </div>
 
               <div className="w-full formFooter">
                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
-                  <button type="submit" className=" btn-save btnSm ">
+                  <button type="submit" className=" btn-save btnSm " onClick={handleSubmit}>
                     Submit
                   </button>
                   <button
