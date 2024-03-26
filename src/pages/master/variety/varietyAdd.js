@@ -1,9 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCreateVarietyMutation } from "../../../services/varietyApi";
 
 const VarietyAdd = () => {
+  const [ createVariety, { isSuccess: createVarietiesSuccess } ] = useCreateVarietyMutation();
   const navigate = useNavigate();
+  const [ formData, setFormData ] = useState({
+    name: ""
+  });
+
+  useEffect (() => {
+    if (createVarietiesSuccess) {
+      navigate("/variety/list");
+    }
+  }, [createVarietiesSuccess]);
+
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state?.varietyData) {
+      setFormData({
+        name: state?.varietyData?.name,
+      });
+    }
+  }, [state]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (state?.varietyData?.id) {
+      let val = {
+        name: formData?.name,
+        id: state?.varietyData?.id,
+      };
+      createVariety(val);
+    } else {
+      let val = {
+        name: formData?.name,
+      };
+      createVariety(val);
+    }
+  };
 
   return (
     <>
@@ -28,13 +73,19 @@ const VarietyAdd = () => {
                     type="text"
                     placeholder="Enter brand name"
                     className="formControl"
+                    onChange={handleChange}
+                    defaultValue={formData?.name}
                   />
                 </div>
               </div>
 
               <div className="w-full formFooter">
                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
-                  <button type="submit" className=" btn-save btnSm ">
+                  <button 
+                    type="submit" 
+                    className=" btn-save btnSm " 
+                    onClick={handleSubmit}
+                  >
                     Submit
                   </button>
                   <button

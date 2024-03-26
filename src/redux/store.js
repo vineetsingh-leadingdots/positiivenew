@@ -9,6 +9,7 @@ import { attributeApi } from '../services/attributeApi';
 import { ratingApi } from '../services/ratingApi';
 import supplierSlice from './supplierSlice/supplierSlice';
 import { supplierApi } from '../services/supplierApi';
+import { varietyApi } from '../services/varietyApi';
 import roleSlice from './roleSlice/roleSlice';
 import { roleApi } from '../services/roleApi';
 
@@ -32,10 +33,11 @@ export const store = configureStore({
     [supplierApi.reducerPath]: supplierApi.reducer,
     [attributeApi.reducerPath]: attributeApi.reducer,
     [ratingApi.reducerPath]: ratingApi.reducer,
+    [varietyApi.reducerPath]: varietyApi.reducer,
     [roleApi.reducerPath]: roleApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(roleApi.middleware)
+    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(varietyApi.middleware).concat(roleApi.middleware)
 });
 
 export const persistor = persistStore(store);

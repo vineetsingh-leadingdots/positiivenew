@@ -1,4 +1,4 @@
-    import React from "react";
+    import React, { useState } from "react";
     import { useEffect } from "react";
     import { Helmet, HelmetProvider } from "react-helmet-async";
     import SearchField from "../../../components/searchFIeld";
@@ -7,17 +7,28 @@
     import {
     AttributeColumns
     } from "../../../commonComponents/tableData";
-    import { useListAttributeQuery } from "../../../services/attributeApi";
+    import { useDeleteAttributeMutation, useListAttributeQuery } from "../../../services/attributeApi";
     import DeletePopup from "../../../components/deletePopup";
     import { useNavigate } from "react-router";
 
     const Attribute = () => {
+    const [ deleteAttribute, {isSuccess: deleteAttributeSuccess} ] = useDeleteAttributeMutation();
     const { data: attributeListData, refetch } = useListAttributeQuery();
     const navigate = useNavigate();
 
+    const [modal1Open, setModal1Open] = useState(false); 
+    const closeModal = () => {
+        setModal1Open(false);
+    };
+
     useEffect(() => {
         refetch();
-    }, [attributeListData]);
+    }, [attributeListData, deleteAttributeSuccess]);
+
+    const deleteAttributeHandler = (id) => {
+        deleteAttribute(id);
+        setModal1Open(false);
+    };
 
     const tableData = attributeListData?.data.map((attribute) => ({
         key: attribute?.id?.toString(),
@@ -33,8 +44,10 @@
             <i className="fa fa-pencil" />
             </button>
             <DeletePopup
-            attributeDeleteId={attribute?.id}
-            refetchAttribute={refetch}
+            onClick={() => deleteAttributeHandler(attribute?.id)}
+            setModal1Open={setModal1Open}
+            closeModal={closeModal}
+            modal1Open={modal1Open}
             />
         </div>
         ),

@@ -1,20 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import { RatingColumns } from "../../../commonComponents/tableData";
-import { useListRatingQuery } from "../../../services/ratingApi";
+import { useDeleteRatingMutation, useListRatingQuery } from "../../../services/ratingApi";
 import { useNavigate } from "react-router-dom";
 import DeletePopup from "../../../components/deletePopup";
 
 const Rating = () => {
+  const [ deleteRating, {isSuccess: deleteRatingSuccess} ] = useDeleteRatingMutation();
   const { data: ratingListData, refetch } = useListRatingQuery();
   const navigate = useNavigate();
 
+  const [modal1Open, setModal1Open] = useState(false); 
+  const closeModal = () => {
+      setModal1Open(false);
+  };
+  
+
   useEffect(() => {
     refetch();
-  }, [ratingListData]);
+  }, [ratingListData, deleteRatingSuccess]);
+
+  const deleteRatingHandler = (id) => {
+    deleteRating(id);
+    setModal1Open(false);
+};
 
   const RatingData = ratingListData?.data.map((rating) => ({
     key: rating?.id?.toString(),
@@ -29,7 +41,11 @@ const Rating = () => {
         >
           <i className="fa fa-pencil" />
         </button>
-        <DeletePopup ratingdeleteId={rating?.id} refetchRating={refetch} />
+        <DeletePopup onClick={() => deleteRatingHandler(rating?.id)}
+          setModal1Open={setModal1Open}
+          closeModal={closeModal}
+          modal1Open={modal1Open}
+        />
       </div>
     ),
   }));
