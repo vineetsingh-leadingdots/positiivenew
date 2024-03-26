@@ -1,15 +1,61 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 // import {useNavigate} from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-// import { useCreateroleMutation } from '../../services/roleApi';
-// import {  useLocation, useNavigate  } from 'react-router-dom';
+import { useCreateroleMutation } from "../../services/roleApi"; 
+
 
 const RoleAdd = () => {
   const navigate = useNavigate();
 
+  const [createrole, { isSuccess: createroleSuccess }] =
+    useCreateroleMutation();
+
+    const { state } = useLocation();
+    const [roleData, setRoleData] = useState({
+        name: "",
+        description: "",
+      });
     
+      useEffect(() => {
+        if (state?.roleData) {
+          setRoleData({
+            name: state?.roleData?.name,
+            description: state?.roleData?.description,
+          });
+        }
+      }, [state]);
+    
+      useEffect(() => {
+        if (createroleSuccess) {
+          navigate("/role/list");
+        }
+      }, [createroleSuccess]);
+
+  const handleFileChange = (e) => {
+    
+    setRoleData((prevroleData) => ({
+      ...prevroleData,
+      name: e.target.value,
+    }));
+  };
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    if (state?.roleData?.id) {
+      var formdataEdit = new FormData();
+      formdataEdit.append("name", roleData?.name);
+      formdataEdit.append("description", roleData?.description);
+      formdataEdit.append("id", state.roleData.id);
+      createrole(formdataEdit);
+    } else {
+      var formdata = new FormData();
+      formdata.append("name", roleData?.name);
+      formdata.append("description", roleData?.description);
+      createrole(formdata);
+    }
+  };
 //   return (
 //     <>
 //       <HelmetProvider>
@@ -23,7 +69,7 @@ const RoleAdd = () => {
 //         </div>
 //         <div className="card p-8 ">
 //           <div className="formArea mt-5">
-//             <form id="brandAdd">
+//             <form id="roleAdd">
 //               <div className=" w-full ">
 //                 <div className="form-group mb-6 ">
 //                   <label className="formBlock mb-2 py-2">Name *</label>
@@ -31,7 +77,7 @@ const RoleAdd = () => {
 //                     id="name"
 //                     name="name"
 //                     type="text"
-//                     placeholder="Enter brand name"
+//                     placeholder="Enter role name"
 //                     className="formControl"
 //                   />
 //                 </div>
@@ -143,8 +189,10 @@ const RoleAdd = () => {
                                             id="name"
                                             name="name"
                                             type="text"
+                                            defaultValue={roleData?.name}
                                             placeholder="Enter role name"
                                             className="formControl"
+                                            onChange={handleFileChange}
                                         />
                                     </div>
                                 </div>      
@@ -152,11 +200,13 @@ const RoleAdd = () => {
                                     <div className="form-group mb-6 ">
                                         <label className="formBlock mb-2 py-2">Description</label>
                                         <textarea
-                                            id="name"
-                                            name="name"
+                                            id="description"
+                                            name="description"
                                             type="text"
+                                            defaultValue={roleData?.description}
                                             placeholder="Enter role description"
                                             className="formControl"
+                                            onChange={handleFileChange}
                                         />
                                     </div>
                                 </div>                  
@@ -168,7 +218,7 @@ const RoleAdd = () => {
                                     <button
                                         type="submit"
                                         className=" btn-save btnSm "
-                                        // onClick={handelSubmit}
+                                        onClick={handelSubmit}
                                     >
                                         Submit
                                     </button>
