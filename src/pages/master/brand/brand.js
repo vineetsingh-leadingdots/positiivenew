@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
@@ -9,13 +9,9 @@ import { useNavigate } from "react-router-dom";
 import DeletePopup from "../../../components/deletePopup";
 
 const Brand = () => {
-  const { data: brandListData, refetch } = useListBrandQuery();
-  const [ deleteBrand, { isSuccess: deleteBrandSuccess} ] = useDeleteBrandMutation();
+  const { data: brandListData } = useListBrandQuery();
+  const [ deleteBrand ] = useDeleteBrandMutation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    refetch();
-  }, [brandListData, deleteBrandSuccess]);
 
   const deleteBrandHandler = (id) => {
     deleteBrand(id);

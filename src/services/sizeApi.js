@@ -26,6 +26,7 @@ export const sizeApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ["sizeInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -46,6 +47,7 @@ export const sizeApi = createApi({
           body: formData
         };
       },
+      invalidatesTags: ["sizeInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -73,6 +75,7 @@ export const sizeApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ["sizeInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {

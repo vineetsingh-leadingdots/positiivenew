@@ -25,6 +25,7 @@ export const brandApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ["brandInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -45,6 +46,7 @@ export const brandApi = createApi({
           body: formData
         };
       },
+      invalidatesTags: ["brandInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -72,6 +74,7 @@ export const brandApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ["brandInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {

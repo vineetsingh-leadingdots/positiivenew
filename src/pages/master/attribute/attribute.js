@@ -1,5 +1,4 @@
     import React from "react";
-    import { useEffect } from "react";
     import { Helmet, HelmetProvider } from "react-helmet-async";
     import SearchField from "../../../components/searchFIeld";
     import AddButton from "../../../components/addButton";
@@ -12,13 +11,9 @@
     import { useNavigate } from "react-router";
 
     const Attribute = () => {
-    const [ deleteAttribute, {isSuccess: deleteAttributeSuccess} ] = useDeleteAttributeMutation();
-    const { data: attributeListData, refetch } = useListAttributeQuery();
+    const [ deleteAttribute ] = useDeleteAttributeMutation();
+    const { data: attributeListData } = useListAttributeQuery();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        refetch();
-    }, [attributeListData, deleteAttributeSuccess]);
 
     const deleteAttributeHandler = (id) => {
         deleteAttribute(id);

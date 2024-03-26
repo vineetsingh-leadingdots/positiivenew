@@ -26,6 +26,7 @@ export const styleApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ['StyleInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -46,6 +47,7 @@ export const styleApi = createApi({
           body: formData
         };
       },
+      invalidatesTags: ['StyleInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -74,6 +76,7 @@ export const styleApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ['StyleInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {

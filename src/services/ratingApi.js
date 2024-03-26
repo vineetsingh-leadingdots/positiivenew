@@ -26,6 +26,7 @@ export const ratingApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ["ratingInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -46,6 +47,7 @@ export const ratingApi = createApi({
           body: formData
         };
       },
+      invalidatesTags: ["ratingInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -73,6 +75,7 @@ export const ratingApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ["ratingInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {

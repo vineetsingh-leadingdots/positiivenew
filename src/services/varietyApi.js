@@ -26,6 +26,7 @@ export const varietyApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ["varietyInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -46,6 +47,7 @@ export const varietyApi = createApi({
           body: formData
         };
       },
+      invalidatesTags: ["varietyInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -73,6 +75,7 @@ export const varietyApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ["varietyInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -91,7 +94,6 @@ export const varietyApi = createApi({
           commonErrorHandler(error?.error,   dispatch);
         }
       },
-      invalidatesTags: [ "Post" ]
     }),
   })
 });

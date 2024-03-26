@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
@@ -9,14 +9,9 @@ import DeletePopup from "../../../components/deletePopup";
 import { useNavigate } from "react-router-dom";
 
 const Size = () => {
-  const { data: sizeListData, refetch } = useListSizeQuery();
-  const [ deleteSize, { data: dataSizeSuccess } ] = useDeleteSizeMutation(); 
+  const { data: sizeListData } = useListSizeQuery();
+  const [ deleteSize ] = useDeleteSizeMutation(); 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    refetch();
-  }, [sizeListData, dataSizeSuccess]);
-
 
   const deleteSizeHandler = (id) => {
     deleteSize(id);

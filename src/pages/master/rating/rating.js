@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
@@ -9,13 +9,9 @@ import { useNavigate } from "react-router-dom";
 import DeletePopup from "../../../components/deletePopup";
 
 const Rating = () => {
-  const [ deleteRating, { isSuccess: deleteRatingSuccess } ] = useDeleteRatingMutation();
-  const { data: ratingListData, refetch } = useListRatingQuery();
+  const [ deleteRating ] = useDeleteRatingMutation();
+  const { data: ratingListData } = useListRatingQuery();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    refetch();
-  }, [ratingListData, deleteRatingSuccess]);
 
   const deleteRatingHandler = (id) => {
     deleteRating(id);

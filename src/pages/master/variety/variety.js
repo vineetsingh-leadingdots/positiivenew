@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
@@ -11,13 +11,9 @@ import { useNavigate } from "react-router-dom";
 import DeletePopup from "../../../components/deletePopup";
 
 const Variety = () => {
-  const [ deleteVariety, { isSuccess: deleteVarietySuccess } ] = useDeleteVarietyMutation();
-  const { data: varietyListData, refetch } = useListVarietyQuery();
+  const [ deleteVariety ] = useDeleteVarietyMutation();
+  const { data: varietyListData } = useListVarietyQuery();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    refetch();
-}, [varietyListData, deleteVarietySuccess]);
 
   const deleteVarietyHandler = (id) => {
     deleteVariety(id);

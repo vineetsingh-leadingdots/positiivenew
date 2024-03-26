@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
@@ -9,12 +9,8 @@ import DeletePopup from "../../../components/deletePopup";
 import { useNavigate } from "react-router-dom";
 
 const Style = () => {
-  const { data: styleListData, refetch } = useListStyleQuery();
-  const [ deleteStyle, { isSuccess:deleteStyleSuccess } ] = useDeleteStyleMutation();
-
-  useEffect(() => {
-    refetch();
-  }, [ styleListData, deleteStyleSuccess ]);
+  const { data: styleListData } = useListStyleQuery();
+  const [ deleteStyle ] = useDeleteStyleMutation();
 
   const navigate = useNavigate();
 

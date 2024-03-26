@@ -26,6 +26,7 @@ export const attributeApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ['attributeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -46,6 +47,7 @@ export const attributeApi = createApi({
           body: formData
         };
       },
+      invalidatesTags: ['attributeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -73,6 +75,7 @@ export const attributeApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ['attributeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
