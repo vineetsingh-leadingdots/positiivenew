@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import TableList from "../../commonComponents/tableList";
 import { RoleColumn } from "../../commonComponents/tableData";
@@ -12,40 +12,27 @@ import { useNavigate } from "react-router-dom";
 
 const Role = () => {
 
-    const { data: roleListData, refetch } = useListroleQuery();
-    const [ deleteRole, { isSuccess: deleteRoleSuccess} ] = useDeleteroleMutation();
+    const { data: roleListData } = useListroleQuery();
+    const [ deleteRole ] = useDeleteroleMutation();
     const navigate = useNavigate();
-    const [modal1Open, setModal1Open] = useState(false); 
-    const closeModal = () => {
-        setModal1Open(false);
-    };
-  
-     useEffect(() => {
-        refetch();
-    }, [ roleListData, deleteRoleSuccess ]);
 
     const deleteRoleHandler = (id) => {
       deleteRole(id);
-      setModal1Open(false);
     };
     
-    const tableData = roleListData?.data.map((role) => (
-        {
-        key: role?.id.toString(),
+    const tableData = roleListData?.data.map((role) => ({
+      key: role?.id.toString(),
       Name: role?.name,    
-      Actions: <>
+      Actions: (
       <div className="flex gap-1">
-      {/* <Link to="/role/add" className="actionButton"><i className="fa fa-pencil"/></Link> */}
       <button onClick={() => navigate("/role/add", { state: { roleData: role } })} className="actionButton">
         <i className="fa fa-pencil" />
        </button>
-       <DeletePopup onClick={() => deleteRoleHandler(role?.id)} 
-          setModal1Open={setModal1Open}
-          closeModal={closeModal}
-          modal1Open={modal1Open}
+       <DeletePopup 
+          onClick={() => deleteRoleHandler(role?.id)} 
         />
       </div>
-      </>,
+      ),
     }
     ));
   return (

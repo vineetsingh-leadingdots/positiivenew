@@ -26,7 +26,19 @@ export const supplierApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ["supplierInfo"],
+      async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
+        //onStart side-effect
+      try {
+        const { data } = await queryFulfilled;
+        // onSuccess side-effect  
+      } catch (error) {
+        // onError side-effect
+        commonErrorHandler(error?.error,   dispatch);
+      }
+    },
     }),
+    
     // createsupplier: builder.mutation({
     //   query : (formData) => {
     //     return {
@@ -35,6 +47,7 @@ export const supplierApi = createApi({
     //       body: formData
     //     };
     //   },
+    // invalidatesTags: ["supplierInfo"],
     //   async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
     //       //onStart side-effect
     //     try {
@@ -55,6 +68,7 @@ export const supplierApi = createApi({
     //     }
     //   },
     // }),
+    
     deletesupplier: builder.mutation({
       query : (supplierId) => {
         return {
@@ -62,6 +76,7 @@ export const supplierApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ["supplierInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {

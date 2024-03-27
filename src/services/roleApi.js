@@ -26,7 +26,19 @@ export const roleApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ["roleInfo"],
+      async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
+        //onStart side-effect
+      try {
+        const { data } = await queryFulfilled;
+        // onSuccess side-effect  
+      } catch (error) {
+        // onError side-effect
+        commonErrorHandler(error?.error,   dispatch);
+      }
+    },
     }),
+    invalidatesTags: ["roleInfo"],
     createrole: builder.mutation({
       query : (formData) => {
         return {
@@ -62,6 +74,7 @@ export const roleApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ["roleInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
