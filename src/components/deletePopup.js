@@ -4,12 +4,12 @@ import { useState } from "react";
 import { Modal } from 'antd';
 
 const DeletePopup = ({onClick}) => {
-    
+
     const [modal1Open, setModal1Open] = useState(false); 
     const closeModal = () => {
         setModal1Open(false);
     };
-
+    
     return (
         <>
             <button className="actionButton delete " onClick={() => setModal1Open(true)}>

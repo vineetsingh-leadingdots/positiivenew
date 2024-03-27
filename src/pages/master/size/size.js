@@ -3,9 +3,38 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
-import { SizeColumns, SizeData } from "../../../commonComponents/tableData";
+import { SizeColumns } from "../../../commonComponents/tableData";
+import { useDeleteSizeMutation, useListSizeQuery } from "../../../services/sizeApi";
+import DeletePopup from "../../../components/deletePopup";
+import { useNavigate } from "react-router-dom";
 
 const Size = () => {
+  const { data: sizeListData } = useListSizeQuery();
+  const [ deleteSize ] = useDeleteSizeMutation(); 
+  const navigate = useNavigate();
+
+  const deleteSizeHandler = (id) => {
+    deleteSize(id);
+  };
+
+
+  const sizeData = sizeListData?.data.map((size) => ({
+    key: size?.id?.toString(),
+    Name: size?.name,
+    Actions: (
+      <div className="flex gap-1">
+        <button
+          onClick={() =>
+            navigate("/size/add", { state: { sizeDataList: size } })
+          }
+          className="actionButton"
+        >
+          <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup onClick={() => deleteSizeHandler(size?.id)}/>
+      </div>
+    ),
+  }));
   return (
     <>
       <HelmetProvider>
@@ -25,7 +54,7 @@ const Size = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={SizeData} columns={SizeColumns} />
+            <TableList data={sizeData} columns={SizeColumns} />
           </div>
         </div>
       </div>

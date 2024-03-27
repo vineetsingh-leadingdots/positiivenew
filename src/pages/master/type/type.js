@@ -5,10 +5,41 @@ import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import {
   TypeColumns,
-  TypeData,
 } from "../../../commonComponents/tableData";
+import DeletePopup from "../../../components/deletePopup";
+import { useDeleteTypeMutation, useListTypeQuery } from "../../../services/typeApi";
+import { useNavigate } from "react-router-dom";
 
 const Type = () => {
+
+  const { data: typeListData } = useListTypeQuery();
+  const [ deleteType ] = useDeleteTypeMutation();
+  const navigate = useNavigate();
+
+  const deleteTypeHandler = (id) => {
+    deleteType(id);
+  };
+
+  const typeData = typeListData?.data.map((type) => ({
+    key: type?.id?.toString(),
+    Name: type?.name,
+    Actions: (
+    <div className="flex gap-1">
+        <button
+        onClick={() =>
+            navigate("/type/add", { state: { typeData: type } })
+        }
+        className="actionButton"
+        >
+        <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup
+        onClick={() => deleteTypeHandler(type?.id)}
+        />
+    </div>
+    ),
+  }));
+
   return (
     <>
       <HelmetProvider>
@@ -28,7 +59,7 @@ const Type = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={TypeData} columns={TypeColumns} />
+            <TableList data={typeData} columns={TypeColumns} />
           </div>
         </div>
       </div>

@@ -26,6 +26,18 @@ export const attributeApi = createApi({
           method: "GET"
         };
       },
+      providesTags: ['attributeInfo'],
+      async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
+        //onStart side-effect
+      try {
+        // const { data } = await queryFulfilled;
+        // console.log(data);
+        // onSuccess side-effect  
+      } catch (error) {
+        // onError side-effect
+        commonErrorHandler(error?.error,   dispatch);
+      }
+    },
     }),
     createAttribute: builder.mutation({
       query : (formData) => {
@@ -35,6 +47,7 @@ export const attributeApi = createApi({
           body: formData
         };
       },
+      invalidatesTags: ['attributeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -62,6 +75,7 @@ export const attributeApi = createApi({
           method: "DELETE"
         };
       },
+      invalidatesTags: ['attributeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
