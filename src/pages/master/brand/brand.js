@@ -1,20 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import { BrandColumns } from "../../../commonComponents/tableData";
-import { useListBrandQuery } from "../../../services/brandApi";
+import { useDeleteBrandMutation, useListBrandQuery } from "../../../services/brandApi";
 import { useNavigate } from "react-router-dom";
 import DeletePopup from "../../../components/deletePopup";
 
 const Brand = () => {
   const { data: brandListData, refetch } = useListBrandQuery();
+  const [ deleteBrand, { isSuccess: deleteBrandSuccess} ] = useDeleteBrandMutation();
   const navigate = useNavigate();
+
+  const [modal1Open, setModal1Open] = useState(false); 
+  const closeModal = () => {
+      setModal1Open(false);
+  };
 
   useEffect(() => {
     refetch();
-  }, [brandListData]);
+  }, [brandListData, deleteBrandSuccess]);
+
+  const deleteBrandHandler = (id) => {
+    deleteBrand(id);
+    setModal1Open(false);
+  };
 
   const tableData = brandListData?.data.map((brand) => ({
     key: brand?.id?.toString(),
@@ -29,7 +40,11 @@ const Brand = () => {
         >
           <i className="fa fa-pencil" />
         </button>
-        <DeletePopup deleteId={brand?.id} refetch={refetch} />
+        <DeletePopup onClick={() => deleteBrandHandler(brand?.id)} 
+          setModal1Open={setModal1Open}
+          closeModal={closeModal}
+          modal1Open={modal1Open}
+        />
       </div>
     ),
   }));

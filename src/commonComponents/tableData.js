@@ -1338,19 +1338,19 @@ export const dataSource = [
   ];
 
   
-  export const VarietyData = [
-    {
-      key: '1',
-      Name: 'Mike',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/variety/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },    
+  // export const VarietyData = [
+  //   {
+  //     key: '1',
+  //     Name: 'Mike',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/variety/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },    
    
-  ];
+  // ];
   
   export const VarietyColumns = [
     {

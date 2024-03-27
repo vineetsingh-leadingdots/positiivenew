@@ -1,47 +1,9 @@
+
 import React from "react";
-import { useState } from "react";
 import { Modal } from 'antd';
-import { useDeleteBrandMutation } from "../services/brandApi";
-import { useEffect } from "react";
-import { useDeleteAttributeMutation } from "../services/attributeApi";
-import { useDeleteRatingMutation } from "../services/ratingApi";
 
-const DeletePopup = ({deleteId, attributeDeleteId, ratingdeleteId, refetch, refetchAttribute, refetchRating}) => {
-    const [ deleteBrand, { isSuccess: deleteBrandSuccess }] = useDeleteBrandMutation();
-    const [ deleteAttribute, { isSuccess: deleteAttributeSuccess }] = useDeleteAttributeMutation();
-    const [ deleteRating, { isSuccess: deleteRatingSuccess }] = useDeleteRatingMutation();
-    const [modal1Open, setModal1Open] = useState(false); 
-    const closeModal = () => {
-        setModal1Open(false);
-    };
-    const handleDelete = (e) => {
-        e.preventDefault();
-        if(deleteId){
-            deleteBrand(deleteId);
-        }
-        else if(attributeDeleteId){
-            deleteAttribute(attributeDeleteId);
-        }
-        else if(ratingdeleteId){
-            deleteRating(ratingdeleteId);
-        }
-    };
+const DeletePopup = ({onClick, modal1Open, closeModal, setModal1Open}) => {
 
-    useEffect(() => {
-        if(deleteBrandSuccess){
-            refetch();
-            closeModal();
-        }
-        else if(deleteAttributeSuccess){
-            refetchAttribute();
-            closeModal();
-        }
-        else if(deleteRatingSuccess){
-            refetchRating();
-            closeModal();
-        }
-    }, [ deleteBrandSuccess, deleteAttributeSuccess, deleteRatingSuccess ]);
-    
     return (
         <>
             <button className="actionButton delete " onClick={() => setModal1Open(true)}>
@@ -72,7 +34,7 @@ const DeletePopup = ({deleteId, attributeDeleteId, ratingdeleteId, refetch, refe
                         <div className="flex justify-center gap-5 popupBtn pt-10">
                             <button 
                                 className="btnBack submit " 
-                                onClick={handleDelete}
+                                onClick={onClick}
                             >
                                 Delete
                             </button>
