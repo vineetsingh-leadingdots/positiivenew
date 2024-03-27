@@ -4,8 +4,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 //import { useNavigate } from 'react-router-dom';
 
-export const attributeApi = createApi({
-  reducerPath: "attributeApi",
+export const typeApi = createApi({
+  reducerPath: "typeApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -19,14 +19,14 @@ export const attributeApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listAttribute: builder.query({
+    listType: builder.query({
       query : () => {
         return {
-          url: `/attribute/lists`,
+          url: `/type/lists`,
           method: "GET"
         };
       },
-      providesTags: ['attributeInfo'],
+      providesTags: ['typeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -39,15 +39,15 @@ export const attributeApi = createApi({
       }
     },
     }),
-    createAttribute: builder.mutation({
+    createType: builder.mutation({
       query : (formData) => {
         return {
-          url: `/attribute/create-or-update`,
+          url: `/type/create-or-update`,
           method: "POST",
           body: formData
         };
       },
-      invalidatesTags: ['attributeInfo'],
+      invalidatesTags: ['typeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -57,8 +57,8 @@ export const attributeApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Attribute Created/Updated Successfully',
-            description: 'Your attribute has been created/updated successfully.',
+            message: 'Type Created/Updated Successfully',
+            description: 'Your type has been created/updated successfully.',
             threshold: 2
           });
           
@@ -68,26 +68,26 @@ export const attributeApi = createApi({
         }
       },
     }),
-    deleteAttribute: builder.mutation({
+    deleteType: builder.mutation({
       query : (attributeId) => {
         return {
-          url: `/attribute/delete/${attributeId}`,
+          url: `/type/delete/${attributeId}`,
           method: "DELETE"
         };
       },
-      invalidatesTags: ['attributeInfo'],
+      invalidatesTags: ['typeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Attribute Deleted Successfully',
+            message: 'Type Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your attribute has been deleted successfully.',
+            description: 'Your type has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -97,6 +97,6 @@ export const attributeApi = createApi({
     }),
   })
 });
-export const { useCreateAttributeMutation, useDeleteAttributeMutation, useListAttributeQuery } = attributeApi;
+export const { useCreateTypeMutation, useDeleteTypeMutation, useListTypeQuery } = typeApi;
 
 

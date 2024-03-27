@@ -30,8 +30,7 @@ export const styleApi = createApi({
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
-        const { data } = await queryFulfilled;
-        console.log(data);
+        //const { data } = await queryFulfilled;
         // onSuccess side-effect  
       } catch (error) {
         // onError side-effect
@@ -51,8 +50,7 @@ export const styleApi = createApi({
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
-          const { data } = await queryFulfilled;
-          console.log(data, "dataa");
+          //const { data } = await queryFulfilled;
           // onSuccess side-effect
           notification.success({
             placement: 'top',
