@@ -1,9 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCreateStyleMutation } from "../../../services/styleApi";
 
 const StyleAdd = () => {
   const navigate = useNavigate();
+  const [ createStyle, {isSuccess: createStyleSuccess} ] = useCreateStyleMutation();
+
+  const [formData, setFormData] = useState({
+    name: ""
+  });
+
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state?.styleListData) {
+      setFormData({
+        name: state?.styleListData?.name,
+      });
+    }
+  }, [state]);
+
+  
+  useEffect(() => {
+    if (createStyleSuccess) {
+      navigate("/style/list");
+    }
+  }, [createStyleSuccess]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if(state?.styleListData?.id){
+      let val = {
+        name: formData?.name,
+        id: state?.styleListData?.id
+      };
+      createStyle(val);
+    }
+    else{
+      let val = {
+        name: formData?.name
+      };
+      createStyle(val);
+    }
+  };
 
   return (
     <>
@@ -28,13 +73,15 @@ const StyleAdd = () => {
                     type="text"
                     placeholder="Enter style name"
                     className="formControl"
+                    onChange={handleInputChange}
+                    defaultValue={formData?.name}
                   />
                 </div>
               </div>
 
               <div className="w-full formFooter">
                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
-                  <button type="submit" className=" btn-save btnSm ">
+                  <button type="submit" className=" btn-save btnSm " onClick={handleSubmit}>
                     Submit
                   </button>
                   <button

@@ -1,9 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCreateTypeMutation } from "../../../services/typeApi";
 
 const TypeAdd = () => {
   const navigate = useNavigate();
+
+  const [ createType, { isSuccess: createDataSuccess } ] = useCreateTypeMutation();
+
+  const [formData, setFormData] = useState({ 
+    name: "" 
+  });
+
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state?.typeData) {
+      setFormData({
+        name: state?.typeData?.name,
+      });
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (createDataSuccess) {
+      navigate("/type/list");
+    }
+  }, [createDataSuccess]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(state?.typeData?.id){
+      let val = {
+        name: formData?.name,
+        id: state?.typeData?.id
+      };
+      createType(val);
+    }
+    else{
+      let val = {
+        name: formData?.name
+      };
+      createType(val);
+    }
+  };
 
   return (
     <>
@@ -28,13 +76,15 @@ const TypeAdd = () => {
                     type="text"
                     placeholder="Enter type name"
                     className="formControl"
+                    onChange={handleChange}
+                    defaultValue={formData?.name}
                   />
                 </div>
               </div>
 
               <div className="w-full formFooter">
                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
-                  <button type="submit" className=" btn-save btnSm ">
+                  <button type="submit" className=" btn-save btnSm " onClick={handleSubmit}>
                     Submit
                   </button>
                   <button

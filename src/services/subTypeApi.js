@@ -4,8 +4,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 //import { useNavigate } from 'react-router-dom';
 
-export const varietyApi = createApi({
-  reducerPath: "varietyApi",
+export const subTypeApi = createApi({
+  reducerPath: "subTypeApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -19,19 +19,19 @@ export const varietyApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listVariety: builder.query({
+    subTypeList: builder.query({
       query : () => {
         return {
-          url: `/variety/lists`,
+          url: `/subType/lists`,
           method: "GET"
         };
       },
-      providesTags: ["varietyInfo"],
+      providesTags: ['subTypeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
-        const { data } = await queryFulfilled;
-        console.log(data);
+        // const { data } = await queryFulfilled;
+        // console.log(data);
         // onSuccess side-effect  
       } catch (error) {
         // onError side-effect
@@ -39,15 +39,15 @@ export const varietyApi = createApi({
       }
     },
     }),
-    createVariety: builder.mutation({
+    subTypeCreate: builder.mutation({
       query : (formData) => {
         return {
-          url: `/variety/create-or-update`,
+          url: `/subType/create-or-update`,
           method: "POST",
           body: formData
         };
       },
-      invalidatesTags: ["varietyInfo"],
+      invalidatesTags: ['subTypeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -57,8 +57,8 @@ export const varietyApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Variety Created/Updated Successfully',
-            description: 'Your variety has been created/updated successfully.',
+            message: 'SubType Created/Updated Successfully',
+            description: 'Your subType has been created/updated successfully.',
             threshold: 2
           });
           
@@ -68,26 +68,26 @@ export const varietyApi = createApi({
         }
       },
     }),
-    deleteVariety: builder.mutation({
-      query : (Id) => {
+    subTypeDelete: builder.mutation({
+      query : (attributeId) => {
         return {
-          url: `/variety/delete/${Id}`,
+          url: `/subType/delete/${attributeId}`,
           method: "DELETE"
         };
       },
-      invalidatesTags: ["varietyInfo"],
+      invalidatesTags: ['subTypeInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Rating Variety Successfully',
+            message: 'SubType Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your variety has been deleted successfully.',
+            description: 'Your subType has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -97,6 +97,6 @@ export const varietyApi = createApi({
     }),
   })
 });
-export const { useCreateVarietyMutation, useDeleteVarietyMutation, useListVarietyQuery } = varietyApi;
+export const { useSubTypeCreateMutation, useSubTypeDeleteMutation, useSubTypeListQuery } = subTypeApi;
 
 

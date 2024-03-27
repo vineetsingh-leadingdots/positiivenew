@@ -3,9 +3,39 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
-import { StylesColumns, StylesData } from "../../../commonComponents/tableData";
+import { StylesColumns } from "../../../commonComponents/tableData";
+import { useDeleteStyleMutation, useListStyleQuery } from "../../../services/styleApi";
+import DeletePopup from "../../../components/deletePopup";
+import { useNavigate } from "react-router-dom";
 
 const Style = () => {
+  const { data: styleListData } = useListStyleQuery();
+  const [ deleteStyle ] = useDeleteStyleMutation();
+
+  const navigate = useNavigate();
+
+  const deleteStyleHandler = (id) => {
+    deleteStyle(id);
+  };
+
+  const StyleData = styleListData?.data.map((style) => ({
+    key: style?.id?.toString(),
+    Name: style?.name,
+    Actions: (
+      <div className="flex gap-1">
+        <button
+          onClick={() =>
+            navigate("/style/add", { state: { styleListData: style } })
+          }
+          className="actionButton"
+        >
+          <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup onClick={() => deleteStyleHandler(style?.id)} />
+      </div>
+    ),
+  }));
+
   return (
     <>
       <HelmetProvider>
@@ -25,7 +55,7 @@ const Style = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={StylesData} columns={StylesColumns} />
+            <TableList data={StyleData} columns={StylesColumns} />
           </div>
         </div>
       </div>
