@@ -4,11 +4,42 @@ import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import {
-  SubTypesColumns,
-  SubTypesData,
+  SubTypesColumns
 } from "../../../commonComponents/tableData";
+import { useSubTypeDeleteMutation, useSubTypeListQuery } from "../../../services/subTypeApi";
+import { useNavigate } from "react-router-dom";
+import DeletePopup from "../../../components/deletePopup";
 
 const SubType = () => {
+
+  const { data: subTypeList } = useSubTypeListQuery();
+  const [ deleteSubType ] = useSubTypeDeleteMutation();
+  const navigate = useNavigate();
+
+  const deleteSubTypeHandler = (id) => {
+    deleteSubType(id);
+  };
+
+  const subTypeData = subTypeList?.data.map((subType) => ({
+    key: subType?.id?.toString(),
+    Name: subType?.name,
+    Actions: (
+    <div className="flex gap-1">
+        <button
+        onClick={() =>
+            navigate("/sub/type/add", { state: { subTypeData: subType } })
+        }
+        className="actionButton"
+        >
+        <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup
+        onClick={() => deleteSubTypeHandler(subType?.id)}
+        />
+    </div>
+    ),
+  }));
+
   return (
     <>
       <HelmetProvider>
@@ -28,7 +59,7 @@ const SubType = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={SubTypesData} columns={SubTypesColumns} />
+            <TableList data={subTypeData} columns={SubTypesColumns} />
           </div>
         </div>
       </div>

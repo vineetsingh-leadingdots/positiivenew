@@ -16,7 +16,7 @@ const Type = () => {
   const [ deleteType ] = useDeleteTypeMutation();
   const navigate = useNavigate();
 
-  const deletetypeHandler = (id) => {
+  const deleteTypeHandler = (id) => {
     deleteType(id);
   };
 
@@ -34,7 +34,7 @@ const Type = () => {
         <i className="fa fa-pencil" />
         </button>
         <DeletePopup
-        onClick={() => deletetypeHandler(type?.id)}
+        onClick={() => deleteTypeHandler(type?.id)}
         />
     </div>
     ),
