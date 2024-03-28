@@ -16,6 +16,8 @@ import { typeApi } from '../services/typeApi';
 import { subTypeApi } from '../services/subTypeApi';
 import roleSlice from './roleSlice/roleSlice';
 import { roleApi } from '../services/roleApi';
+import distributorSlice from './distributorSlice/distributorSlice';
+import { distributorApi } from '../services/distributorApi';
 
 
 const persistConfig = {
@@ -30,11 +32,13 @@ export const store = configureStore({
     authUser: authSlice,
     brandData: brandSlice,
     supplierData: supplierSlice,
+    distributorData: distributorSlice,
     roleData: roleSlice,
     persistedReducer,
     [authApi.reducerPath]: authApi.reducer,
     [brandApi.reducerPath]: brandApi.reducer,
     [supplierApi.reducerPath]: supplierApi.reducer,
+    [distributorApi.reducerPath]: distributorApi.reducer,
     [attributeApi.reducerPath]: attributeApi.reducer,
     [ratingApi.reducerPath]: ratingApi.reducer,
     [varietyApi.reducerPath]: varietyApi.reducer,
@@ -45,7 +49,7 @@ export const store = configureStore({
     [subTypeApi.reducerPath]: subTypeApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(varietyApi.middleware).concat(roleApi.middleware).concat(sizeApi.middleware).concat(styleApi.middleware).concat(typeApi.middleware).concat(subTypeApi.middleware)
+    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(distributorApi.middleware).concat(varietyApi.middleware).concat(roleApi.middleware).concat(sizeApi.middleware).concat(styleApi.middleware).concat(typeApi.middleware).concat(subTypeApi.middleware)
 });
 
 export const persistor = persistStore(store);
