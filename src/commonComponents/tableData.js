@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DeletePopup from "../components/deletePopup";
 import AssignDivisonPopup from "../pages/salesPersons/assignDivison";
+import StatusCheck from "./statusCheck";
 
 export const dataSource = [
     {
@@ -736,6 +737,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/product/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -747,6 +749,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/product/add" className="actionButton"><i className="fa fa-pencil"/></Link>     
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -813,6 +816,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/quiz/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -1145,6 +1149,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/media/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,
@@ -1231,12 +1236,15 @@ export const dataSource = [
 
   
   export const RoleData = [
+
+    
     {
       key: '1',
       Name: 'John',    
       Actions: <>
       <div className="flex gap-1">
       <Link to="/member/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+       <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -1374,6 +1382,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/country/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -1583,6 +1592,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/category/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
