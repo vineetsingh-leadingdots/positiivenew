@@ -4,8 +4,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 //import { useNavigate } from 'react-router-dom';
 
-export const regionApi = createApi({
-  reducerPath: "regionApi",
+export const subRegionApi = createApi({
+  reducerPath: "subRegionApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -19,14 +19,14 @@ export const regionApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    regionList: builder.query({
+    subRegionList: builder.query({
       query : () => {
         return {
-          url: `/region/lists`,
+          url: `/subRegion/lists`,
           method: "GET"
         };
       },
-      providesTags: ['regionInfo'],
+      providesTags: ['subRegionInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -39,35 +39,15 @@ export const regionApi = createApi({
       }
     },
     }),
-    allregionListData: builder.query({
-        query : () => {
-          return {
-            url: `/region/all/lists`,
-            method: "GET"
-          };
-        },
-        providesTags: ['regionInfo'],
-        async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
-          //onStart side-effect
-        try {
-          // const { data } = await queryFulfilled;
-          // console.log(data);
-          // onSuccess side-effect  
-        } catch (error) {
-          // onError side-effect
-          commonErrorHandler(error?.error,   dispatch);
-        }
-      },
-      }),
-    regionCreate: builder.mutation({
+    subRegionCreate: builder.mutation({
       query : (formData) => {
         return {
-          url: `/region/create-or-update`,
+          url: `/subRegion/create-or-update`,
           method: "POST",
           body: formData
         };
       },
-      invalidatesTags: ['regionInfo'],
+      invalidatesTags: ['subRegionInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -77,8 +57,8 @@ export const regionApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Region Created/Updated Successfully',
-            description: 'Your region has been created/updated successfully.',
+            message: 'SubRegion Created/Updated Successfully',
+            description: 'Your subRegion has been created/updated successfully.',
             threshold: 2
           });
           
@@ -88,26 +68,26 @@ export const regionApi = createApi({
         }
       },
     }),
-    regionDelete: builder.mutation({
+    subRegionDelete: builder.mutation({
       query : (id) => {
         return {
-          url: `/region/delete/${id}`,
+          url: `/subRegion/delete/${id}`,
           method: "DELETE"
         };
       },
-      invalidatesTags: ['regionInfo'],
+      invalidatesTags: ['subRegionInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Region Deleted Successfully',
+            message: 'SubRegion Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your region has been deleted successfully.',
+            description: 'Your subRegion has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -117,6 +97,6 @@ export const regionApi = createApi({
     }),
   })
 });
-export const { useRegionCreateMutation, useRegionDeleteMutation, useRegionListQuery, useAllregionListDataQuery } = regionApi;
+export const { useSubRegionCreateMutation, useSubRegionDeleteMutation, useSubRegionListQuery } = subRegionApi;
 
 
