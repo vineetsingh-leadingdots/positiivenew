@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Drawer } from 'antd';
 import { EmailIcon, SendIcon, SmsIcon, WhatsappIcon } from "../../commonComponents/commonSvg";
 const SendExperience = () => {

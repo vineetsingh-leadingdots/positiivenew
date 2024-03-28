@@ -4,6 +4,7 @@ import TableList from "../../commonComponents/tableList";
 import { CustomerMasterColumns, CustomerMasterData} from "../../commonComponents/tableData";
 import { Col, Row } from "antd";
 import AddButton from "../../components/addButton";
+import { Link } from "react-router-dom";
 
 
 const CustomerMaster = () => {
@@ -29,11 +30,11 @@ const CustomerMaster = () => {
                 linkHref="/customer-master/add"
                 btnText="Add Customer "
               />
-               <button
-          type={"button"}
+               <Link to="/customer-master/import"
+        
           className="btn-save btnauto  items-center flex gap-1 "
         > <span className="fa fa-upload" /> Import
-        </button>
+        </Link>
             </div>
           </div>
         </Col>

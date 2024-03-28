@@ -2065,7 +2065,7 @@ export const dataSource = [
       CustomerID:'6585659',
       Actions: <>
       <div className="flex gap-1">
-      <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <Link to="/customer-master/add" className="actionButton"><i className="fa fa-pencil"/></Link>
       <Link  className="actionButton"><i className="fa fa-check"/></Link>
       <DeletePopup/>
       </div>
