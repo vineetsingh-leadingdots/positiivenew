@@ -68,7 +68,7 @@ const items = [
 
   { label: 'Quiz', key: '21', icon: <span className='fa fa-question-circle'  />, link: '/quiz/list' },
   { label: 'Feedbacks', key: '22', icon: <span className='fa fa-comments'  />, link: '/feedback/list' },
-  { label: 'My Experiences', key: '23', icon: <><img src="/images/sparkles.svg"/></>, link: '/experience/list' },
+  { label: 'My Experiences', key: '23', icon: <><img src="/images/sparkles.svg"/></>, link: '/my-experience' },
   { label: 'Divisions', key: '24', icon: <UsergroupAddOutlined  />, link: '/division/list' },
   { label: 'Transactions', key: '25', icon: <span className='fa fa-dollar'  />, link: '/transactions/list' },
   { label: 'Media', key: '26', icon: <span className='fa fa-camera'  />, link: '/media/list' },

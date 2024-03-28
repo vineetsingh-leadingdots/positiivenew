@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DeletePopup from "../components/deletePopup";
 import AssignDivisonPopup from "../pages/salesPersons/assignDivison";
+import StatusCheck from "./statusCheck";
 
 export const dataSource = [
     {
@@ -736,6 +737,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/product/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -747,6 +749,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/product/add" className="actionButton"><i className="fa fa-pencil"/></Link>     
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -813,6 +816,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/quiz/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -949,30 +953,59 @@ export const dataSource = [
   export const ExperenceData = [
     {
       key: '1',
-      ExperienceName: 'ExperienceName',
-      AddedBy:"customer1",
+      Name: <><Link to="/assign/product">sdsd</Link></>,
+      Customer:'The Hard Swallow',
+      Description:'new',
+      CreatedBy:"	Andrew Tapia",
+      CreatedDate:'Aug 05, 2020',
+      SrNo:'1',
       Actions: <>
       <div className="flex gap-1">
       <Link to="/experience/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <span className="actionButton textBlue"><i className="fa fa-check"/></span>
       <DeletePopup/>
       </div>
       </>,   
     },    
-     
+    
+    
    
   ];
   
   export const ExperenceColumn = [
     {
-      title: 'Experience Name',
-      dataIndex: 'ExperienceName',
-      key: 'ExperienceName',
+      title: 'Sr. No.	',
+      dataIndex: 'SrNo',
+      key: 'SrNo',
     },
     {
-      title: 'Added By (Customer)',
-      dataIndex: 'AddedBy',
-      key: 'AddedBy',
+      title: 'Name',
+      dataIndex: 'Name',
+      key: 'Name',
     },
+    {
+      title: 'Customer',
+      dataIndex: 'Customer',
+      key: 'Customer',
+    },
+    {
+      title: 'Description	',
+      dataIndex: 'Description',
+      key: 'Description',
+    },
+   
+    {
+      title: 'Created By	',
+      dataIndex: 'CreatedBy',
+      key: 'CreatedBy',
+    },
+    {
+      title: 'Created Date	',
+      dataIndex: 'CreatedDate',
+      key: 'CreatedDate',
+    },
+    
+    
     {
       title: 'Actions',
       dataIndex: 'Actions',
@@ -1009,6 +1042,52 @@ export const dataSource = [
     
   ];
 
+  export const DivisionSupplierData = [
+    {
+      key: '1',
+      SrNo:'1',
+      Division: <><Link to="">	Westchester</Link></>,    
+      UsersToDivision:<><Link to="/supplier/divison/uesrs" className="gtnSmall">Assign</Link></>,    
+      ProductsToDivision:<><Link to="/supplier/divison/assign" className="gtnSmall bgBlue2">Assign</Link></>,
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/division/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <span className="actionButton textBlue"><i className="fa fa-check"/></span>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },  
+  ];
+  
+  export const DivisionSupplierColumn = [
+    {
+      title: 'Sr. No.',
+      dataIndex: 'SrNo',
+      key: 'SrNo',
+    },
+    {
+      title: 'Division',
+      dataIndex: 'Division',
+      key: 'Division',
+    },
+    {
+      title: 'Assign Products to Division',
+      dataIndex: 'ProductsToDivision',
+      key: 'ProductsToDivision',
+    },
+    {
+      title: '	Assign Users to Division',
+      dataIndex: 'UsersToDivision',
+      key: 'UsersToDivision',
+    },
+   
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },
+    
+  ];
 
   
   export const TransactionData = [
@@ -1070,6 +1149,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/media/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,
@@ -1155,18 +1235,21 @@ export const dataSource = [
   
 
   
-  // export const RoleData = [
-  //   {
-  //     key: '1',
-  //     Name: 'John',    
-  //     Actions: <>
-  //     <div className="flex gap-1">
-  //     <Link to="/member/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-  //     <DeletePopup/>
-  //     </div>
-  //     </>,   
-  //   }, 
-  // ];
+  export const RoleData = [
+
+    
+    {
+      key: '1',
+      Name: 'John',    
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/member/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+       <StatusCheck/>
+      <DeletePopup/>
+      </div>
+      </>,   
+    }, 
+  ];
   
   export const RoleColumn = [
     {
@@ -1299,6 +1382,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/country/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -1508,6 +1592,7 @@ export const dataSource = [
       Actions: <>
       <div className="flex gap-1">
       <Link to="/category/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <StatusCheck/>
       <DeletePopup/>
       </div>
       </>,   
@@ -1652,8 +1737,8 @@ export const dataSource = [
         checkBox:<>
        <div className="styled-input-container styled-input--square "><div className="styled-input-single">
         <input type="checkbox" name="fieldset-2" id="blanco"/>
-          {/* <label for="blanco">
-            </label> */}
+           <label htmlFor="blanco"/>
+          
             </div>
             </div>
       </>,
@@ -1687,7 +1772,7 @@ export const dataSource = [
       key: 'Image',
     },
     {
-      title: 'ProductName',
+      title: 'Product Name',
       dataIndex: 'ProductName',
       key: 'ProductName',
     },
@@ -1710,6 +1795,368 @@ export const dataSource = [
       title: 'Vintage',
       dataIndex: 'Vintage',
       key: 'Vintage',
+    },     
+  ];
+
+
+
+  
+  
+  export const AssignProductDivisionData = [
+    {
+      key: '1',
+      SrNo: '13223 ',
+      Image:'-',
+      ProductNumber:"266",	
+      Country:"-",
+      ProductType:"-",	
+      CategoryName:'Red',
+      Supplier:'Southern Glazers of New York	',
+      Variety:"-",
+      SupplierID:'1211',
+      SpiritCategory:'-',
+      Vintage:"-",  
+      On:<>  <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+      <input type="checkbox" name="fieldset-2" id="blanco"/>
+         <label htmlFor="blanco"/>        
+          </div>
+          </div>
+      </>,    
+       Off:<>  <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+       <input type="checkbox" name="fieldset-2" id="blanco"/>
+          <label htmlFor="blanco"/>        
+           </div>
+           </div>
+       </>,   
+    },   
+   
+  ];
+  
+  export const AssignProductDivisionColumns = [
+    {
+      title: 'Sr.No',
+      dataIndex: 'SrNo',
+      key: 'SrNo',
+    },
+    {
+      title: 'On',
+      dataIndex: 'On',
+      key: 'On',
+    },
+    {
+      title: 'Off',
+      dataIndex: 'Off',
+      key: 'Off',
+    },
+    
+    
+    {
+      title: 'Image',
+      dataIndex: 'Image',
+      key: 'Image',
+    },
+    {
+      title: 'Product Number',
+      dataIndex: 'ProductNumber',
+      key: 'ProductNumber',
+    },
+    {
+      title: 'Category Name',
+      dataIndex: 'CategoryName',
+      key: 'CategoryName',
+    },
+    {
+      title: 'Supplier',
+      dataIndex: 'Supplier',
+      key: 'Supplier',
+    },
+    {
+      title: 'Supplier ID	',
+      dataIndex: 'SupplierID',
+      key: 'SupplierID',
+    },
+    {
+      title: 'Country',
+      dataIndex: 'Country',
+      key: 'Country',
+    },
+    {
+      title: 'Product Type',
+      dataIndex: 'ProductType',
+      key: 'ProductType',
+    },
+    {
+      title: 'Variety',
+      dataIndex: 'Variety',
+      key: 'Variety',
+    },
+    {
+      title: 'Spirit Category	',
+      dataIndex: 'SpiritCategory',
+      key: 'SpiritCategory',
+    },
+    {
+      title: 'Vintage',
+      dataIndex: 'Vintage',
+      key: 'Vintage',
+    },
+    {
+      title: '',
+      dataIndex: 'checkBox',
+      key: 'checkBox',
+      render: (checkBox) => checkBox,
+    },
+  ];
+
+ 
+  export const WestchesterDivisionData = [
+    {
+      key: '1',
+        checkBox:<>
+       <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+        <input type="checkbox" name="fieldset-2" id="blanco"/>
+           <label htmlFor="blanco"/>          
+            </div>
+            </div>
+      </>,      
+      SrNo: '13223 ',
+      Name:'john',
+      Email:'johnlee@gmail.com',
+      Role:'-',
+      Actions: <> -
+      </>,  
+    },     
+  ];
+  
+  export const WestchesterDivisionColumns = [
+    {
+      title:<>
+      <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+       <input type="checkbox" name="fieldset-2" id="blanco"/>
+          <label htmlFor="blanco"/>          
+           </div>
+           </div>
+     </>,
+      dataIndex: 'checkBox',
+      key: 'checkBox',
+      render: (checkBox) => checkBox,
+    },
+    {
+      title: 'Sr.No',
+      dataIndex: 'SrNo',
+      key: 'SrNo',
+    },
+    {
+      title: 'Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'Email',
+      key: 'Email',
+    },
+    {
+      title: 'Role',
+      dataIndex: 'Role',
+      key: 'Role',
+    },
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },     
+  ];
+
+
+
+  
+  export const DivisionDetailsData = [
+    {
+      key: '1',
+        checkBox:<>
+       <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+        <input type="checkbox" name="fieldset-2" id="blanco"/>
+           <label htmlFor="blanco"/>
+          
+            </div>
+            </div>
+      </>,
+      SrNo: '13223 ',
+      Image:<><img src="/images/image58.webp" width="30"/></>,
+      ProductName:"-",	
+      Country:"-",
+      ProductType:"-",	
+      Variety:"-",
+      Vintage:"-",      
+    },    
+   
+  ];
+  
+  export const DivisionDetailsColumns = [
+
+    {
+      title: <>
+      <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+       <input type="checkbox" name="fieldset-2" id="blanco"/>
+          <label htmlFor="blanco"/>
+         
+           </div>
+           </div>
+     </>,
+      dataIndex: 'checkBox',
+      key: 'checkBox',
+      render: (checkBox) => checkBox,
+    },
+    {
+      title: 'Sr.No',
+      dataIndex: 'SrNo',
+      key: 'SrNo',
+    },
+    {
+      title: 'Image',
+      dataIndex: 'Image',
+      key: 'Image',
+    },
+    {
+      title: 'Product Name',
+      dataIndex: 'ProductName',
+      key: 'ProductName',
+    },
+    {
+      title: 'Country',
+      dataIndex: 'Country',
+      key: 'Country',
+    },
+    {
+      title: 'Product Type',
+      dataIndex: 'ProductType',
+      key: 'ProductType',
+    },
+    {
+      title: 'Variety',
+      dataIndex: 'Variety',
+      key: 'Variety',
+    },
+    {
+      title: 'Vintage',
+      dataIndex: 'Vintage',
+      key: 'Vintage',
+    },   
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },     
+  ];
+
+
+
+
+
+  
+  export const CustomerMasterData = [
+    {
+      key: '1',
+        checkBox:<>
+       <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+        <input type="checkbox" name="fieldset-2" id="blanco"/>
+           <label htmlFor="blanco"/>
+          
+            </div>
+            </div>
+      </>,
+      SrNo: '13223 ',
+      Image:<><img src="/images/logo-demo.png" height="70"/></>,
+      ProductName:"-",	
+      City:"nyc",
+      ContactNo:"917-342-5467	",	
+      Email:"ritu@yopmail.com	",
+      CustomerID:'6585659',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/customer-master/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <Link  className="actionButton"><i className="fa fa-check"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },    
+    {
+      key: '1',
+        checkBox:<>
+       <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+        <input type="checkbox" name="fieldset-2" id="blanco"/>
+           <label htmlFor="blanco"/>
+          
+            </div>
+            </div>
+      </>,
+      SrNo: '13223 ',
+      Image:<><img src="/images/logo-demo.png" height="70"/></>,
+      ProductName:"-",	
+      City:"nyc",
+      ContactNo:"917-342-5467	",	
+      Email:"ritu@yopmail.com	",
+      CustomerID:'6585659',
+      Actions: <>
+      <div className="flex gap-1">
+      <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+      <Link  className="actionButton"><i className="fa fa-check"/></Link>
+      <DeletePopup/>
+      </div>
+      </>,   
+    },  
+  ];
+  
+  export const CustomerMasterColumns = [
+
+    {
+      title: <>
+      <div className="styled-input-container styled-input--square "><div className="styled-input-single">
+       <input type="checkbox" name="fieldset-2" id="blanco"/>
+          <label htmlFor="blanco"/>
+         
+           </div>
+           </div>
+     </>,
+      dataIndex: 'checkBox',
+      key: 'checkBox',
+      render: (checkBox) => checkBox,
+    },
+    {
+      title: 'Sr.No',
+      dataIndex: 'SrNo',
+      key: 'SrNo',
+    },
+    {
+      title: 'Image',
+      dataIndex: 'Image',
+      key: 'Image',
+    },
+    {
+      title: 'Customer ID	',
+      dataIndex: 'CustomerID',
+      key: 'CustomerID',
+    },
+    {
+      title: 'City',
+      dataIndex: 'City',
+      key: 'City',
+    },
+    {
+      title: 'Contact No.	',
+      dataIndex: 'ContactNo',
+      key: 'ContactNo',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'Email',
+      key: 'Email',
     },
      
+    {
+      title: 'Actions',
+      dataIndex: 'Actions',
+      key: 'Actions',
+    },     
   ];

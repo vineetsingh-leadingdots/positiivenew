@@ -92,12 +92,21 @@ import CustomerNoteAdd from "../pages/customer-note/customerNoteAdd";
 import SaleNote from "../pages/sale-note/saleNote";
 import SaleNoteAdd from "../pages/sale-note/saleNoteAdd";
 import MediaAdd from "../pages/miscellaneous/mediaAdd";
+import DivisionSupplier from "../pages/divison/divisionSupplier";
+import AssignProductDivison from "../pages/divison/assignProductDivison";
+import WestchesterDivision from "../pages/divison/westchesterDivision";
+import DivisionDetails from "../pages/divison/divisionDetails";
+import CustomerMaster from "../pages/customerMaster/customerMaster";
+import CustomerMasterAdd from "../pages/customerMaster/customerMasterAdd";
+import ImportCustomer from "../pages/customerMaster/Importcustomer";
+import CustomerProfile from "../pages/profile/customerProfile";
+import ProfileView from "../pages/profile/ProfileView";
 
 const ProtectedRoute = ({ redirectPath = "/login" }) => {
   const authToken = useSelector(
     (state) => state.persistedReducer.user.accessToken
   );
-  if (!authToken) {
+  if (authToken) {
     return <Navigate to={redirectPath} replace />;
   }
   return <Outlet />;
@@ -207,7 +216,7 @@ const RouterFile = () => (
           <Route path="/quiz/add" element={<QuizAdd />} exact />
           <Route path="/feedback/list" element={<Feedbacks />} exact />
           <Route path="/feedback/add" element={<FeedbacksAdd />} exact />
-          <Route path="/experience/list" element={<ExperienceList />} exact />
+          <Route path="/my-experience" element={<ExperienceList />} exact />
           <Route path="/experience/add" element={<ExperienceAdd />} exact />
           <Route path="/division/list" element={<DivisionList />} exact />
           <Route path="/division/add" element={<DivisionAdd />} exact />
@@ -229,6 +238,15 @@ const RouterFile = () => (
           {/* Supplier-Dashbaord*/}
 
           <Route path="/supplier/dashboard" element={<DashboardSupplier />} />
+          <Route path="/supplier/divison" element={<DivisionSupplier/>} exact />
+          <Route path="/supplier/divison/assign" element={<AssignProductDivison/>} exact />
+          <Route path="/supplier/divison/uesrs" element={<WestchesterDivision/>} exact />
+          <Route path="/supplier/divison/details" element={<DivisionDetails/>} exact />
+          <Route path="/customer-master" element={<CustomerMaster/>} exact />
+          <Route path="/customer-master/add" element={<CustomerMasterAdd/>} exact />
+          <Route path="/customer-master/import" element={<ImportCustomer/>} exact />
+          <Route path="/profile" element={<CustomerProfile/>} exact />
+          <Route path="/profile/view" element={<ProfileView/>} exact />
         </Route>
       </Route>
     </Routes>
