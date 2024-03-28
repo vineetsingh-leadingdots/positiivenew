@@ -36,7 +36,6 @@ const RegionAdd = () => {
       [name]: value
     });
   };
-console.log("state", state);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (state?.regionData?.id) {
