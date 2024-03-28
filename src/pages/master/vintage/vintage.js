@@ -4,11 +4,42 @@ import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import {
-  VintageColumns,
-  VintageData,
+  VintageColumns
 } from "../../../commonComponents/tableData";
+import { useVintageDeleteMutation, useVintageListQuery } from "../../../services/vintageApi";
+import { useNavigate } from "react-router-dom";
+import DeletePopup from "../../../components/deletePopup";
 
 const Vintage = () => {
+
+  const { data: vintageListData } = useVintageListQuery();
+  const [ deleteVintageData ] = useVintageDeleteMutation();
+
+  const navigate = useNavigate();
+
+  const deleteVintageHandler = (id) => {
+    deleteVintageData(id);
+  };
+
+  const vintageData = vintageListData?.data.map((vintage) => ({
+    key: vintage?.id?.toString(),
+    Name: vintage?.collection_from,
+    Actions: (
+    <div className="flex gap-1">
+        <button
+        onClick={() =>
+            navigate("/vintage/add", { state: { vintageData: vintage } })
+        }
+        className="actionButton"
+        >
+        <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup
+        onClick={() => deleteVintageHandler(vintage?.id)}
+        />
+    </div>
+    ),
+  }));
   return (
     <>
       <HelmetProvider>
@@ -28,7 +59,7 @@ const Vintage = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={VintageData} columns={VintageColumns} />
+            <TableList data={vintageData} columns={VintageColumns} />
           </div>
         </div>
       </div>

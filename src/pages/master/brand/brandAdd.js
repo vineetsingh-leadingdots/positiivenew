@@ -4,8 +4,7 @@ import { useCreateBrandMutation } from "../../../services/brandApi";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const BrandAdd = () => {
-  const [createBrand, { isSuccess: createBrandSuccess }] =
-    useCreateBrandMutation();
+  const [createBrand, { isSuccess: createBrandSuccess }] = useCreateBrandMutation();
   const navigate = useNavigate();
   const [preview1, setPreview1] = useState();
   const [imageView, setImageView] = useState("image_circle");

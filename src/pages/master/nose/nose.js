@@ -4,11 +4,42 @@ import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import {
-  NosePalatesColumns,
-  NosePalatesData,
+  NosePalatesColumns
 } from "../../../commonComponents/tableData";
+import { useNosePalateDeleteMutation, useNosePalateListQuery } from "../../../services/nosePalateApi";
+import { useNavigate } from "react-router-dom";
+import DeletePopup from "../../../components/deletePopup";
 
 const Nose = () => {
+
+  const { data: nosePalateData } = useNosePalateListQuery();
+  const [ deleteNosePalate ] = useNosePalateDeleteMutation();
+
+  const navigate = useNavigate();
+
+  const deleteNosePalateHandler = (id) => {
+    deleteNosePalate(id);
+  };
+
+  const nosePalateListData = nosePalateData?.data.map((nosePalate) => ({
+    key: nosePalate?.id?.toString(),
+    Name: nosePalate?.name,
+    Actions: (
+      <div className="flex gap-1">
+        <button
+          onClick={() =>
+            navigate("/nose/palate/add", { state: { nosePalateData: nosePalate } })
+          }
+          className="actionButton"
+        >
+          <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup onClick={() => deleteNosePalateHandler(nosePalate?.id)} />
+      </div>
+    ),
+  }));
+
+  
   return (
     <>
       <HelmetProvider>
@@ -28,7 +59,7 @@ const Nose = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={NosePalatesData} columns={NosePalatesColumns} />
+            <TableList data={nosePalateListData} columns={NosePalatesColumns} />
           </div>
         </div>
       </div>

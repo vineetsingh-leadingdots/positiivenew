@@ -1,9 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useClassificationCreateMutation } from "../../../services/classificationApi";
 
 const ClassificationAdd = () => {
   const navigate = useNavigate();
+
+  const [ createClassification, { isSuccess: createClassificationSuccess } ] = useClassificationCreateMutation();
+
+  const [formData, setFormData] = useState({
+    name: ""
+  });
+
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (state?.classificationData) {
+      setFormData({
+        name: state?.classificationData?.name,
+      });
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (createClassificationSuccess) {
+      navigate("/classification/list");
+    }
+  }, [createClassificationSuccess]);
+
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(state?.classificationData?.id){
+      let val = {
+        name: formData?.name,
+        id: state?.classificationData?.id
+      };
+      createClassification(val);
+    }
+    else{
+      let val = {
+        name: formData?.name
+      };
+      createClassification(val);
+    }
+  };
 
   return (
     <>
@@ -28,13 +77,15 @@ const ClassificationAdd = () => {
                     type="text"
                     placeholder="Enter classification name"
                     className="formControl"
+                    onChange={handleInputChange}
+                    defaultValue={formData?.name}
                   />
                 </div>
               </div>
 
               <div className="w-full formFooter">
                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
-                  <button type="submit" className=" btn-save btnSm ">
+                  <button type="submit" className=" btn-save btnSm " onClick={handleSubmit}>
                     Submit
                   </button>
                   <button

@@ -1,17 +1,70 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { useNosePalateCreateMutation } from "../../../services/nosePalateApi";
 const NoseAdd = () => {
+
+  const [ createNosePalate, { isSuccess: createNosePalateSuccess} ] = useNosePalateCreateMutation();
   const navigate = useNavigate();
-  const [file, setFile] = useState();
   const [preview1, setPreview1] = useState();
   const [imageView, setImageView] = useState("image_circle");
+  const { state } = useLocation();
+  const [nosePalate, setNosePalate] = useState({
+    file: "",
+    fileName: "",
+  });
+
+
   let object1Url;
-  function handleUpload(event) {
-    setFile(event.target.files[0]);
+  const handleUpload = (event) => {
+    setNosePalate((prevNosePalate) => ({
+      ...prevNosePalate,
+      file: event.target.files[0],
+    }));
     object1Url = URL.createObjectURL(event.target.files[0]);
     setPreview1(object1Url);
-  }
+  };
+
+  const handleFileChange = (e) => {
+    setNosePalate((prevNosePalate) => ({
+      ...prevNosePalate,
+      fileName: e.target.value,
+    }));
+  };
+
+  useEffect(() => {
+    if (state?.nosePalateData) {
+      setNosePalate({
+        file: state?.nosePalateData?.image,
+        fileName: state?.nosePalateData?.name,
+      });
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (createNosePalateSuccess) {
+      navigate("/nose/palate/list");
+    }
+  }, [createNosePalateSuccess]);
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    if (state?.nosePalateData?.id) {
+      var formdataEdit = new FormData();
+      formdataEdit.append("name", nosePalate?.fileName);
+      formdataEdit.append("image", nosePalate?.file);
+      formdataEdit.append("id", state.nosePalateData.id);
+      createNosePalate(formdataEdit);
+    } else {
+      var formdata = new FormData();
+      formdata.append("name", nosePalate?.fileName);
+      formdata.append("image", nosePalate?.file);
+      createNosePalate(formdata);
+    }
+  };
+
+  console.log(nosePalate, state, "nose palate");
+
   return (
     <>
       <HelmetProvider>
@@ -55,28 +108,30 @@ const NoseAdd = () => {
                     </button>
                   </div>
                   <div className="relative mt-6 text-center">
-                    <div
-                      className={`imageView ${imageView} rounded-full border-2 mb-2`}
-                    >
-                      {file ? (
-                        <img src={preview1} alt={file.name} />
-                      ) : (
-                        <img src="/images/logo.webp" alt={"logo.webp"} />
-                      )}
+                      <div
+                        className={`imageView ${imageView} rounded-full border-2 mb-2`}
+                      >
+                        {nosePalate ? (
+                          <img
+                            src={preview1 ? preview1 : nosePalate?.file}
+                            alt="LOGO"
+                          />
+                        ) : (
+                          <img src="/images/thumbnail.webp" alt={"logo.webp"} />
+                        )}
+                      </div>
+                      <div className="file-upload">
+                        <input
+                          type="file"
+                          name="brand_logo"
+                          onChange={handleUpload}
+                          className="formControl"
+                        />
+                        <img src="/images/img-upload.png" />
+                      </div>
                     </div>
-
-                    <div className="file-upload">
-                      <input
-                        type="file"
-                        name="brand_logo"
-                        onChange={handleUpload}
-                        className="formControl"
-                      />
-                      {/* <i className="fa fa-file-image"></i> */}
-                    </div>
-                  </div>
                 </div>
-                {file ? <label> {file.name} </label> : null}
+                {/* {file ? <label> {file.name} </label> : null} */}
                 <br />
 
                 {/* <div className="help-block"></div> */}
@@ -92,13 +147,15 @@ const NoseAdd = () => {
                     type="text"
                     placeholder="Enter nose name"
                     className="formControl"
+                    onChange={handleFileChange}
+                    defaultValue={nosePalate?.fileName}
                   />
                 </div>
               </div>
 
               <div className="w-full formFooter">
                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
-                  <button type="submit" className=" btn-save btnSm ">
+                  <button type="submit" className=" btn-save btnSm " onClick={handelSubmit}>
                     Submit
                   </button>
                   <button

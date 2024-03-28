@@ -14,6 +14,9 @@ import { sizeApi } from '../services/sizeApi';
 import { styleApi } from '../services/styleApi';
 import { typeApi } from '../services/typeApi';
 import { subTypeApi } from '../services/subTypeApi';
+import { classificationApi } from '../services/classificationApi';
+import { vintageApi } from '../services/vintageApi';
+import { nosePalateApi } from '../services/nosePalateApi';
 
 const persistConfig = {
   key: "root", // This is the key used to store the data in storage
@@ -37,10 +40,13 @@ export const store = configureStore({
     [sizeApi.reducerPath]: sizeApi.reducer,
     [styleApi.reducerPath]: styleApi.reducer,
     [typeApi.reducerPath]: typeApi.reducer,
-    [subTypeApi.reducerPath]: subTypeApi.reducer
+    [subTypeApi.reducerPath]: subTypeApi.reducer,
+    [classificationApi.reducerPath]: classificationApi.reducer,
+    [vintageApi.reducerPath]: vintageApi.reducer,
+    [nosePalateApi.reducerPath]: nosePalateApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(varietyApi.middleware).concat(sizeApi.middleware).concat(styleApi.middleware).concat(typeApi.middleware).concat(subTypeApi.middleware)
+    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(varietyApi.middleware).concat(sizeApi.middleware).concat(styleApi.middleware).concat(typeApi.middleware).concat(subTypeApi.middleware).concat(classificationApi.middleware).concat(vintageApi.middleware).concat(nosePalateApi.middleware)
 });
 
 export const persistor = persistStore(store);

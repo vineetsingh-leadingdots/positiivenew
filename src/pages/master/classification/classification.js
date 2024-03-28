@@ -4,11 +4,43 @@ import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import {
-  ClassificationColumns,
-  ClassificationData,
+  ClassificationColumns
 } from "../../../commonComponents/tableData";
+import { useClassificationDeleteMutation, useClassificationListQuery } from "../../../services/classificationApi";
+import { useNavigate } from "react-router-dom";
+import DeletePopup from "../../../components/deletePopup";
 
 const Classification = () => {
+
+  const { data: classificationListData } = useClassificationListQuery();
+  const [ deleteClassification ] = useClassificationDeleteMutation();
+
+  const navigate = useNavigate();
+
+  const deleteClassificationHandler = (id) => {
+    deleteClassification(id);
+  };
+
+  const classificationData = classificationListData?.data.map((classification) => ({
+    key: classification?.id?.toString(),
+    Name: classification?.name,
+    Actions: (
+    <div className="flex gap-1">
+        <button
+        onClick={() =>
+            navigate("/classification/add", { state: { classificationData: classification } })
+        }
+        className="actionButton"
+        >
+        <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup
+        onClick={() => deleteClassificationHandler(classification?.id)}
+        />
+    </div>
+    ),
+  }));
+
   return (
     <>
       <HelmetProvider>
@@ -32,7 +64,7 @@ const Classification = () => {
         <div className="card ">
           <div className="tableAreaMaster ">
             <TableList
-              data={ClassificationData}
+              data={classificationData}
               columns={ClassificationColumns}
             />
           </div>

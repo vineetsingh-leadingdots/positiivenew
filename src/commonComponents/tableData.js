@@ -1589,19 +1589,19 @@ export const dataSource = [
 
 
   
-  export const NosePalatesData = [
-    {
-      key: '1',
-      Name: 'Nose ',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/nose/palate/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },    
+  // export const NosePalatesData = [
+  //   {
+  //     key: '1',
+  //     Name: 'Nose ',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/nose/palate/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },    
    
-  ];
+  // ];
   
   export const NosePalatesColumns = [
     {
