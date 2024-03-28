@@ -4,11 +4,41 @@ import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import {
-  CountryColumns,
-  CountryData,
+  CountryColumns
 } from "../../../commonComponents/tableData";
+import { useCountryDeleteMutation, useCountryListQuery } from "../../../services/countryApi";
+import DeletePopup from "../../../components/deletePopup";
+import { useNavigate } from "react-router-dom";
 
 const Country = () => {
+
+  const { data: countryData } = useCountryListQuery();
+  const [ deleteCountryData ] = useCountryDeleteMutation();
+  const navigate = useNavigate();
+
+  const deleteCountryDataHandler = (id) => {
+    deleteCountryData(id);
+  };
+
+  const countryListData = countryData?.data.map((country) => ({
+    key: country?.id?.toString(),
+    Name: country?.name,
+    Actions: (
+    <div className="flex gap-1">
+        <button
+        onClick={() =>
+            navigate("/country/add", { state: { countryData: country } })
+        }
+        className="actionButton"
+        >
+        <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup
+        onClick={() => deleteCountryDataHandler(country?.id)}
+        />
+    </div>
+    ),
+  }));
   return (
     <>
       <HelmetProvider>
@@ -28,7 +58,7 @@ const Country = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={CountryData} columns={CountryColumns} />
+            <TableList data={countryListData} columns={CountryColumns} />
           </div>
         </div>
       </div>

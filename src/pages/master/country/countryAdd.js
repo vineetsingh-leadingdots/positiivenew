@@ -1,9 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCountryCreateMutation } from "../../../services/countryApi";
 
 const CountryAdd = () => {
   const navigate = useNavigate();
+  const [ createCountry, { isSuccess: createCountrySuccess } ] = useCountryCreateMutation();
+  const { state } = useLocation();
+  const [formData, setFormData] = useState({
+    name: ""
+  });
+
+  console.log(formData?.name, "name");
+
+  useEffect(() => {
+    if (state?.countryData) {
+      setFormData({
+        name: state?.countryData?.name,
+      });
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (createCountrySuccess) {
+      navigate("/country/list");
+    }
+  }, [createCountrySuccess]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(state?.countryData?.id){
+      let val = {
+        name: formData?.name,
+        id: state?.countryData?.id
+      };
+      createCountry(val);
+    }
+    else{
+      let val = {
+        name: formData?.name
+      };
+      createCountry(val);
+    }
+  };
+
+
 
   return (
     <>
@@ -28,13 +77,15 @@ const CountryAdd = () => {
                     type="text"
                     placeholder="Enter country name"
                     className="formControl"
+                    onChange={handleInputChange}
+                    defaultValue={formData?.name}
                   />
                 </div>
               </div>
 
               <div className="w-full formFooter">
                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
-                  <button type="submit" className=" btn-save btnSm ">
+                  <button type="submit" className=" btn-save btnSm " onClick={handleSubmit}>
                     Submit
                   </button>
                   <button

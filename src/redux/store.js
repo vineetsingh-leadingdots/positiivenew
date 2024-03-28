@@ -17,6 +17,7 @@ import { subTypeApi } from '../services/subTypeApi';
 import { classificationApi } from '../services/classificationApi';
 import { vintageApi } from '../services/vintageApi';
 import { nosePalateApi } from '../services/nosePalateApi';
+import { countryApi } from '../services/countryApi';
 
 const persistConfig = {
   key: "root", // This is the key used to store the data in storage
@@ -43,10 +44,11 @@ export const store = configureStore({
     [subTypeApi.reducerPath]: subTypeApi.reducer,
     [classificationApi.reducerPath]: classificationApi.reducer,
     [vintageApi.reducerPath]: vintageApi.reducer,
-    [nosePalateApi.reducerPath]: nosePalateApi.reducer
+    [nosePalateApi.reducerPath]: nosePalateApi.reducer,
+    [countryApi.reducerPath]: countryApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(varietyApi.middleware).concat(sizeApi.middleware).concat(styleApi.middleware).concat(typeApi.middleware).concat(subTypeApi.middleware).concat(classificationApi.middleware).concat(vintageApi.middleware).concat(nosePalateApi.middleware)
+    getDefaultMiddleware().concat(authApi.middleware).concat(brandApi.middleware).concat(attributeApi.middleware).concat(ratingApi.middleware).concat(supplierApi.middleware).concat(varietyApi.middleware).concat(sizeApi.middleware).concat(styleApi.middleware).concat(typeApi.middleware).concat(subTypeApi.middleware).concat(classificationApi.middleware).concat(vintageApi.middleware).concat(nosePalateApi.middleware).concat(countryApi.middleware)
 });
 
 export const persistor = persistStore(store);
