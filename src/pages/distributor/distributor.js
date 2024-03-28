@@ -3,11 +3,41 @@ import SearchField from "../../components/searchFIeld";
 import AddButton from "../../components/addButton";
 import TableList from "../../commonComponents/tableList";
 import {
-  DistributorAdminColumns,
-  DistributorAdminData,
+  DistributorAdminColumns
 } from "../../commonComponents/tableData";
+import { useDeletedistributorMutation, useListdistributorQuery } from "../../services/distributorApi";
+import { Link } from "react-router-dom";
+import DeletePopup from "../../components/deletePopup";
 
 const Distributor = () => {
+  const { data: distributorListData } = useListdistributorQuery();
+  const [ deletedistributor ] = useDeletedistributorMutation();
+
+  const deletedistributorHandler = (id) => {
+    deletedistributor(id);
+  };
+
+  const tableData = distributorListData?.data.map((distributor) => ({
+    key: distributor ? distributor?.id?.toString() : "",
+    distributorName: distributor?.fullName,
+    Email: distributor?.email,
+    Actions: (
+      <div className="flex gap-1">
+        <Link to="/distributor/add" className="actionButton">
+          <i className="fa fa-pencil" />
+        </Link>
+        <Link to="/distributor/view" className="actionButton">
+          <i className="fa fa-eye" />
+        </Link>
+        {/* <DeletePopup/> */}
+        {/* <distributorDelete deleteId={distributor?.id} refetch={refetch} /> */}
+        <DeletePopup 
+          onClick={() => deletedistributorHandler(distributor?.id)} 
+        />
+      </div>
+    ),
+  }));
+
   return (
     <>
       <div className="content">
@@ -26,7 +56,7 @@ const Distributor = () => {
         <div className="card ">
           <div className="tableAreaMaster ">
             <TableList
-              data={DistributorAdminData}
+              data={tableData}
               columns={DistributorAdminColumns}
             />
           </div>

@@ -1268,39 +1268,39 @@ export const dataSource = [
 
 
   
-  export const DistributorAdminData = [
-    {
-      key: '1',
-      Distributor: 'Mike',
-      Email: 'supplier1@yopmail.com',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <Link to="/distributor/view" className="actionButton"><i className="fa fa-eye"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },    
-    {
-      key: '2',
-      Distributor: 'Jonas',
-      Email: 'supplier2@yopmail.com',
-      Actions: <>
-      <div className="flex gap-1">
-      <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
-      <Link to="/distributor/view" className="actionButton"><i className="fa fa-eye"/></Link>
-      <DeletePopup/>
-      </div>
-      </>,   
-    },  
+  // export const DistributorAdminData = [
+  //   {
+  //     key: '1',
+  //     Distributor: 'Mike',
+  //     Email: 'supplier1@yopmail.com',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <Link to="/distributor/view" className="actionButton"><i className="fa fa-eye"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },    
+  //   {
+  //     key: '2',
+  //     Distributor: 'Jonas',
+  //     Email: 'supplier2@yopmail.com',
+  //     Actions: <>
+  //     <div className="flex gap-1">
+  //     <Link to="/distributor/add" className="actionButton"><i className="fa fa-pencil"/></Link>
+  //     <Link to="/distributor/view" className="actionButton"><i className="fa fa-eye"/></Link>
+  //     <DeletePopup/>
+  //     </div>
+  //     </>,   
+  //   },  
    
-  ];
+  // ];
   
   export const DistributorAdminColumns = [
     {
       title: 'Distributor Name',
-      dataIndex: 'Distributor',
-      key: 'Distributor',
+      dataIndex: 'distributorName',
+      key: 'distributorName',
     },
     {
       title: 'Email',

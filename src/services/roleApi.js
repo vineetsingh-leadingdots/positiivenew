@@ -4,8 +4,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 // import { useNavigate } from 'react-router-dom';
 
-export const supplierApi = createApi({
-  reducerPath: "supplierAPI",
+export const roleApi = createApi({
+  reducerPath: "roleApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -19,14 +19,14 @@ export const supplierApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listsupplier: builder.query({
+    listrole: builder.query({
       query : () => {
         return {
-          url: `/supplierDistributor/supplier/lists`,
+          url: `/role/lists`,
           method: "GET"
         };
       },
-      providesTags: ["supplierInfo"],
+      providesTags: ["roleInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -38,57 +38,55 @@ export const supplierApi = createApi({
       }
     },
     }),
-    
-    // createsupplier: builder.mutation({
-    //   query : (formData) => {
-    //     return {
-    //       url: `/supplier/create-or-update`,
-    //       method: "POST",
-    //       body: formData
-    //     };
-    //   },
-    // invalidatesTags: ["supplierInfo"],
-    //   async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
-    //       //onStart side-effect
-    //     try {
-    //       //const { data } = await queryFulfilled
-    //       // onSuccess side-effect
-    //       notification.success({
-    //         placement: 'top',
-    //         duration: 2,
-    //         closeIcon:true,
-    //         message: 'supplier Created/Updated Successfully',
-    //         description: 'Your supplier has been created/updated successfully.',
-    //         threshold: 2
-    //       });
-          
-    //     } catch (error) {
-    //       // onError side-effect
-    //       commonErrorHandler(error?.error,   dispatch);
-    //     }
-    //   },
-    // }),
-    
-    deletesupplier: builder.mutation({
-      query : (supplierId) => {
+    invalidatesTags: ["roleInfo"],
+    createrole: builder.mutation({
+      query : (formData) => {
         return {
-          url: `/supplierDistributor/delete/supplier/${supplierId}`,
-          method: "DELETE"
+          url: `/role/create-or-update`,
+          method: "POST",
+          body: formData
         };
       },
-      invalidatesTags: ["supplierInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'supplier Deleted Successfully',
+            placement: 'top',
+            duration: 2,
+            closeIcon:true,
+            message: 'role Created/Updated Successfully',
+            description: 'Your role has been created/updated successfully.',
+            threshold: 2
+          });
+          
+        } catch (error) {
+          // onError side-effect
+          commonErrorHandler(error?.error,   dispatch);
+        }
+      },
+    }),
+    deleterole: builder.mutation({
+      query : (roleId) => {
+        return {
+          url: `/role/delete/${roleId}`,
+          method: "DELETE"
+        };
+      },
+      invalidatesTags: ["roleInfo"],
+      async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
+          //onStart side-effect
+        try {
+          //const { data } = await queryFulfilled
+          // onSuccess side-effect
+          notification.success({
+            message: 'role Deleted Successfully',
             placement: 'top',
             duration: 2,
             closeIcon:true,
             threshold: 2,
-            description: 'Your supplier has been deleted successfully.',
+            description: 'Your role has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -98,7 +96,5 @@ export const supplierApi = createApi({
     }),
   })
 });
-export const {  useListsupplierQuery, useDeletesupplierMutation } = supplierApi;
 
-
-// export const {  useListsupplierQuery, useDeletesupplierMutation , useCreatesupplierMutation, } = supplierApi;
+export const {  useListroleQuery, useDeleteroleMutation , useCreateroleMutation, } = roleApi;

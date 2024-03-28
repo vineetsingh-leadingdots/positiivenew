@@ -4,16 +4,17 @@ import SearchField from "../../components/searchFIeld";
 import AddButton from "../../components/addButton";
 import TableList from "../../commonComponents/tableList";
 import { SupplierAdminColumns } from "../../commonComponents/tableData";
-import { useEffect } from "react";
-import { useListsupplierQuery } from "../../services/supplierApi";
+import { useDeletesupplierMutation, useListsupplierQuery } from "../../services/supplierApi";
 import { Link } from "react-router-dom";
-import SupplierDelete from "../../components/supplierDelete";
-const Supplier = () => {
-  const { data: supplierListData, refetch } = useListsupplierQuery();
+import DeletePopup from "../../components/deletePopup";
 
-  useEffect(() => {
-    refetch();
-  }, [supplierListData]);
+const Supplier = () => {
+  const { data: supplierListData } = useListsupplierQuery();
+  const [ deleteSupplier ] = useDeletesupplierMutation();
+
+  const deleteSupplierHandler = (id) => {
+    deleteSupplier(id);
+  };
 
   const tableData = supplierListData?.data.map((supplier) => ({
     key: supplier?.suppliers ? supplier?.id?.toString() : "",
@@ -30,7 +31,10 @@ const Supplier = () => {
           <i className="fa fa-eye" />
         </Link>
         {/* <DeletePopup/> */}
-        <SupplierDelete deleteId={supplier?.id} refetch={refetch} />
+        {/* <SupplierDelete deleteId={supplier?.id} refetch={refetch} /> */}
+        <DeletePopup 
+          onClick={() => deleteSupplierHandler(supplier?.id)} 
+        />
       </div>
     ),
   }));

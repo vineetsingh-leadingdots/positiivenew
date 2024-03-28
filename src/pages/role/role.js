@@ -1,11 +1,40 @@
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import TableList from "../../commonComponents/tableList";
-import { RoleColumn, RoleData } from "../../commonComponents/tableData";
+import { RoleColumn } from "../../commonComponents/tableData";
+import { useListroleQuery, useDeleteroleMutation } from '../../services/roleApi';
 import SearchField from "../../components/searchFIeld";
 import AddButton from "../../components/addButton";
 
+import DeletePopup from '../../components/deletePopup';
+import { useNavigate } from "react-router-dom";
+
+
 const Role = () => {
+
+    const { data: roleListData } = useListroleQuery();
+    const [ deleteRole ] = useDeleteroleMutation();
+    const navigate = useNavigate();
+
+    const deleteRoleHandler = (id) => {
+      deleteRole(id);
+    };
+    
+    const tableData = roleListData?.data.map((role) => ({
+      key: role?.id.toString(),
+      Name: role?.name,    
+      Actions: (
+      <div className="flex gap-1">
+      <button onClick={() => navigate("/role/add", { state: { roleData: role } })} className="actionButton">
+        <i className="fa fa-pencil" />
+       </button>
+       <DeletePopup 
+          onClick={() => deleteRoleHandler(role?.id)} 
+        />
+      </div>
+      ),
+    }
+    ));
   return (
     <>
       <HelmetProvider>
@@ -25,7 +54,7 @@ const Role = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={RoleData} columns={RoleColumn} />
+            <TableList data={tableData} columns={RoleColumn} />
           </div>
         </div>
       </div>
