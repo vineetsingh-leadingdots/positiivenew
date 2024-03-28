@@ -4,8 +4,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 //import { useNavigate } from 'react-router-dom';
 
-export const varietyApi = createApi({
-  reducerPath: "varietyApi",
+export const styleApi = createApi({
+  reducerPath: "styleApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -19,19 +19,18 @@ export const varietyApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listVariety: builder.query({
+    listStyle: builder.query({
       query : () => {
         return {
-          url: `/variety/lists`,
+          url: `/style/lists`,
           method: "GET"
         };
       },
-      providesTags: ["varietyInfo"],
+      providesTags: ['StyleInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
-        const { data } = await queryFulfilled;
-        console.log(data);
+        //const { data } = await queryFulfilled;
         // onSuccess side-effect  
       } catch (error) {
         // onError side-effect
@@ -39,26 +38,26 @@ export const varietyApi = createApi({
       }
     },
     }),
-    createVariety: builder.mutation({
+    createStyle: builder.mutation({
       query : (formData) => {
         return {
-          url: `/variety/create-or-update`,
+          url: `/style/create-or-update`,
           method: "POST",
           body: formData
         };
       },
-      invalidatesTags: ["varietyInfo"],
+      invalidatesTags: ['StyleInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
-          //const { data } = await queryFulfilled
+          //const { data } = await queryFulfilled;
           // onSuccess side-effect
           notification.success({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Variety Created/Updated Successfully',
-            description: 'Your variety has been created/updated successfully.',
+            message: 'Style Created/Updated Successfully',
+            description: 'Your style has been created/updated successfully.',
             threshold: 2
           });
           
@@ -68,26 +67,26 @@ export const varietyApi = createApi({
         }
       },
     }),
-    deleteVariety: builder.mutation({
-      query : (Id) => {
+    deleteStyle: builder.mutation({
+      query : (id) => {
         return {
-          url: `/variety/delete/${Id}`,
+          url: `/style/delete/${id}`,
           method: "DELETE"
         };
       },
-      invalidatesTags: ["varietyInfo"],
+      invalidatesTags: ['StyleInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
           //const { data } = await queryFulfilled
-          // onSuccess side-effect
+          //onSuccess side-effect
           notification.success({
-            message: 'Rating Variety Successfully',
+            message: 'Style Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your variety has been deleted successfully.',
+            description: 'Your style has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -97,6 +96,6 @@ export const varietyApi = createApi({
     }),
   })
 });
-export const { useCreateVarietyMutation, useDeleteVarietyMutation, useListVarietyQuery } = varietyApi;
+export const { useCreateStyleMutation, useDeleteStyleMutation, useListStyleQuery } = styleApi;
 
 

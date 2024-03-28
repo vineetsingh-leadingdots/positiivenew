@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
@@ -11,22 +11,12 @@ import { useNavigate } from "react-router-dom";
 import DeletePopup from "../../../components/deletePopup";
 
 const Variety = () => {
-  const [ deleteVariety, { isSuccess: deleteVarietySuccess } ] = useDeleteVarietyMutation();
-  const { data: varietyListData, refetch } = useListVarietyQuery();
+  const [ deleteVariety ] = useDeleteVarietyMutation();
+  const { data: varietyListData } = useListVarietyQuery();
   const navigate = useNavigate();
-
-  const [modal1Open, setModal1Open] = useState(false); 
-  const closeModal = () => {
-      setModal1Open(false);
-  };
-
-  useEffect(() => {
-    refetch();
-}, [varietyListData, deleteVarietySuccess]);
 
   const deleteVarietyHandler = (id) => {
     deleteVariety(id);
-    setModal1Open(false);
   }; 
 
   const tableData = varietyListData?.data.map((variety) => ({
@@ -43,10 +33,7 @@ const Variety = () => {
         <i className="fa fa-pencil" />
         </button>
         <DeletePopup
-          onClick={() => deleteVarietyHandler(variety?.id)}
-          setModal1Open={setModal1Open}
-          closeModal={closeModal}
-          modal1Open={modal1Open}
+        onClick={() => deleteVarietyHandler(variety?.id)}
         />
     </div>
     ),

@@ -4,8 +4,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 //import { useNavigate } from 'react-router-dom';
 
-export const varietyApi = createApi({
-  reducerPath: "varietyApi",
+export const sizeApi = createApi({
+  reducerPath: "sizeApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -19,19 +19,18 @@ export const varietyApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    listVariety: builder.query({
+    listSize: builder.query({
       query : () => {
         return {
-          url: `/variety/lists`,
+          url: `/size/lists`,
           method: "GET"
         };
       },
-      providesTags: ["varietyInfo"],
+      providesTags: ["sizeInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
-        const { data } = await queryFulfilled;
-        console.log(data);
+        // const { data } = await queryFulfilled;
         // onSuccess side-effect  
       } catch (error) {
         // onError side-effect
@@ -39,15 +38,15 @@ export const varietyApi = createApi({
       }
     },
     }),
-    createVariety: builder.mutation({
+    createSize: builder.mutation({
       query : (formData) => {
         return {
-          url: `/variety/create-or-update`,
+          url: `/size/create-or-update`,
           method: "POST",
           body: formData
         };
       },
-      invalidatesTags: ["varietyInfo"],
+      invalidatesTags: ["sizeInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -57,8 +56,8 @@ export const varietyApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Variety Created/Updated Successfully',
-            description: 'Your variety has been created/updated successfully.',
+            message: 'Size Created/Updated Successfully',
+            description: 'Your size has been created/updated successfully.',
             threshold: 2
           });
           
@@ -68,26 +67,26 @@ export const varietyApi = createApi({
         }
       },
     }),
-    deleteVariety: builder.mutation({
-      query : (Id) => {
+    deleteSize: builder.mutation({
+      query : (id) => {
         return {
-          url: `/variety/delete/${Id}`,
+          url: `/size/delete/${id}`,
           method: "DELETE"
         };
       },
-      invalidatesTags: ["varietyInfo"],
+      invalidatesTags: ["sizeInfo"],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Rating Variety Successfully',
+            message: 'Size Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your variety has been deleted successfully.',
+            description: 'Your size has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -97,6 +96,6 @@ export const varietyApi = createApi({
     }),
   })
 });
-export const { useCreateVarietyMutation, useDeleteVarietyMutation, useListVarietyQuery } = varietyApi;
+export const { useCreateSizeMutation, useDeleteSizeMutation, useListSizeQuery } = sizeApi;
 
 
