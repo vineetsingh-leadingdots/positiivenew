@@ -1,9 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAllCountryListQuery } from "../../../services/countryApi";
+import { useRegionCreateMutation } from "../../../services/regionApi";
 
 const RegionAdd = () => {
   const navigate = useNavigate();
+  const { data: allCountryList } = useAllCountryListQuery();
+  const [ createRegion, { isSuccess:  createRegionSuccess } ] = useRegionCreateMutation();
+  const { state } = useLocation();
+  const [formData, setFormData] = useState({
+    countryName: "",
+    name: ""
+  });
+
+  useEffect(() => {
+    if (state?.regionData) {
+      setFormData({
+        name: state?.regionData?.name,
+        countryName: state?.regionData?.country_id,
+      });
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (createRegionSuccess) {
+      navigate("/region/list");
+    }
+  }, [createRegionSuccess]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+console.log("state", state);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (state?.regionData?.id) {
+      let val = {
+        name: formData?.name,
+        country_id: formData?.countryName.toString(),
+        id: state?.regionData?.id,
+      };
+      createRegion(val);
+    } else {
+      let val = {
+        name: formData?.name,
+        country_id: formData?.countryName.toString(),
+      };
+      createRegion(val);
+    }
+  };
+
 
   return (
     <>
@@ -22,8 +73,16 @@ const RegionAdd = () => {
               <div className=" w-full ">
                 <div className="form-group mb-6 ">
                   <label className="formBlock mb-2 py-2">Country Name</label>
-                  <select className="formControl">
-                    <option>220</option>
+                  <select 
+                    className="formControl"
+                    name="countryName" 
+                    value={formData?.countryName} 
+                    onChange={handleInputChange}
+                  >
+                    <option value="">Select</option> 
+                    {allCountryList?.data?.map((country) => (
+                      <option key={country?.id} value={country?.id}>{country?.name}</option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -36,13 +95,15 @@ const RegionAdd = () => {
                     type="text"
                     placeholder="Enter region name"
                     className="formControl"
+                    onChange={handleInputChange}
+                    defaultValue={formData?.name}
                   />
                 </div>
               </div>
 
               <div className="w-full formFooter">
                 <div className=" form-group pt-8 pb-3 flex  gap-3 ">
-                  <button type="submit" className=" btn-save btnSm ">
+                  <button type="submit" className=" btn-save btnSm " onClick={handleSubmit}>
                     Submit
                   </button>
                   <button

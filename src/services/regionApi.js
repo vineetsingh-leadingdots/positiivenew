@@ -4,8 +4,8 @@ import { commonErrorHandler } from '../commonContent.js/commonErrorHandler';
 import { notification } from 'antd';
 //import { useNavigate } from 'react-router-dom';
 
-export const countryApi = createApi({
-  reducerPath: "countryApi",
+export const regionApi = createApi({
+  reducerPath: "regionApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL_API,
     prepareHeaders: (headers, { getState }) => {
@@ -19,14 +19,14 @@ export const countryApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    countryList: builder.query({
+    regionList: builder.query({
       query : () => {
         return {
-          url: `/country/lists`,
+          url: `/region/lists`,
           method: "GET"
         };
       },
-      providesTags: ['countryInfo'],
+      providesTags: ['regionInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
         //onStart side-effect
       try {
@@ -39,35 +39,15 @@ export const countryApi = createApi({
       }
     },
     }),
-    allCountryList: builder.query({
-        query : () => {
-          return {
-            url: `/country/all/lists`,
-            method: "GET"
-          };
-        },
-        providesTags: ['countryInfo'],
-        async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
-          //onStart side-effect
-        try {
-          // const { data } = await queryFulfilled;
-          // console.log(data);
-          // onSuccess side-effect  
-        } catch (error) {
-          // onError side-effect
-          commonErrorHandler(error?.error,   dispatch);
-        }
-      },
-    }),
-    countryCreate: builder.mutation({
+    regionCreate: builder.mutation({
       query : (formData) => {
         return {
-          url: `/country/create-or-update`,
+          url: `/region/create-or-update`,
           method: "POST",
           body: formData
         };
       },
-      invalidatesTags: ['countryInfo'],
+      invalidatesTags: ['regionInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
@@ -77,8 +57,8 @@ export const countryApi = createApi({
             placement: 'top',
             duration: 5,
             closeIcon:true,
-            message: 'Country Created/Updated Successfully',
-            description: 'Your country has been created/updated successfully.',
+            message: 'Region Created/Updated Successfully',
+            description: 'Your region has been created/updated successfully.',
             threshold: 2
           });
           
@@ -88,26 +68,26 @@ export const countryApi = createApi({
         }
       },
     }),
-    countryDelete: builder.mutation({
+    regionDelete: builder.mutation({
       query : (id) => {
         return {
-          url: `/country/delete/${id}`,
+          url: `/region/delete/${id}`,
           method: "DELETE"
         };
       },
-      invalidatesTags: ['countryInfo'],
+      invalidatesTags: ['regionInfo'],
       async onQueryStarted(arg, { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }) {
           //onStart side-effect
         try {
           //const { data } = await queryFulfilled
           // onSuccess side-effect
           notification.success({
-            message: 'Country Deleted Successfully',
+            message: 'Region Deleted Successfully',
             placement: 'top',
             duration: 5,
             closeIcon:true,
             threshold: 2,
-            description: 'Your country has been deleted successfully.',
+            description: 'Your region has been deleted successfully.',
           });
         } catch (error) {
           // onError side-effect
@@ -117,6 +97,6 @@ export const countryApi = createApi({
     }),
   })
 });
-export const { useCountryCreateMutation, useCountryDeleteMutation, useCountryListQuery, useAllCountryListQuery } = countryApi;
+export const { useRegionCreateMutation, useRegionDeleteMutation, useRegionListQuery } = regionApi;
 
 

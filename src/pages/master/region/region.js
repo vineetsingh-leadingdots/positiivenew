@@ -4,11 +4,42 @@ import SearchField from "../../../components/searchFIeld";
 import AddButton from "../../../components/addButton";
 import TableList from "../../../commonComponents/tableList";
 import {
-  RegionsColumns,
-  RegionsData,
+  RegionsColumns
 } from "../../../commonComponents/tableData";
+import { useNavigate } from "react-router-dom";
+import { useRegionDeleteMutation, useRegionListQuery } from "../../../services/regionApi";
+import DeletePopup from "../../../components/deletePopup";
 
 const Region = () => {
+
+  const [ deleteRegion ] = useRegionDeleteMutation();
+  const { data: regionListData } = useRegionListQuery();
+  
+  const navigate = useNavigate();
+
+  const deleteRegionHandler = (id) => {
+    deleteRegion(id);
+  };
+
+  const regionData = regionListData?.data.map((region) => ({
+    key: region?.id?.toString(),
+    Name: region?.name,
+    Actions: (
+    <div className="flex gap-1">
+        <button
+        onClick={() =>
+            navigate("/region/add", { state: { regionData: region } })
+        }
+        className="actionButton"
+        >
+        <i className="fa fa-pencil" />
+        </button>
+        <DeletePopup
+        onClick={() => deleteRegionHandler(region?.id)}
+        />
+    </div>
+    ),
+  }));
   return (
     <>
       <HelmetProvider>
@@ -28,7 +59,7 @@ const Region = () => {
         </div>
         <div className="card ">
           <div className="tableAreaMaster ">
-            <TableList data={RegionsData} columns={RegionsColumns} />
+            <TableList data={regionData} columns={RegionsColumns} />
           </div>
         </div>
       </div>
